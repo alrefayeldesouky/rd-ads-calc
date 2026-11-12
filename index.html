@@ -1,0 +1,1510 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="m-ar" data-lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>(function(){var l='ar';try{var q=/[?&]lang=(ar|en)/.exec(location.search);if(q)l=q[1];else{var s=localStorage.getItem('rdAdsCalc.lang');if(s==='en'||s==='ar')l=s}}catch(e){}var d=document.documentElement;d.setAttribute('lang',l);d.setAttribute('dir',l==='ar'?'rtl':'ltr');d.className='m-'+l;d.setAttribute('data-lang',l)})()</script>
+<title>حاسبة الميزانية الإعلانية | Ads Budget Calculator — Alrefay Eldesouky</title>
+<meta name="description" content="أداة مجانية تحسب الميزانية الكلية واليومية وعدد النتائج المتوقعة وتوزيع الميزانية على المجموعات لأي هدف إعلاني — مع ROAS والربحية للمبيعات. من غير تسجيل. | A free tool that calculates your total and daily budget, the expected results and how the budget splits across ad sets for any ad objective — with ROAS and profitability for sales. No signup.">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_EG">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Alrefay Eldesouky">
+<meta property="og:title" content="حاسبة الميزانية الإعلانية | Ads Budget Calculator">
+<meta property="og:description" content="احسب ميزانية حملاتك والـ ROAS والربحية قبل ما تصرف جنيه · Plan your ad budget, ROAS and profit before you spend a penny">
+<meta property="og:url" content="https://alrefayeldesouky.github.io/rd-ads-calc/">
+<meta property="og:image" content="https://alrefayeldesouky.github.io/rd-ads-calc/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://alrefayeldesouky.github.io/rd-ads-calc/">
+<link rel="icon" href="images/icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap">
+<style>
+:root{
+  --bg:#121212;--panel:#1b1b1b;--panel2:#242424;--line:#3a3a38;--fg:#f7f7f2;--muted:#b9b9b2;--yellow:#ffed00;--ink:#101010;
+  --ok:#a6c85a;--warn:#ffb84d;--bad:#ff7d70;--info:#9fb7d9;
+  --display:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:78px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--display);font-size:16.5px;line-height:1.7;
+  padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+.page{background:linear-gradient(rgba(14,14,14,.88),rgba(14,14,14,.92)),url(images/bg.jpg) center top/900px auto repeat}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:16px}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4,p{margin:0}
+bdi{unicode-bidi:isolate}
+.cu{margin-inline-start:4px}
+.num{font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;inset-inline-start:8px;top:-60px;background:var(--yellow);color:var(--ink);padding:8px 14px;border-radius:8px;font-weight:800;z-index:100}
+.skip:focus{top:8px}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:rgba(18,18,18,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:14px;padding-block:9px}
+.brandlink{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brandlink img{height:34px;width:auto}
+.brand{font-weight:800;font-size:1.02rem;letter-spacing:.2px;direction:ltr;unicode-bidi:isolate}
+.top nav{margin-inline-start:auto;display:flex;gap:4px;align-items:center}
+.top nav a.l{font-weight:600;font-size:.93rem;text-decoration:none;color:var(--muted);padding:8px 10px;border-radius:8px}
+.top nav a.l:hover{color:var(--yellow)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font:inherit;font-weight:800;font-size:1rem;text-decoration:none;
+  background:var(--yellow);color:var(--ink);border:2px solid var(--yellow);border-radius:999px;padding:10px 24px;min-height:44px;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{background:#fff36b;border-color:#fff36b;transform:translateY(-1px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn.ghost{background:transparent;color:var(--yellow)}
+.btn.ghost:hover{background:rgba(255,237,0,.12);border-color:var(--yellow)}
+.btn.sm{padding:6px 16px;font-size:.92rem;min-height:40px}
+.btn.xs{padding:3px 12px;font-size:.84rem;min-height:32px;border-width:1.5px}
+
+/* hero */
+.hero{padding-block:54px 34px;display:grid;gap:34px;grid-template-columns:1.15fr .85fr;align-items:center}
+.kicker{display:inline-block;font-weight:800;font-size:.9rem;color:var(--ink);background:var(--yellow);padding:3px 14px;border-radius:6px;margin-bottom:16px}
+h1{font-weight:900;font-size:clamp(2rem,5.2vw,3.5rem);line-height:1.3;text-wrap:balance}
+h1 mark{background:none;color:var(--yellow);text-decoration:underline;text-decoration-thickness:5px;text-underline-offset:10px}
+.lead{margin-top:18px;font-size:1.15rem;color:#e6e6df;max-width:36em}
+.acts{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+.trust{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:.92rem;list-style:none;padding:0}
+.trust li::before{content:"✓";color:var(--yellow);font-weight:900;margin-inline-end:6px}
+.sample{background:rgba(27,27,27,.94);border:1px solid var(--line);border-radius:20px;padding:20px 22px;box-shadow:0 0 0 8px rgba(255,237,0,.06)}
+.sample .tg{font-size:.82rem;font-weight:800;color:var(--ink);background:var(--yellow);border-radius:6px;padding:1px 10px;display:inline-block}
+.sample h2{all:unset;display:block;margin:10px 0 2px;font-weight:800;font-size:1.02rem;color:#e6e6df}
+.sample .big{font-size:clamp(2.2rem,5vw,3rem);font-weight:900;color:var(--yellow);line-height:1.2}
+.sample dl{margin:12px 0 0;display:grid;grid-template-columns:1fr auto;gap:6px 14px;border-top:1px solid var(--line);padding-top:12px}
+.sample dt{color:var(--muted);font-size:.93rem}
+.sample dd{margin:0;font-weight:800;text-align:end}
+.sample p{margin-top:12px;color:var(--muted);font-size:.84rem;line-height:1.55}
+
+/* sections */
+section{padding-block:56px 6px}
+h2.t{display:inline-block;font-weight:900;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.4;color:var(--yellow);border-bottom:4px solid var(--yellow);padding-bottom:2px;margin-bottom:16px}
+.sub{color:var(--muted);max-width:46em;margin-bottom:24px}
+h3{font-weight:800;font-size:1.1rem;color:#fff}
+
+/* app shell */
+.app{background:rgba(24,24,24,.96);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.app-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--panel)}
+.app-top .ttl{font-weight:900;font-size:1.15rem}
+.app-top .ttl small{display:block;font-weight:600;font-size:.82rem;color:var(--muted)}
+.app-top .tools{margin-inline-start:auto;display:flex;flex-wrap:wrap;gap:8px}
+.tabs{display:flex;gap:4px;padding:8px 12px 0;background:var(--panel);overflow-x:auto;scrollbar-width:thin;border-bottom:1px solid var(--line)}
+.tab{flex:none;font:inherit;font-weight:700;font-size:.97rem;color:var(--muted);background:transparent;border:0;border-bottom:3px solid transparent;padding:10px 16px;cursor:pointer;white-space:nowrap;border-radius:8px 8px 0 0}
+.tab:hover{color:var(--fg)}
+.tab[aria-selected=true]{color:var(--yellow);border-bottom-color:var(--yellow);background:rgba(255,237,0,.06)}
+.tab[aria-disabled=true]{opacity:.45}
+.tab .lock{font-size:.72rem;font-weight:800;border:1px solid currentColor;border-radius:5px;padding:0 5px;margin-inline-start:6px}
+.panel{padding:18px}
+.ctx{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:14px;color:var(--muted);font-size:.92rem}
+.ctx b{color:var(--fg)}
+.chip{display:inline-block;border:1px solid var(--line);background:var(--panel2);border-radius:999px;padding:1px 12px;font-weight:700;font-size:.86rem;color:var(--fg)}
+.link{background:none;border:0;color:var(--yellow);font:inherit;font-weight:700;cursor:pointer;text-decoration:underline;padding:0}
+
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:16px;align-items:start}
+.col{display:grid;gap:16px;min-width:0}
+.col.sticky{position:sticky;top:76px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:16px;align-items:start}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px;min-width:0}
+.card>h3{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.card>h3 i{font-style:normal;flex:none;width:26px;height:26px;border-radius:50%;background:var(--yellow);color:var(--ink);font-weight:900;font-size:.85rem;display:grid;place-items:center;line-height:1}
+.card .sub2{color:var(--muted);font-size:.88rem;margin:-6px 0 12px}
+
+/* fields */
+.f{margin-bottom:12px;min-width:0}
+.f:last-child{margin-bottom:0}
+.f>label{display:block;font-weight:700;font-size:.94rem;margin-bottom:4px}
+.ctl{display:flex;align-items:stretch;background:#0f0f0f;border:1.5px solid var(--line);border-radius:10px;overflow:hidden}
+.ctl:focus-within{border-color:var(--yellow)}
+.ctl.bad{border-color:var(--bad)}
+.ctl input,.ctl select{flex:1;min-width:0;font:inherit;font-size:16px;font-weight:600;color:var(--fg);background:transparent;border:0;padding:9px 12px;min-height:44px;outline:none}
+.ctl input[inputmode]{direction:ltr}
+html[dir=rtl] .ctl input[inputmode]{text-align:right}
+html[dir=ltr] .ctl input[inputmode]{text-align:left}
+.ctl input::placeholder{color:#77776f;font-weight:400}
+.ctl select{cursor:pointer}
+.ctl select option{background:#1b1b1b;color:var(--fg)}
+.ctl .u{display:grid;place-items:center;padding:0 12px;background:var(--panel2);color:var(--muted);font-weight:700;font-size:.85rem;border-inline-start:1.5px solid var(--line);white-space:nowrap}
+.ctl input[type=date]{direction:ltr;color-scheme:dark}
+html[dir=rtl] .ctl input[type=date]{text-align:right}
+html[dir=ltr] .ctl input[type=date]{text-align:left}
+.hint{display:block;color:var(--muted);font-size:.82rem;margin-top:3px;line-height:1.5}
+.err{display:block;color:var(--bad);font-size:.84rem;font-weight:700;margin-top:3px}
+.err:empty{display:none}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.two>.f{margin-bottom:12px}
+
+/* result cards */
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:11px 13px;min-width:0}
+.kpi .l{display:block;color:var(--muted);font-size:.84rem;font-weight:600;line-height:1.45}
+.kpi .v{display:block;font-weight:900;font-size:1.55rem;line-height:1.25;margin-top:2px;overflow-wrap:anywhere}
+.cu{font-size:.78em;font-weight:700;color:var(--muted)}
+.kpi small{display:block;color:var(--muted);font-size:.8rem;line-height:1.45;margin-top:2px}
+.kpi.main{grid-column:1/-1;border-color:var(--yellow);background:linear-gradient(135deg,rgba(255,237,0,.1),rgba(255,237,0,.02))}
+.kpi.main .v{font-size:2.3rem;color:var(--yellow)}
+.kpi.wide{grid-column:1/-1}
+.note{background:rgba(255,237,0,.07);border:1px solid rgba(255,237,0,.28);border-radius:10px;padding:8px 12px;font-size:.9rem;margin-bottom:10px}
+.note.warn{background:rgba(255,184,77,.08);border-color:rgba(255,184,77,.4)}
+.note:empty{display:none}
+.st{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.84rem;line-height:1.4;border-radius:999px;padding:1px 10px;border:1px solid currentColor}
+.st::before{font-weight:900}
+.st.ok{color:var(--ok)}.st.ok::before{content:"✓"}
+.st.warn{color:var(--warn)}.st.warn::before{content:"!"}
+.st.bad{color:var(--bad)}.st.bad::before{content:"✕"}
+.st.info{color:var(--info)}.st.info::before{content:"i"}
+.st.cur{color:var(--yellow)}.st.cur::before{content:"◀"}
+
+.entry{display:grid;gap:10px}
+.erow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px 13px}
+.erow .t1{flex:1 1 180px;min-width:0}
+.erow .t1 .l{display:block;font-size:.86rem;font-weight:600;color:var(--muted)}
+.erow .t1 small{display:block;color:var(--muted);font-size:.8rem}
+.erow .vv{font-weight:900;font-size:1.35rem}
+
+
+/* tables */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:.93rem}
+th,td{padding:8px 10px;text-align:start;border-bottom:1px solid var(--line);vertical-align:middle}
+th{color:var(--muted);font-weight:700;font-size:.82rem;background:rgba(255,255,255,.03);white-space:nowrap}
+td.n,th.n{text-align:end}
+td.n{font-weight:700}
+tr:last-child td{border-bottom:0}
+tr.cur td{background:rgba(255,237,0,.06)}
+.tbl .ctl{width:112px;max-width:100%}
+.tbl .ctl.nm{width:170px}
+.tbl .ctl input{width:100%}
+.tbl td .ctl input{min-height:38px;padding:5px 9px;font-size:15px}
+.tbl td .ctl .u{padding:0 8px}
+.kv{width:100%}
+.kv td:first-child{color:var(--muted);width:50%}
+.hl td{background:rgba(255,237,0,.06)}
+.kv td:last-child{font-weight:800;text-align:end}
+.kv td small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
+.dim{color:#77776f}
+.sep td{background:rgba(255,255,255,.03);font-weight:800;color:var(--yellow);font-size:.86rem}
+
+[data-sales="0"] .s-only,[data-sales="0"] [data-show="sales"]{display:none!important}
+[data-freq="0"] [data-show="freq"],[data-freq="0"] .f-only{display:none!important}
+.u:empty{display:none}
+/* sticky summary (mobile) */
+.sumbar{position:fixed;inset-inline:0;bottom:0;z-index:40;background:rgba(18,18,18,.97);border-top:2px solid var(--yellow);padding:8px 14px calc(8px + env(safe-area-inset-bottom,0px));display:none;gap:10px;align-items:center;cursor:pointer}
+.sumbar .c{flex:1;min-width:0;text-align:center}
+.sumbar .c b{display:block;font-weight:900;font-size:1.02rem;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sumbar .c span{display:block;font-size:.7rem;color:var(--muted);line-height:1.3}
+.sumbar .c:first-child b{color:var(--yellow)}
+
+/* toast */
+.toast{position:fixed;inset-inline:16px;bottom:78px;margin-inline:auto;max-width:460px;z-index:90;background:#2a2a28;border:1px solid var(--yellow);color:var(--fg);border-radius:12px;padding:10px 14px;font-weight:600;font-size:.93rem;box-shadow:0 8px 30px rgba(0,0,0,.5);display:flex;gap:12px;align-items:center}
+.toast button{flex:none}
+
+/* how / objectives / faq / cta */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s;padding:0;list-style:none;margin:0}
+.steps li{counter-increment:s;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--yellow);color:var(--ink);font-weight:900;margin-bottom:10px}
+.steps h3{margin-bottom:6px}
+.steps p{color:var(--muted);font-size:.95rem}
+.tblwrap{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.tblwrap table{min-width:720px}
+.tag{font-weight:800;background:var(--yellow);color:var(--ink);border-radius:6px;padding:0 9px;font-size:.84rem;white-space:nowrap}
+.faq details{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;padding:0 16px}
+.faq summary{cursor:pointer;font-weight:800;padding:13px 0;list-style:none;display:flex;gap:10px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";margin-inline-start:auto;color:var(--yellow);font-weight:900;font-size:1.3rem;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq details p{color:#e0e0d9;padding-bottom:14px;font-size:.97rem}
+.cta{margin-top:56px;background:linear-gradient(135deg,rgba(255,237,0,.12),rgba(255,237,0,.03));border:1px solid rgba(255,237,0,.35);border-radius:22px;padding:30px 26px;display:flex;flex-wrap:wrap;gap:18px 30px;align-items:center}
+.cta .tx{flex:1 1 320px}
+.cta h2{font-weight:900;font-size:1.6rem;line-height:1.4}
+.cta p{color:#e0e0d9;margin-top:6px}
+footer{margin-top:50px;border-top:1px solid var(--line);padding-block:28px 40px;color:var(--muted);font-size:.88rem}
+footer .fl{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+footer .fl img{height:28px;width:auto}
+footer p{max-width:60em;line-height:1.65}
+.printhead{display:none}
+
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;padding-block:36px 20px}
+  .grid,.row2{grid-template-columns:1fr}
+  .col.sticky{position:static}
+  .steps{grid-template-columns:1fr}
+  .top nav a.l{display:none}
+  .sumbar.on{display:flex}
+  body.has-bar{padding-bottom:70px}
+}
+@media (max-width:760px){
+  .tbl.stack thead{display:none}
+  .tbl.stack,.tbl.stack tbody{display:block}
+  .tbl.stack tr{display:block;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;padding:6px 12px;background:var(--panel2)}
+  .tbl.stack tr.cur{border-color:var(--yellow)}
+  .tbl.stack tr.cur td{background:none}
+  .tbl.stack td{display:flex;justify-content:space-between;align-items:center;gap:10px;border:0;padding:5px 0;text-align:end}
+  .tbl.stack td::before{content:attr(data-l);color:var(--muted);font-size:.82rem;font-weight:700;text-align:start;flex:none}
+  .tbl.stack td:empty{display:none}
+  .tbl.stack .ctl{width:130px}
+  .tbl.grid2{min-width:0!important}
+  .tbl.grid2 thead{display:none}
+  .tbl.grid2,.tbl.grid2 tbody{display:block}
+  .tbl.grid2 tr{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;padding:10px 12px;background:var(--panel2)}
+  .tbl.grid2 td{display:block;border:0;padding:0;text-align:start}
+  .tbl.grid2 td::before{content:attr(data-l);display:block;color:var(--muted);font-size:.78rem;font-weight:700;margin-bottom:2px}
+  .tbl.grid2 td.cat-idx{display:none}
+  .tbl.grid2 td.span2{grid-column:1/-1}
+  .tbl.grid2 .ctl,.tbl.grid2 .ctl.nm{width:100%}
+  .tbl.grid2 td:empty{display:none}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding-inline:12px}
+  .panel{padding:12px}
+  .two{grid-template-columns:1fr}
+  .kpi .v{font-size:1.35rem}
+  .kpi.main .v{font-size:2rem}
+  .brand{font-size:.92rem}
+  .app-top{padding:12px}
+  .top .btn.sm{padding:4px 12px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+@media print{
+  @page{margin:12mm}
+  body{background:#fff;color:#111;font-size:11pt}
+  .page{background:#fff}
+  .top,.hero,#how,#objectives,#faq,.cta,footer,.tabs,.app-top .tools,.sumbar,.toast,.skip,.no-print,.btn,.col.sticky{position:static}
+  .top,.hero,#how,#objectives,#faq,.cta,footer,.tabs,.app-top .tools,.sumbar,.toast,.skip,.no-print,.btn{display:none!important}
+  .app,.card,.kpi,.erow,.note,.tblwrap{background:#fff!important;border-color:#bbb!important;color:#111!important}
+  .kpi .v,.kpi.main .v,.erow .vv,.card>h3,.kv td:last-child{color:#111!important}
+  .kpi .l,.kpi small,.hint,.kv td:first-child,th,.erow .t1 .l,.erow .t1 small,.ctx{color:#444!important}
+  .card>h3 i{background:#111;color:#fff}
+  .ctl{background:#fff;border-color:#999}.ctl input,.ctl select{color:#111}.ctl .u{background:#eee;color:#333}
+  .panel[hidden]{display:none!important}
+  .grid,.row2{grid-template-columns:1fr 1fr}
+  section{padding-block:0}
+  .printhead{display:flex;align-items:center;gap:12px;border-bottom:2px solid #111;padding-bottom:8px;margin-bottom:12px}
+  .printhead img{height:30px;filter:brightness(0)}
+  #calc>h2,#calc>.sub,.app-top{display:none!important}
+  .app{border:0}
+  .st{color:#111!important}
+  tr.cur td{background:#f3f3f3}
+}
+
+.tbl.tight th{white-space:normal;line-height:1.35}.tbl.tight th,.tbl.tight td{padding:8px 6px}
+
+/* ---- bilingual */
+.m-ar .l-en,.m-en .l-ar{display:none!important}
+.lang{font:inherit;font-weight:800;font-size:.9rem;line-height:1;color:var(--yellow);background:transparent;border:2px solid var(--line);border-radius:999px;padding:6px 15px;min-height:40px;cursor:pointer;transition:border-color .15s,background .15s}
+.lang:hover{border-color:var(--yellow);background:rgba(255,237,0,.08)}
+@media (min-width:761px){.tbl.stack td[data-c=note]{min-width:150px}.tbl.stack td[data-c=note] .st{white-space:nowrap}}
+html[dir=rtl] td.ev{direction:ltr;text-align:right}
+html[dir=ltr] .hint,html[dir=ltr] .err{text-align:start}
+@media (max-width:520px){.lang{padding:5px 12px}.top .wrap{gap:8px}}
+@media (max-width:400px){.brand{display:none}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#calc"><span class="l-ar">انتقل للحاسبة</span><span class="l-en">Skip to the calculator</span></a>
+<div class="page">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brandlink" href="#top" aria-label="Alrefay Eldesouky"><img src="images/logo-sm.png" alt="" width="55" height="34"><span class="brand">Alrefay Eldesouky</span></a>
+    <nav id="nav-main" aria-label="التنقل">
+      <a class="l" href="#calc"><span class="l-ar">الحاسبة</span><span class="l-en">Calculator</span></a>
+      <a class="l" href="#how"><span class="l-ar">إزاي تشتغل</span><span class="l-en">How it works</span></a>
+      <a class="l" href="#objectives"><span class="l-ar">الأهداف</span><span class="l-en">Objectives</span></a>
+      <a class="l" href="#faq"><span class="l-ar">أسئلة</span><span class="l-en">FAQ</span></a>
+      <button class="lang" id="lang" type="button" aria-label="Switch to English"><span class="l-ar" lang="en" dir="ltr">EN</span><span class="l-en" lang="ar" dir="rtl">عربي</span></button>
+      <a class="btn sm" data-wa href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"/></svg><span class="l-ar">واتساب</span><span class="l-en">WhatsApp</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap">
+
+<div class="hero">
+  <div>
+    <span class="kicker"><span class="l-ar">أداة مجانية</span><span class="l-en">Free tool</span></span>
+    <h1><span class="l-ar">احسب ميزانية إعلاناتك</span><span class="l-en">Know your ad budget</span> <mark><span class="l-ar">قبل</span><span class="l-en">before</span></mark> <span class="l-ar">ما تصرف جنيه</span><span class="l-en">you spend a penny</span></h1>
+    <p class="lead"><span class="l-ar">اختار هدف الحملة، وحط تكلفة النتيجة المتوقعة، وهتعرف الميزانية الكلية واليومية وعدد النتائج وتوزيعها على المجموعات — وللمبيعات كمان الـ ROAS وهل الأرقام دي مربحة ولا لأ.</span><span class="l-en">Pick your campaign objective and enter the expected cost per result, and you'll get the total and daily budget, the number of results and how it splits across ad sets — plus, for sales, the ROAS and whether those numbers are actually profitable.</span></p>
+    <div class="acts">
+      <a class="btn" href="#calc"><span class="l-ar">ابدأ الحساب</span><span class="l-en">Start calculating</span></a>
+      <a class="btn ghost" href="#how"><span class="l-ar">إزاي بتشتغل؟</span><span class="l-en">How does it work?</span></a>
+    </div>
+    <ul class="trust">
+      <li><span class="l-ar">من غير تسجيل</span><span class="l-en">No signup</span></li>
+      <li><span class="l-ar">أرقامك بتفضل على جهازك</span><span class="l-en">Your numbers stay on your device</span></li>
+      <li><span class="l-ar">شغالة على الموبايل</span><span class="l-en">Works on mobile</span></li>
+    </ul>
+  </div>
+  <aside class="sample" id="sample-aside" aria-label="مثال محسوب">
+    <span class="tg"><span class="l-ar">مثال حي</span><span class="l-en">Live example</span></span>
+    <h2 id="s-title"></h2>
+    <div class="big num" id="s-big"></div>
+    <dl id="s-dl"></dl>
+    <p><span class="l-ar">مثال بأرقام افتراضية للتوضيح — غيّرها لأرقام حملتك في الحاسبة تحت.</span><span class="l-en">An example with placeholder numbers — replace them with your own campaign numbers in the calculator below.</span></p>
+  </aside>
+</div>
+
+<section id="calc" aria-labelledby="calc-h">
+  <h2 class="t" id="calc-h"><span class="l-ar">حاسبة الميزانية</span><span class="l-en">Budget calculator</span></h2>
+  <p class="sub"><span class="l-ar">كل الحسابات بتتم على جهازك لحظياً، وآخر أرقام كتبتها بتتحفظ تلقائياً في المتصفح. تقدر تبعت حسابك لأي حد بلينك.</span><span class="l-en">All calculations run instantly on your device, and the last numbers you typed are saved automatically in your browser. You can send your calculation to anyone with a link.</span></p>
+
+  <div class="app" id="app">
+    <div class="app-top">
+      <div class="ttl"><span class="l-ar">حاسبة الميزانية الإعلانية</span><span class="l-en">Ads Budget Calculator</span><small><span class="l-ar">Ads Budget Calculator</span><span class="l-en">حاسبة الميزانية الإعلانية</span></small></div>
+      <div class="tools">
+        <button class="btn ghost xs" id="b-share" type="button"><span class="l-ar">نسخ لينك الحساب</span><span class="l-en">Copy calculation link</span></button>
+        <button class="btn ghost xs" id="b-print" type="button"><span class="l-ar">طباعة / PDF</span><span class="l-en">Print / PDF</span></button>
+        <button class="btn ghost xs" id="b-reset" type="button"><span class="l-ar">مسح الكل</span><span class="l-en">Clear all</span></button>
+      </div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="أقسام الحاسبة" id="tabs"></div>
+    <div id="panels"></div>
+  </div>
+</section>
+
+<section id="how" aria-labelledby="how-h">
+  <h2 class="t" id="how-h"><span class="l-ar">إزاي تشتغل بيها</span><span class="l-en">How to use it</span></h2>
+  <p class="sub"><span class="l-ar">تلات خطوات، وبعدها راجع الربحية وجرّب سيناريوهات التوسيع.</span><span class="l-en">Three steps, then review profitability and try the scale-up scenarios.</span></p>
+  <ol class="steps">
+    <li><h3><span class="l-ar">حدد الهدف والتكلفة</span><span class="l-en">Set the objective and the cost</span></h3><p><span class="l-ar">اختار الهدف الإعلاني والعملة، وحط تكلفة النتيجة المتوقعة من حملات سابقة. مش معاك رقم؟ جرّب تاب «حاسبة التكاليف» تحسبه من أرقام حملة شغالة أو تتوقعه من CPM وCTR.</span><span class="l-en">Choose the ad objective and the currency, then enter the expected cost per result from past campaigns. No number yet? Try the «Costs calculator» tab to work it out from a running campaign or to estimate it from CPM and CTR.</span></p></li>
+    <li><h3><span class="l-ar">اكتب هدفك</span><span class="l-en">Enter your target</span></h3><p><span class="l-ar">دخّل عدد النتائج اللي عايزها، أو الإيراد المطلوب (للمبيعات)، أو الميزانية اللي معاك — والأداة تحسب الباقي وتقولك المطلوب إدخاله في Ads Manager.</span><span class="l-en">Enter the number of results you want, the revenue you need (for sales) or the budget you have — the tool calculates the rest and tells you what to enter in Ads Manager.</span></p></li>
+    <li><h3><span class="l-ar">راجع وقرّر</span><span class="l-en">Review and decide</span></h3><p><span class="l-ar">شوف مؤشرات الفحص (ROAS، أقصى تكلفة مسموحة، حجم بيانات كل مجموعة)، وراجع تاب «الربحية» لحساب Break-even وصافي الربح قبل ما تعتمد الميزانية.</span><span class="l-en">Check the indicators (ROAS, the maximum allowed cost, the data volume per ad set), and review the «Profitability» tab for break-even and net profit before you approve the budget.</span></p></li>
+  </ol>
+  <p class="sub" style="margin-top:16px;margin-bottom:0"><span class="l-ar">مهم: الأرقام تقدير مبني على التكلفة اللي بتدخلها. التكلفة الفعلية بتتغير مع الجمهور والعرض والمنافسة — ابدأ بتيست صغير وحدّث الأرقام بالنتائج الفعلية.</span><span class="l-en">Important: the numbers are an estimate built on the cost you enter. The actual cost changes with the audience, the offer and the competition — start with a small test and update the numbers with real results.</span></p>
+</section>
+
+<section id="objectives" aria-labelledby="obj-h">
+  <h2 class="t" id="obj-h"><span class="l-ar">الأهداف المدعومة</span><span class="l-en">Supported objectives</span></h2>
+  <p class="sub"><span class="l-ar">القالب كله بيتغير حسب الهدف: وحدة النتيجة، اسم التكلفة، والمؤشرات. الإيراد وسعر البيع والـ ROAS بتظهر مع هدف Sales فقط.</span><span class="l-en">The whole template adapts to the objective: the result unit, the cost name and the indicators. Revenue, selling price and ROAS appear with the Sales objective only.</span></p>
+  <div class="tblwrap scroll"><table id="obj-table"></table></div>
+  <p class="sub" style="margin-top:12px"><span class="l-ar">الأحداث المقترحة توجيهية — اختار الـ Optimization Event الفعلي حسب إعدادات حسابك. ومؤشر التعلّم قيمة إرشادية لحجم البيانات وليست شرطاً لنجاح الحملة.</span><span class="l-en">The suggested events are guidance — choose the actual Optimization Event for your account settings. The learning guide is an indicative data-volume value, not a condition for campaign success.</span></p>
+</section>
+
+<section id="faq" class="faq" aria-labelledby="faq-h">
+  <h2 class="t" id="faq-h"><span class="l-ar">أسئلة شائعة</span><span class="l-en">Frequently asked questions</span></h2>
+  <details><summary><span class="l-ar">هي مجانية فعلاً؟ وأرقامي بتروح فين؟</span><span class="l-en">Is it really free? And where do my numbers go?</span></summary><p><span class="l-ar">مجانية بالكامل ومن غير تسجيل. كل الحسابات بتحصل جوه متصفحك، ومفيش أرقامك بتتبعت لأي سيرفر. آخر حساب بتعمله بيتحفظ على جهازك أنت بس. ولو نسخت «لينك الحساب» فالأرقام بتكون جوه اللينك نفسه — يعني أي حد معاه اللينك يشوفها.</span><span class="l-en">Completely free and no signup. All calculations happen inside your browser and none of your numbers are sent to any server. Your last calculation is saved on your device only. If you copy the «calculation link», the numbers live inside the link itself — so anyone who has the link can see them.</span></p></details>
+  <details><summary><span class="l-ar">الأرقام دقيقة قد إيه؟</span><span class="l-en">How accurate are the numbers?</span></summary><p><span class="l-ar">الحسابات نفسها دقيقة ومطابقة لشيت الحساب الأصلي، لكن النتيجة النهائية بتعتمد على تكلفة النتيجة اللي أنت بتدخلها. دي أداة تخطيط وتقدير — مش ضمان لأداء الحملة. استخدم أرقام فعلية من حملات سابقة كل ما أمكن.</span><span class="l-en">The calculations themselves are exact and match the original calculation spreadsheet, but the final result depends on the cost per result you enter. This is a planning and estimation tool — not a guarantee of campaign performance. Use real numbers from past campaigns whenever you can.</span></p></details>
+  <details><summary><span class="l-ar">ليه الإيراد والـ ROAS بيظهروا مع Sales بس؟</span><span class="l-en">Why do revenue and ROAS appear only with Sales?</span></summary><p><span class="l-ar">لأن الإيراد المتوقع بيحتاج سعر بيع واضح للنتيجة، وده متاح بشكل مباشر في المبيعات. في باقي الأهداف (ليدز، متابعين، رسائل…) النتيجة ليها قيمة بيع مش معروفة من الإعلان نفسه، فبنحسب الميزانية وعدد النتائج بس.</span><span class="l-en">Because expected revenue needs a clear selling price per result, which is directly available in sales. In the other objectives (leads, followers, messages…) a result has a sale value that the ad itself doesn't tell you, so we calculate the budget and the number of results only.</span></p></details>
+  <details><summary><span class="l-ar">إيه هو هامش الأمان؟</span><span class="l-en">What is the safety margin?</span></summary><p><span class="l-ar">نسبة بتزودها على تكلفة النتيجة كاحتياطي لو التكلفة الفعلية زادت عن المتوقع. مثلاً 10% يعني الميزانية هتتحسب على تكلفة أعلى 10%. سيبه 0% لو مش عايزه.</span><span class="l-en">A percentage you add on top of the result cost as a buffer in case the actual cost turns out higher than expected. For example, 10% means the budget is calculated on a cost that is 10% higher. Leave it at 0% if you don't want it.</span></p></details>
+  <details><summary><span class="l-ar">الفرق بين CBO وABO؟</span><span class="l-en">What's the difference between CBO and ABO?</span></summary><p><span class="l-ar">في CBO الميزانية على مستوى الحملة والمنصة بتوزعها على المجموعات تلقائياً. في ABO بتحدد رقم لكل مجموعة. الأداة بتقولك الرقم المناسب في الحالتين. ومتوسط الميزانية لكل إعلان رقم نظري للمقارنة بس — المنصة مش بتوزع بالتساوي.</span><span class="l-en">In CBO the budget sits at campaign level and the platform distributes it across ad sets automatically. In ABO you set a number for each ad set. The tool gives you the right number in both cases. The average budget per ad is a theoretical figure for comparison only — the platform doesn't split it equally.</span></p></details>
+  <details><summary><span class="l-ar">إيه تاب الكاتلوج؟</span><span class="l-en">What is the Catalog tab?</span></summary><p><span class="l-ar">لو عندك أكتر من منتج بأسعار مختلفة، بتحسب متوسط قيمة الأوردر (AOV) المرجّح بنسب الأوردرات، وتقسم المنتجات لشرائح (رخيص/متوسط/غالي) مع ROAS التعادل لكل شريحة، وتنقل الـ AOV لخانة سعر البيع بضغطة. متاح مع Sales فقط.</span><span class="l-en">If you have several products at different prices, it calculates the average order value (AOV) weighted by order shares, splits the products into tiers (cheap / medium / expensive) with a break-even ROAS for each tier, and moves the AOV into the selling-price field in one tap. Available with Sales only.</span></p></details>
+  <details><summary><span class="l-ar">أقدر أشتغل من الموبايل أو أحفظ نتيجة؟</span><span class="l-en">Can I use it on mobile or save a result?</span></summary><p><span class="l-ar">أيوه، الصفحة متظبطة للموبايل وفيها شريط ملخص ثابت تحت. ولحفظ نتيجة: انسخ لينك الحساب أو اطبع الصفحة / احفظها PDF من زر «طباعة».</span><span class="l-en">Yes, the page is built for mobile and has a sticky summary bar at the bottom. To save a result: copy the calculation link, or print the page / save it as a PDF with the «Print» button.</span></p></details>
+</section>
+
+<div class="cta">
+  <div class="tx">
+    <h2><span class="l-ar">محتاج حد يراجع أرقام حملتك أو يديرها؟</span><span class="l-en">Need someone to review your campaign numbers or run them?</span></h2>
+    <p><span class="l-ar">ابعتلي أرقامك على واتساب وهقولك رأيي بصراحة.</span><span class="l-en">Send me your numbers on WhatsApp and I'll give you my honest opinion.</span></p>
+  </div>
+  <div class="acts" style="margin:0">
+    <a class="btn" data-wa data-wa-cta href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"/></svg><span class="l-ar">كلمني على واتساب</span><span class="l-en">Message me on WhatsApp</span></a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/alrefayeldesouky/" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true" style="width:17px;height:17px"><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8c0-14.3 5.7-27.9 15.8-38S39.6 0 53.8 0s27.9 5.7 38 15.8 15.8 23.8 15.8 38c0 29.7-24.1 54.3-53.8 54.3M447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg>LinkedIn</a>
+  </div>
+</div>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fl"><img src="images/logo-sm.png" alt="" width="45" height="28"><b dir="ltr">Alrefay Eldesouky</b></div>
+    <p><span class="l-ar">الأداة للتخطيط والتقدير فقط ولا تضمن نتائج أي حملة. الأرقام الناتجة تعتمد بالكامل على المدخلات. Meta وFacebook وInstagram وAds Manager علامات تجارية لأصحابها، وهذه الصفحة مستقلة ولا ترتبط بهم أو تمثلهم.</span><span class="l-en">This tool is for planning and estimation only and does not guarantee the results of any campaign. The output depends entirely on the inputs. Meta, Facebook, Instagram and Ads Manager are trademarks of their owners; this page is independent and is not affiliated with or representing them.</span></p>
+    <p style="margin-top:8px">© <span id="yr">2026</span> Alrefay Eldesouky</p>
+  </div>
+</footer>
+
+</div>
+
+<div class="sumbar" id="sumbar" role="button" tabindex="0" aria-label="ملخص النتيجة — اضغط للانتقال للنتائج">
+  <div class="c"><b id="sb-1">—</b><span><span class="l-ar">الميزانية الكلية</span><span class="l-en">Total budget</span></span></div>
+  <div class="c"><b id="sb-2">—</b><span><span class="l-ar">اليومية</span><span class="l-en">Daily</span></span></div>
+  <div class="c"><b id="sb-3">—</b><span id="sb-3l"><span class="l-ar">النتائج</span><span class="l-en">Results</span></span></div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<noscript><div style="padding:20px;text-align:center;background:#2a2a28;color:#fff"><span class="l-ar">الحاسبة محتاجة JavaScript. فعّله في المتصفح وحدّث الصفحة.</span><span class="l-en">The calculator needs JavaScript. Enable it in your browser and refresh the page.</span></div></noscript>
+
+<script>
+/* Ads Budget Calculator — calculation engine.
+ * A line-by-line port of the workbook "Ads_Budget_Calculator_v8.xlsx" (sheets: الحاسبة, سيناريوهات, الربحية,
+ * حاسبة التكاليف, حاسبة الكاتلوج, الأهداف).  Pure functions, no DOM.  Cell references in comments (e.g. G7)
+ * point at the cell of the sheet each formula was ported from.
+ * Percentages are stored as fractions (0.05 = 5%) exactly like in the workbook. */
+(function (root) {
+  'use strict';
+
+  // ---------- the "الأهداف" table (revenue & ROAS exist for Sales only) ----------
+  const OBJECTIVES = [
+    { key: 'Sales', ar: 'مبيعات', unit: 'أوردر (Purchase)', abbr: 'CPP', costLabel: 'CPP المتوقع (تكلفة الأوردر)', qtyLabel: 'عدد الأوردرات المطلوبة', divisor: 1, hasRevenue: 1, valueLabel: 'سعر بيع المنتج', hasFreq: 0, learning: 50, event: 'Purchase (Conversions)' },
+    { key: 'Leads', ar: 'عملاء محتملين', unit: 'ليد (Lead)', abbr: 'CPL', costLabel: 'CPL المتوقع (تكلفة الليد)', qtyLabel: 'عدد الـ Leads المطلوبة', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 50, event: 'Lead (Conversions أو Instant Form)' },
+    { key: 'Followers', ar: 'متابعين', unit: 'متابع (Follower)', abbr: 'CPF', costLabel: 'CPF المتوقع (تكلفة المتابع)', qtyLabel: 'عدد المتابعين المطلوب', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 0, event: 'Profile Visits / Followers (Engagement)' },
+    { key: 'Traffic - LPV', ar: 'زيارات الصفحة', unit: 'زيارة صفحة (Landing Page View)', abbr: 'CPLPV', costLabel: 'Cost per LPV المتوقع (تكلفة زيارة الصفحة)', qtyLabel: 'عدد زيارات الصفحة المطلوبة (LPV)', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 50, event: 'Landing Page Views' },
+    { key: 'App Promotion', ar: 'ترويج تطبيق', unit: 'تثبيت (Install)', abbr: 'CPI', costLabel: 'CPI المتوقع (تكلفة التثبيت)', qtyLabel: 'عدد التثبيتات المطلوبة', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 50, event: 'App Installs' },
+    { key: 'Video Views', ar: 'مشاهدات فيديو', unit: 'مشاهدة (ThruPlay)', abbr: 'CPV', costLabel: 'CPV المتوقع (تكلفة المشاهدة)', qtyLabel: 'عدد المشاهدات المطلوبة', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 0, event: 'ThruPlay / Video Views' },
+    { key: 'Awareness', ar: 'وعي بالعلامة', unit: 'ظهور (Impression)', abbr: 'CPM', costLabel: 'CPM المتوقع (تكلفة 1000 ظهور)', qtyLabel: 'عدد مرات الظهور المطلوبة (Impressions)', divisor: 1000, hasRevenue: 0, valueLabel: '', hasFreq: 1, learning: 0, event: 'Reach / Impressions' },
+    { key: 'Traffic - Link Clicks', ar: 'نقرات على الرابط', unit: 'نقرة رابط (Link Click)', abbr: 'CPC', costLabel: 'CPC المتوقع (تكلفة نقرة الرابط)', qtyLabel: 'عدد نقرات الرابط المطلوبة', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 0, event: 'Link Clicks' },
+    { key: 'Messages', ar: 'رسائل ومحادثات', unit: 'محادثة (Conversation)', abbr: 'CPConv', costLabel: 'تكلفة المحادثة المتوقعة (Cost per Conversation)', qtyLabel: 'عدد المحادثات المطلوبة', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 50, event: 'Messaging Conversations' },
+    { key: 'Engagement', ar: 'تفاعل', unit: 'تفاعل (Engagement)', abbr: 'CPE', costLabel: 'CPE المتوقع (تكلفة التفاعل)', qtyLabel: 'عدد التفاعلات المطلوبة', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 0, event: 'Post Engagement' }
+  ];
+  const CURRENCIES = ['EGP', 'SAR', 'AED', 'USD'];
+  const MODES = ['results', 'revTotal', 'revDaily', 'budgetTotal', 'budgetDaily'];
+
+  // ---------- small helpers that reproduce Excel behaviour ----------
+  const isNum = (v) => typeof v === 'number' && isFinite(v);
+  const N = (v) => (isNum(v) ? v : 0);                       // Excel N(): blank / text -> 0
+  const EPS = 1e-9;
+  const roundDown = (x) => (x >= 0 ? Math.floor(x + EPS * Math.max(1, Math.abs(x))) : -Math.floor(-x + EPS * Math.max(1, Math.abs(x))));
+  const roundUp = (x) => (x >= 0 ? Math.ceil(x - EPS * Math.max(1, Math.abs(x))) : -Math.ceil(-x - EPS * Math.max(1, Math.abs(x))));
+  const xlRound = (x) => (x < 0 ? -Math.round(-x + 1e-12) : Math.round(x + 1e-12));  // half away from zero
+  const div = (a, b) => (b === 0 || !isFinite(a / b) ? NaN : a / b);                  // NaN == Excel error
+  const iferr = (v, alt) => (isNum(v) ? v : alt);
+  const objectiveOf = (key) => OBJECTIVES.find((o) => o.key === key) || OBJECTIVES[0];
+
+  function addDays(iso, n) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    if (!m) return null;
+    const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3] + n));
+    return d.toISOString().slice(0, 10);
+  }
+
+  // ---------- default inputs (the example values saved in the workbook) ----------
+  function defaults() {
+    const today = new Date();
+    const iso = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())).toISOString().slice(0, 10);
+    return {
+      objective: 'Sales', currency: 'EGP',
+      cost: 150, price: 899, roasReq: 3.5, frequency: 3,
+      mode: 'results', target: 100, days: 7, startDate: iso, margin: 0,
+      budgetType: 'Daily', campaignType: 'CBO', adSets: 2, adsPerSet: 3, minBudgetMult: 1
+    };
+  }
+  function scenarioDefaults() {
+    return {
+      daily: 1500,
+      rows: [[0.5, -0.05], [1, 0], [1.5, 0.05], [2, 0.1], [3, 0.2], [5, 0.35]].map((r) => ({ mult: r[0], chg: r[1] })),
+      sens: [-0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.5]
+    };
+  }
+  function profitDefaults() {
+    return { cogs: 300, shipping: 60, payFee: 0.025, confirm: 0.85, delivery: 0.8, returns: 0.08, other: 20, targetMargin: 0.1 };
+  }
+  function costDefaults() {
+    return { spend: 5000, impressions: 250000, clicks: 4500, lpv: 3600, purchases: 40, leads: 150, followers: 600, installs: 90, thruplay: 12000, purchaseValue: 36000, conversations: 100, engagements: 2000, cpm: 80, ctr: 0.015, convRate: 0.03 };
+  }
+  function catalogDefaults() {
+    return {
+      items: [['منتج 1', 150, 0.4, 0.3], ['منتج 2', 220, 0.3, 0.35], ['منتج 3', 350, 0.15, 0.4], ['منتج 4', 600, 0.1, 0.45], ['منتج 5', 950, 0.05, 0.5]]
+        .map((r) => ({ name: r[0], price: r[1], share: r[2], margin: r[3] })),
+      cheapMax: null, midMax: null
+    };
+  }
+
+  // ---------- validation (mirrors the workbook's data-validation rules) ----------
+  function validate(s) {
+    const o = objectiveOf(s.objective), e = {};
+    if (!(isNum(s.cost) && s.cost > 0)) e.cost = 'cost';
+    if (o.hasRevenue) {
+      if (!(isNum(s.price) && s.price > 0)) e.price = 'price';
+      if (!(isNum(s.roasReq) && s.roasReq > 0)) e.roasReq = 'roasReq';
+    }
+    if (o.hasFreq && !(isNum(s.frequency) && s.frequency > 0)) e.frequency = 'frequency';
+    if (!(isNum(s.target) && s.target > 0)) e.target = 'target';
+    if (!(isNum(s.days) && Number.isInteger(s.days) && s.days >= 1)) e.days = 'days';
+    if (!(isNum(s.margin) && s.margin >= 0 && s.margin <= 1)) e.margin = 'pct';
+    if (!(isNum(s.adSets) && Number.isInteger(s.adSets) && s.adSets >= 1)) e.adSets = 'int1';
+    if (!(isNum(s.adsPerSet) && Number.isInteger(s.adsPerSet) && s.adsPerSet >= 1)) e.adsPerSet = 'int1';
+    if (!(isNum(s.minBudgetMult) && s.minBudgetMult >= 0)) e.minBudgetMult = 'min0';
+    return e;
+  }
+
+  // ---------- الحاسبة ----------
+  function calc(s) {
+    const o = objectiveOf(s.objective);
+    const errors = validate(s);
+    const out = { objective: o, errors, valid: Object.keys(errors).length === 0 };
+    if (!out.valid) return out;
+
+    const K5 = o.divisor, K6 = o.hasRevenue, K10 = o.hasFreq, K11 = o.learning;
+    const budgetMode = s.mode === 'budgetTotal' || s.mode === 'budgetDaily';
+    const G24 = K6 ? s.price : null;                                       // value of one result (K8 = 0 -> no conversion rate)
+    const unitCost = s.cost / K5 * (1 + s.margin);                          // cost of one result incl. safety margin
+
+    // G7 – total results
+    let G7;
+    if (budgetMode) {
+      const total = s.mode === 'budgetTotal' ? s.target : s.target * s.days;
+      G7 = iferr(roundDown(div(total, unitCost)), 0);
+    } else if (s.mode === 'results' || K6 === 0) {
+      G7 = s.target;
+    } else if (s.mode === 'revTotal') {
+      G7 = roundUp(iferr(div(s.target, G24), 0));
+    } else {
+      G7 = roundUp(iferr(div(s.target * s.days, G24), 0));
+    }
+    // G5 – total budget, G6 – daily budget
+    const G5 = budgetMode ? (s.mode === 'budgetTotal' ? s.target : s.target * s.days) : G7 * s.cost / K5 * (1 + s.margin);
+    const G6 = G5 / s.days;
+    const G8 = iferr(div(G7, s.days), 0);                                   // daily results
+    const G9 = K6 ? G24 * G7 : null;                                        // expected revenue
+
+    const main = {
+      totalBudget: G5, dailyBudget: G6, totalResults: G7, dailyResults: G8, revenue: G9,
+      roas: K6 ? iferr(div(G24, s.cost), 0) : null,
+      budgetMode, mode: s.mode
+    };
+    // ⑥ Ads Manager
+    const entryBudget = (s.budgetType === 'Daily' ? G6 : G5) / (s.campaignType === 'CBO' ? 1 : s.adSets);   // G12
+    const endDate = addDays(s.startDate, s.days - 1);                                                         // G13
+    // ⑦ distribution
+    const G20 = G6 / s.adSets, H20 = G5 / s.adSets;
+    const dist = {
+      budget: [G6, G5],
+      revenue: K6 ? [G9 / s.days, G9] : null,
+      results: [G7 / s.days, G7],
+      perAdSet: [G20, H20],
+      perAd: G20 / s.adsPerSet
+    };
+    // ⑧ KPIs
+    const kpi = { adsTotal: s.adSets * s.adsPerSet };
+    if (K6) {
+      const G25 = iferr(div(G24, s.cost), 0);
+      const G26 = iferr(div(G24, s.roasReq), 0);
+      kpi.valuePerResult = G24;
+      kpi.roas = G25;
+      kpi.roasStatus = G25 >= s.roasReq ? 'ok' : 'warn';                     // H25
+      kpi.maxCost = G26;
+      kpi.maxCostStatus = s.cost <= G26 ? 'ok' : 'warn';                      // H26
+      kpi.roasFullBudget = iferr(div(G9, G5), 0);                              // G27
+      kpi.orders = G7;                                                         // G28
+      kpi.actualCost = s.cost;                                                 // G29
+    }
+    kpi.perAdSetResults = G7 / s.adSets;                                      // G31
+    kpi.perAdSetWeekly = kpi.perAdSetResults / s.days * 7;                    // G32
+    kpi.learningThreshold = K11;
+    kpi.learningStatus = K11 === 0 ? 'na' : (kpi.perAdSetWeekly >= K11 ? 'ok' : 'info');   // H32
+    kpi.minDailyBudget = s.cost * s.minBudgetMult;                            // G33
+    kpi.minDailyStatus = G20 >= kpi.minDailyBudget ? 'ok' : 'info';           // H33
+    kpi.reach = K10 ? iferr(div(G7, s.frequency), 0) : null;                  // G34
+
+    Object.assign(out, { K: { K5, K6, K10, K11 }, main, entryBudget, endDate, dist, kpi,
+      revenueIgnored: !K6 && (s.mode === 'revTotal' || s.mode === 'revDaily') });                // D16 warning
+    return out;
+  }
+
+  // ---------- سيناريوهات ----------
+  function scenarios(s, sc, c) {
+    c = c || calc(s);
+    if (!c.valid) return { valid: false };
+    const o = c.objective, K5 = o.divisor, K6 = o.hasRevenue, G24 = K6 ? s.price : null;
+    const dailyOk = isNum(sc.daily) && sc.daily >= 0;
+    const days = s.days;
+    const reverse = { totalBudget: sc.daily * days, results: 0, daily: 0, revenue: null, revenueDaily: null };
+    reverse.results = iferr(roundDown(div(reverse.totalBudget * K5, s.cost * (1 + s.margin))), 0);   // C8
+    reverse.daily = reverse.results / days;                                                           // C9
+    if (K6) { reverse.revenue = reverse.results * G24; reverse.revenueDaily = reverse.revenue / days; }
+    const rows = sc.rows.map((r) => {
+      const cost = s.cost * (1 + r.chg);                                              // D
+      const results = xlRound(c.main.totalResults * r.mult);                          // E
+      const budget = results * cost / K5 * (1 + s.margin);                            // F
+      const note = r.mult === 1 ? 'current' : (r.chg > 0 ? 'up' : (r.chg < 0 ? 'down' : 'flat'));   // J
+      const row = { mult: r.mult, chg: r.chg, cost, results, budget, daily: budget / days, note, revenue: null, roas: null };
+      if (K6) { row.revenue = results * G24; row.roas = row.revenue / budget; }
+      return row;
+    });
+    const sens = sc.sens.map((chg) => {
+      const cost = s.cost * (1 + chg);                                                // C
+      const budget = c.main.totalResults * cost / K5 * (1 + s.margin);                // E
+      const row = { chg, cost, budget, daily: budget / days, diff: budget - c.main.totalBudget, roas: null, status: null };
+      if (K6) { row.roas = iferr(div(G24, cost), 0); row.status = row.roas >= s.roasReq ? 'ok' : 'warn'; }
+      return row;
+    });
+    return { valid: true, dailyOk, reverse, rows, sens };
+  }
+
+  // ---------- الربحية (Sales only) ----------
+  function profit(s, p, c) {
+    c = c || calc(s);
+    if (!c.valid) return { valid: false };
+    const o = c.objective;
+    if (!o.hasRevenue) return { valid: true, applicable: false };
+    const errors = {};
+    const need = { cogs: 0, shipping: 0, other: 0 };
+    Object.keys(need).forEach((k) => { if (!(isNum(p[k]) && p[k] >= 0)) errors[k] = 'min0'; });
+    ['payFee', 'confirm', 'delivery', 'returns', 'targetMargin'].forEach((k) => { if (!(isNum(p[k]) && p[k] >= 0 && p[k] <= 1)) errors[k] = 'pct'; });
+    if (Object.keys(errors).length) return { valid: false, applicable: true, errors };
+    const C5 = s.price, C6 = c.main.totalResults, C7 = c.main.totalBudget, C8 = c.kpi.actualCost;
+    const net = p.confirm * p.delivery * (1 - p.returns);                                  // share of recorded purchases that stay sold
+    const G5 = C5 * net, G6 = p.cogs * net, G7 = p.shipping * p.confirm * p.delivery, G8 = G5 * p.payFee, G9 = p.other * net;
+    const G10 = Math.max(0, G5 - G6 - G7 - G8 - G9);
+    const G11 = G10 > 0 ? C5 / G10 : null;
+    const G12 = Math.max(0, G10 - G5 * p.targetMargin);
+    const G13 = G12 > 0 ? C5 / G12 : null;
+    const G16 = C6 * p.confirm, G17 = G16 * p.delivery, G18 = G17 * (1 - p.returns);
+    const G19 = G18 * C5, G20 = G18 * p.cogs, G21 = G17 * p.shipping, G22 = G19 * p.payFee;
+    const G23 = G19 - G20 - G21 - G22 - G18 * p.other - C7;
+    const G24 = G19 > 0 ? G23 / G19 : 0;
+    const verdict = G10 <= 0 ? 'loss_before_ads' : (C8 > G10 ? 'above_breakeven' : (C8 > G12 ? 'below_target' : 'good'));
+    return {
+      valid: true, applicable: true,
+      linked: { price: C5, purchases: C6, spend: C7, cpa: C8 },
+      perOrder: { revenue: G5, cogs: G6, shipping: G7, payFee: G8, other: G9, breakevenCpa: G10, breakevenRoas: G11, targetCpa: G12, targetRoas: G13 },
+      plan: { confirmed: G16, delivered: G17, net: G18, netRevenue: G19, cogs: G20, shipping: G21, payFees: G22, profit: G23, margin: G24 },
+      effectiveCpa: G18 > 0 ? C7 / G18 : 0,                                  // C21
+      netRoas: C7 > 0 ? G19 / C7 : 0,                                        // C22
+      adsManagerRoas: C8 > 0 ? C5 / C8 : 0,                                  // C23
+      roomBreakeven: G10 - C8, roomTarget: G12 - C8,                         // C24, C25
+      verdict
+    };
+  }
+
+  // ---------- حاسبة التكاليف ----------
+  function costs(c) {
+    const R = (a, b) => (N(b) > 0 ? a / b : null);          // IF(N(b)>0, a/b, "—")
+    const sp = N(c.spend);
+    const g = {
+      cpm: N(c.impressions) > 0 ? sp / c.impressions * 1000 : null,       // G5
+      cpc: R(sp, c.clicks),                                                 // G6
+      cplpv: R(sp, c.lpv),                                                  // G7
+      ctr: N(c.impressions) > 0 ? N(c.clicks) / c.impressions : null,       // G8
+      cpp: R(sp, c.purchases), cpl: R(sp, c.leads), cpf: R(sp, c.followers), cpi: R(sp, c.installs),
+      cpv: R(sp, c.thruplay),
+      roas: sp > 0 ? N(c.purchaseValue) / sp : null,                         // G14
+      aov: N(c.purchases) > 0 ? N(c.purchaseValue) / c.purchases : null,     // G15
+      clickToOrder: N(c.clicks) > 0 ? N(c.purchases) / c.clicks : null,      // G16
+      clickToLead: N(c.clicks) > 0 ? N(c.leads) / c.clicks : null,           // G17
+      cpconv: R(sp, c.conversations), cpe: R(sp, c.engagements)
+    };
+    g.check = N(c.clicks) > N(c.impressions) ? 'clicks_gt_impr' : (N(c.lpv) > N(c.clicks) ? 'lpv_gt_clicks' : 'ok');   // G20
+    const pc = {
+      cpc: (N(c.cpm) > 0 && N(c.ctr) > 0) ? c.cpm / 1000 / c.ctr : null,                        // G24
+      clicksPer1000: N(c.ctr) > 0 ? 1000 * c.ctr : null                                            // G26
+    };
+    pc.resultCost = (isNum(pc.cpc) && N(c.convRate) > 0) ? pc.cpc / c.convRate : null;          // G25
+    pc.resultsPer1000 = isNum(pc.clicksPer1000) ? pc.clicksPer1000 * N(c.convRate) : null;       // G27
+    return { actual: g, predicted: pc };
+  }
+
+  // ---------- حاسبة الكاتلوج (Sales only) ----------
+  function catalog(s, cat, c) {
+    c = c || calc(s);
+    if (!c.valid) return { valid: false };
+    if (!c.objective.hasRevenue) return { valid: true, applicable: false };
+    const items = cat.items.slice(0, 30);
+    const priced = items.filter((it) => isNum(it.price));
+    const count = priced.length;
+    const sumShare = items.reduce((a, it) => a + N(it.share), 0);
+    const rows = items.map((it) => {
+      if (!isNum(it.price)) return { name: it.name, empty: true, weight: 0, contrib: 0, tier: '' };
+      const weight = sumShare === 0 ? 1 / count : N(it.share) / sumShare;               // F
+      return { name: it.name, empty: false, price: it.price, margin: N(it.margin), weight, contrib: it.price * weight };   // G
+    });
+    const sumF = rows.reduce((a, r) => a + r.weight, 0);
+    const sumG = rows.reduce((a, r) => a + r.contrib, 0);
+    const min = count ? Math.min.apply(null, priced.map((it) => it.price)) : 0;
+    const max = count ? Math.max.apply(null, priced.map((it) => it.price)) : 0;
+    const dCheap = count === 0 ? 0 : xlRound(min + (max - min) / 3);
+    const dMid = count === 0 ? 0 : xlRound(min + 2 * (max - min) / 3);
+    const cheapMax = isNum(cat.cheapMax) ? cat.cheapMax : dCheap;                        // C52 (overridable)
+    const midMax = isNum(cat.midMax) ? cat.midMax : dMid;                                // C53
+    rows.forEach((r) => { if (!r.empty) r.tier = r.price <= cheapMax ? 'رخيص' : (r.price <= midMax ? 'متوسط' : 'غالي'); });
+    const aov = sumF !== 0 ? sumG / sumF : 0;                                            // C4
+    const simple = count ? priced.reduce((a, it) => a + it.price, 0) / count : 0;        // C5
+    const ratio = min > 0 ? max / min : 0;                                               // C9
+    const wMargin = sumG !== 0 ? rows.reduce((a, r) => a + (r.empty ? 0 : r.price * r.weight * r.margin), 0) / sumG : 0;   // C11
+    const breakevenRoas = wMargin > 0 ? 1 / wMargin : null;                              // C12
+    const roasReq = s.roasReq;                                                           // C13
+    const spread = count === 0 ? 'none' : (ratio <= 1.3 ? 'close' : (ratio <= 3 ? 'mixed' : 'wide'));  // C10
+    const tiers = ['رخيص', 'متوسط', 'غالي'].map((name) => {
+      const rs = rows.filter((r) => r.tier === name);
+      const sG = rs.reduce((a, r) => a + r.contrib, 0), sF = rs.reduce((a, r) => a + r.weight, 0);
+      const margin = sG !== 0 ? rs.reduce((a, r) => a + r.price * r.weight * r.margin, 0) / sG : 0;
+      return { name, count: rs.length, aov: sF !== 0 ? sG / sF : 0, share: sF, margin, breakevenRoas: margin > 0 ? 1 / margin : null, budgetShare: sumG !== 0 ? sG / sumG : 0 };
+    });
+    return {
+      valid: true, applicable: true, rows, aov, simple, count, min, max, ratio, spread, wMargin, breakevenRoas, roasReq,
+      roasVsBreakeven: isNum(breakevenRoas) ? (roasReq >= breakevenRoas ? 'ok' : 'bad') : 'na',
+      cheapMax, midMax, defaultCheapMax: dCheap, defaultMidMax: dMid, tiers
+    };
+  }
+
+  const api = { OBJECTIVES, CURRENCIES, MODES, objectiveOf, defaults, scenarioDefaults, profitDefaults, costDefaults, catalogDefaults,
+    validate, calc, scenarios, profit, costs, catalog, addDays, helpers: { isNum, N, roundDown, roundUp, xlRound } };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.AdsEngine = api;
+})(typeof self !== 'undefined' ? self : this);
+
+</script>
+<script>
+(function () {
+'use strict';
+var E = window.AdsEngine, OB = E.OBJECTIVES;
+var KEY = 'rdAdsCalc.v1';
+var WA_NUMBER = '201553909130';
+var $ = function (s, r) { return (r || document).querySelector(s); };
+var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+var isNum = E.helpers.isNum;
+
+var LANGKEY = 'rdAdsCalc.lang';
+var lang = document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'ar';
+function L(ar, en) { return lang === 'ar' ? ar : en; }
+function D2(ar, en) { return '<span class="l-ar">' + ar + '</span><span class="l-en">' + en + '</span>'; }
+function dW(n) { return L('يوم', n === 1 ? 'day' : 'days'); }
+var OBJ_EN = {
+  'Sales': { name: 'Sales', unit: 'Order (Purchase)', pl: 'orders (Purchases)', cost: 'Expected CPP (cost per order)', qty: 'Number of orders needed' },
+  'Leads': { name: 'Leads', unit: 'Lead', pl: 'Leads', cost: 'Expected CPL (cost per lead)', qty: 'Number of Leads needed' },
+  'Followers': { name: 'Followers', unit: 'Follower', pl: 'followers', cost: 'Expected CPF (cost per follower)', qty: 'Number of followers needed' },
+  'Traffic - LPV': { name: 'Page visits', unit: 'Landing Page View', pl: 'landing page views', cost: 'Expected Cost per LPV (cost per page view)', qty: 'Number of landing page views needed (LPV)' },
+  'App Promotion': { name: 'App promotion', unit: 'Install', pl: 'installs', cost: 'Expected CPI (cost per install)', qty: 'Number of installs needed' },
+  'Video Views': { name: 'Video views', unit: 'View (ThruPlay)', pl: 'views (ThruPlay)', cost: 'Expected CPV (cost per view)', qty: 'Number of views needed' },
+  'Awareness': { name: 'Brand awareness', unit: 'Impression', pl: 'impressions', cost: 'Expected CPM (cost per 1,000 impressions)', qty: 'Number of impressions needed (Impressions)' },
+  'Traffic - Link Clicks': { name: 'Link clicks', unit: 'Link Click', pl: 'link clicks', cost: 'Expected CPC (cost per link click)', qty: 'Number of link clicks needed' },
+  'Messages': { name: 'Messages & conversations', unit: 'Conversation', pl: 'conversations', cost: 'Expected cost per conversation', qty: 'Number of conversations needed' },
+  'Engagement': { name: 'Engagement', unit: 'Engagement', pl: 'engagements', cost: 'Expected CPE (cost per engagement)', qty: 'Number of engagements needed' }
+};
+function OBJ(key) {
+  var o = E.objectiveOf(key);
+  if (lang === 'ar') return o;
+  var t = OBJ_EN[key];
+  return t ? Object.assign({}, o, { ar: t.name, unit: t.unit, unitPl: t.pl, costLabel: t.cost, qtyLabel: t.qty, event: String(o.event).replace(/ \u0623\u0648 /, ' or ') }) : o;
+}
+function uP(o) { return o.unitPl || o.unit; }
+function objLabel(o) { return o.ar === o.key ? o.key : o.key + ' (' + o.ar + ')'; }
+function tierName(x) { return x === '\u0631\u062e\u064a\u0635' ? L('رخيص', 'Cheap') : x === '\u0645\u062a\u0648\u0633\u0637' ? L('متوسط', 'Medium') : x === '\u063a\u0627\u0644\u064a' ? L('غالي', 'Expensive') : x; }
+function errText(code) {
+  var M = {
+    cost: L('أدخل تكلفة أكبر من صفر', 'Enter a cost greater than zero'), price: L('أدخل سعر أكبر من صفر', 'Enter a price greater than zero'),
+    roasReq: L('أدخل ROAS أكبر من صفر', 'Enter a ROAS greater than zero'), frequency: L('أدخل Frequency أكبر من صفر', 'Enter a Frequency greater than zero'),
+    target: L('أدخل رقم أكبر من صفر', 'Enter a number greater than zero'), days: L('عدد أيام صحيح (1 أو أكتر)', 'Whole number of days (1 or more)'),
+    pct: L('من 0% إلى 100%', 'Between 0% and 100%'), int1: L('رقم صحيح (1 أو أكتر)', 'Whole number (1 or more)'), min0: L('صفر أو أكتر', 'Zero or more')
+  };
+  return M[code] || code;
+}
+
+/* ---------- formatting ---------- */
+function money(n) {
+  if (!isNum(n)) return '—';
+  var a = Math.abs(n), d = a >= 1000 ? 0 : (a < 1 ? 3 : 2);
+  return n.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: d });
+}
+function cnt(n) {
+  if (!isNum(n)) return '—';
+  var r = Math.round(n);
+  return Math.abs(n - r) < 1e-9 ? r.toLocaleString('en-US') : n.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+}
+function xr(n) { return isNum(n) ? n.toFixed(2) + 'x' : '—'; }
+function pc(n) { return isNum(n) ? (Math.round(n * 1000) / 10).toLocaleString('en-US', { maximumFractionDigits: 1 }) + '%' : '—'; }
+function mH(n, cur) { return isNum(n) ? '<bdi class="num">' + money(n) + '</bdi><span class="cu">' + esc(cur) + '</span>' : '<span class="dim">—</span>'; }
+function vH(txt) { return txt === '—' ? '<span class="dim">—</span>' : '<bdi class="num">' + esc(txt) + '</bdi>'; }
+function dmy(iso) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || ''); return m ? m[3] + '/' + m[2] + '/' + m[1] : '—'; }
+function badge(kind, txt) { return '<span class="st ' + kind + '">' + esc(txt) + '</span>'; }
+function trimNum(n) { return String(Math.round(n * 1e8) / 1e8); }
+
+/* ---------- parsing (accepts Arabic-Indic digits, Arabic decimal separator, thousands commas) ---------- */
+function parseNum(str) {
+  var t = String(str).trim();
+  if (t === '') return null;
+  t = t.replace(/[٠-٩]/g, function (d) { return d.charCodeAt(0) - 0x0660; })
+       .replace(/[۰-۹]/g, function (d) { return d.charCodeAt(0) - 0x06F0; })
+       .replace(/٫/g, '.').replace(/[٬\s]/g, '');
+  if (/^\d{1,3}(,\d{3})+(\.\d+)?$/.test(t)) t = t.replace(/,/g, ''); else t = t.replace(',', '.');
+  if (!/^[-+]?(\d+\.?\d*|\.\d+)$/.test(t)) return NaN;
+  var n = Number(t);
+  return isFinite(n) ? n : NaN;
+}
+
+/* ---------- state ---------- */
+var EX = {   // illustrative example inputs per objective (same spirit as the sheet's example numbers)
+  'Sales': { cost: 150, results: 100 }, 'Leads': { cost: 40, results: 200 }, 'Followers': { cost: 3, results: 1000 },
+  'Traffic - LPV': { cost: 2.5, results: 3000 }, 'App Promotion': { cost: 60, results: 200 }, 'Video Views': { cost: 0.5, results: 10000 },
+  'Awareness': { cost: 80, results: 500000 }, 'Traffic - Link Clicks': { cost: 3, results: 3000 }, 'Messages': { cost: 25, results: 300 },
+  'Engagement': { cost: 0.8, results: 5000 }
+};
+function nice(x) { if (!(x > 0)) return 0; var p = Math.pow(10, Math.floor(Math.log10(x)) - 1); return Math.round(x / p) * p; }
+function exampleTargets(o, cost, price, days) {
+  var ex = EX[o.key], total = ex.results * cost / o.divisor;
+  var t = { results: ex.results, budgetTotal: nice(total), budgetDaily: nice(total / days), revTotal: 90000, revDaily: 12000 };
+  if (o.hasRevenue) { t.revTotal = nice(ex.results * price); t.revDaily = nice(ex.results * price / days); }
+  return t;
+}
+function blankItem() { return { name: '', price: null, share: null, margin: null }; }
+function fresh() {
+  var s = E.defaults(), o = OBJ(s.objective);
+  var targets = exampleTargets(o, s.cost, s.price, s.days);
+  s.target = targets[s.mode];
+  var cat = E.catalogDefaults();
+  while (cat.items.length < 30) cat.items.push(blankItem());
+  return { v: 1, s: s, targets: targets, mem: {}, sc: E.scenarioDefaults(), pr: E.profitDefaults(), cs: E.costDefaults(), cat: cat, tab: 'calc' };
+}
+var NUMFIELDS_S = ['cost', 'price', 'roasReq', 'frequency', 'target', 'days', 'margin', 'adSets', 'adsPerSet', 'minBudgetMult'];
+function numOrDefault(v, d) { return v === null ? null : (isNum(v) ? v : d); }
+function sanitize(o) {
+  var f = fresh();
+  if (!o || typeof o !== 'object') return f;
+  var S = o.s || {};
+  if (OB.some(function (x) { return x.key === S.objective; })) f.s.objective = S.objective;
+  if (E.CURRENCIES.indexOf(S.currency) >= 0) f.s.currency = S.currency;
+  if (E.MODES.indexOf(S.mode) >= 0) f.s.mode = S.mode;
+  if (S.budgetType === 'Daily' || S.budgetType === 'Lifetime') f.s.budgetType = S.budgetType;
+  if (S.campaignType === 'CBO' || S.campaignType === 'ABO') f.s.campaignType = S.campaignType;
+  if (typeof S.startDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(S.startDate)) f.s.startDate = S.startDate;
+  NUMFIELDS_S.forEach(function (k) { if (k in S) f.s[k] = numOrDefault(S[k], f.s[k]); });
+  var T = o.targets || {};
+  Object.keys(f.targets).forEach(function (k) { if (k in T) f.targets[k] = numOrDefault(T[k], f.targets[k]); });
+  var ob = OBJ(f.s.objective);
+  if (!ob.hasRevenue && (f.s.mode === 'revTotal' || f.s.mode === 'revDaily')) f.s.mode = 'results';
+  f.s.target = f.targets[f.s.mode];
+  var SC = o.sc || {};
+  if ('daily' in SC) f.sc.daily = numOrDefault(SC.daily, f.sc.daily);
+  if (Array.isArray(SC.rows)) f.sc.rows.forEach(function (r, i) { var x = SC.rows[i]; if (x && typeof x === 'object') { if ('mult' in x) r.mult = numOrDefault(x.mult, r.mult); if ('chg' in x) r.chg = numOrDefault(x.chg, r.chg); } });
+  if (Array.isArray(SC.sens)) f.sc.sens = f.sc.sens.map(function (v, i) { return i < SC.sens.length ? numOrDefault(SC.sens[i], v) : v; });
+  ['pr', 'cs'].forEach(function (g) { var src = o[g] || {}; Object.keys(f[g]).forEach(function (k) { if (k in src) f[g][k] = numOrDefault(src[k], f[g][k]); }); });
+  var C = o.cat;
+  if (C && Array.isArray(C.items)) {
+    f.cat.items = [];
+    for (var i = 0; i < 30; i++) {
+      var it = C.items[i], b = blankItem();
+      if (it && typeof it === 'object') {
+        b.name = typeof it.name === 'string' ? it.name.slice(0, 40) : '';
+        b.price = numOrDefault(it.price, null); b.share = numOrDefault(it.share, null); b.margin = numOrDefault(it.margin, null);
+      }
+      f.cat.items.push(b);
+    }
+    f.cat.cheapMax = numOrDefault(C.cheapMax, null); f.cat.midMax = numOrDefault(C.midMax, null);
+  }
+  if (['calc', 'scen', 'profit', 'costs', 'cat'].indexOf(o.tab) >= 0) f.tab = o.tab;
+  if (!ob.hasRevenue && (f.tab === 'profit' || f.tab === 'cat')) f.tab = 'calc';
+  if (o.mem && typeof o.mem === 'object') {
+    OB.forEach(function (x) {
+      var m = o.mem[x.key];
+      if (m && typeof m === 'object' && E.MODES.indexOf(m.mode) >= 0 && isNum(m.cost) && m.targets) {
+        var tg = {}; var okT = true;
+        Object.keys(f.targets).forEach(function (k) { if (isNum(m.targets[k]) || m.targets[k] === null) tg[k] = m.targets[k]; else okT = false; });
+        if (okT) f.mem[x.key] = { cost: m.cost, mode: m.mode, targets: tg };
+      }
+    });
+  }
+  return f;
+}
+function load() { try { var r = localStorage.getItem(KEY); return r ? sanitize(JSON.parse(r)) : null; } catch (e) { return null; } }
+var saveT = null;
+function save() { clearTimeout(saveT); saveT = setTimeout(function () { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* storage blocked: the page still works */ } }, 250); }
+
+function encodeState() {
+  var items = state.cat.items.slice(); while (items.length && !items[items.length - 1].name && !isNum(items[items.length - 1].price)) items.pop();
+  var o = { v: 1, s: state.s, targets: state.targets, sc: state.sc, pr: state.pr, cs: state.cs, cat: { items: items, cheapMax: state.cat.cheapMax, midMax: state.cat.midMax }, tab: state.tab };
+  var bytes = new TextEncoder().encode(JSON.stringify(o)), bin = '';
+  bytes.forEach(function (b) { bin += String.fromCharCode(b); });
+  return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+function decodeState(str) {
+  if (!str || str.length > 24000) return null;
+  try {
+    str = str.replace(/-/g, '+').replace(/_/g, '/'); while (str.length % 4) str += '=';
+    var bin = atob(str), bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return sanitize(JSON.parse(new TextDecoder().decode(bytes)));
+  } catch (e) { return null; }
+}
+
+var state = null;
+var loadedFromLink = false;
+(function initState() {
+  var h = location.hash || '';
+  if (h.indexOf('#d=') === 0) { var d = decodeState(h.slice(3)); if (d) { state = d; loadedFromLink = true; } }
+  if (!state) state = load();
+  if (!state) state = fresh();
+})();
+
+function getP(p) { return p.split('.').reduce(function (o, k) { return o == null ? o : o[k]; }, state); }
+function setP(p, v) { var ks = p.split('.'), last = ks.pop(); ks.reduce(function (a, k) { return a[k]; }, state)[last] = v; }
+function cur() { return state.s.currency; }
+
+/* ---------- toast / clipboard ---------- */
+var toastT = null;
+function toast(msg, act) {
+  var t = $('#toast'); t.innerHTML = '<span></span>'; t.firstChild.textContent = msg;
+  if (act) { var b = document.createElement('button'); b.type = 'button'; b.className = 'btn xs'; b.textContent = act.label; b.addEventListener('click', function () { t.hidden = true; act.fn(); }); t.appendChild(b); }
+  t.hidden = false; clearTimeout(toastT); toastT = setTimeout(function () { t.hidden = true; }, act ? 7000 : 3200);
+}
+function copyText(txt) {
+  return new Promise(function (res, rej) {
+    function fb() { try { var ta = document.createElement('textarea'); ta.value = txt; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:-100px;opacity:0'; document.body.appendChild(ta); ta.select(); var ok = document.execCommand('copy'); document.body.removeChild(ta); ok ? res() : rej(); } catch (e) { rej(e); } }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt).then(res, fb); else fb();
+  });
+}
+
+/* ---------- HTML builders ---------- */
+function fid(k) { return 'f-' + k.replace(/\./g, '-'); }
+function field(k, label, o) {
+  o = o || {};
+  var t = o.t || 'num', id = fid(k);
+  var attrs = t === 'date' ? 'type="date"' : (t === 'text' ? 'type="text" maxlength="40" autocomplete="off"' : 'type="text" inputmode="decimal" autocomplete="off"');
+  var unit = o.unit !== undefined ? '<span class="u"' + (o.unitId ? ' id="' + o.unitId + '"' : '') + (o.unitCls ? ' data-cur' : '') + '>' + o.unit + '</span>' : (t === 'pct' ? '<span class="u">%</span>' : '');
+  if (o.cur) unit = '<span class="u" data-cur>' + esc(cur()) + '</span>';
+  return '<div class="f"' + (o.show ? ' data-show="' + o.show + '"' : '') + (o.wrap ? ' id="' + o.wrap + '"' : '') + '>' +
+    '<label for="' + id + '"' + (o.lbl ? ' id="' + o.lbl + '"' : '') + '>' + label + '</label>' +
+    '<div class="ctl"><input id="' + id + '" ' + attrs + ' data-k="' + k + '" data-t="' + t + '"' + (t === 'pct' ? ' data-pct' : '') + (o.ph ? ' placeholder="' + o.ph + '"' : '') + '>' + unit + '</div>' +
+    (o.hint !== undefined ? '<small class="hint"' + (o.hintId ? ' id="' + o.hintId + '"' : '') + '>' + o.hint + '</small>' : '') +
+    '<small class="err" data-err="' + k + '"></small></div>';
+}
+function select(k, label, opts, o) {
+  o = o || {};
+  var id = fid(k);
+  return '<div class="f"' + (o.wrap ? ' id="' + o.wrap + '"' : '') + '><label for="' + id + '"' + (o.lbl ? ' id="' + o.lbl + '"' : '') + '>' + label + '</label>' +
+    '<div class="ctl"><select id="' + id + '" data-k="' + k + '" data-t="sel">' + opts.map(function (p) { return '<option value="' + esc(p[0]) + '">' + esc(p[1]) + '</option>'; }).join('') + '</select></div>' +
+    (o.hint !== undefined ? '<small class="hint"' + (o.hintId ? ' id="' + o.hintId + '"' : '') + '>' + o.hint + '</small>' : '') + '</div>';
+}
+function card(n, title, body, id, cls) {
+  return '<div class="card' + (cls ? ' ' + cls : '') + '"' + (id ? ' id="' + id + '"' : '') + '><h3>' + (n ? '<i>' + n + '</i>' : '') + title + '</h3>' + body + '</div>';
+}
+function kv(rows) { return '<table class="kv"><tbody>' + rows.map(function (r) { return '<tr' + (r[3] ? ' class="' + r[3] + '"' : '') + '><td>' + r[0] + '</td><td id="' + r[1] + '"></td></tr>'; }).join('') + '</tbody></table>'; }
+function ctxBar() { return ('<div class="ctx no-print"><span>' + L('الهدف الحالي:', 'Current objective:') + ' <span class="chip" data-ctx="obj"></span></span><span>' + L('العملة:', 'Currency:') + ' <span class="chip" data-ctx="cur"></span></span><button type="button" class="link" data-goto="calc">' + L('غيّر الهدف أو العملة', 'Change objective or currency') + '</button></div>'); }
+var OBJ_OPTS; function init_OBJ_OPTS() { OBJ_OPTS = OB.map(function (o0) { var o = OBJ(o0.key); return [o.key, objLabel(o)]; }); }
+var CAT_MAX = 30;
+
+function buildCalc() {
+  var left =
+    card('0', L('الإعدادات العامة', 'General settings'),
+      select('s.objective', L('الهدف الإعلاني (Objective)', 'Ad objective'), OBJ_OPTS, { hintId: 'h-event', hint: '' }) +
+      select('s.currency', L('العملة (Currency)', 'Currency'), E.CURRENCIES.map(function (c) { return [c, c]; }))) +
+    card('1', L('بيانات الهدف والتكلفة', 'Objective and cost data'),
+      field('s.cost', '', { lbl: 'l-cost', cur: true, hintId: 'h-cost', hint: '' }) +
+      field('s.price', L('سعر بيع المنتج', 'Product selling price'), { show: 'sales', cur: true, hint: L('السعر النهائي للعميل  |  عندك كاتلوج؟ شوف تاب «الكاتلوج»', 'The final customer price  |  Have a catalog? See the «Catalog» tab') }) +
+      field('s.roasReq', L('ROAS المطلوب (x)', 'Required ROAS (x)'), { show: 'sales', unit: 'x', hint: L('الحد الأدنى للعائد على الإنفاق الإعلاني', 'The minimum return on ad spend') }) +
+      field('s.frequency', L('التكرار المتوقع (Frequency)', 'Expected frequency (Frequency)'), { show: 'freq', unit: '×', hint: L('عشان نحسب الوصول (Reach)', 'To calculate reach (Reach)') })) +
+    card('2', L('هدف الحملة', 'Campaign goal'),
+      select('s.mode', L('الهدف المُدخل بـ', 'Target entered as'), [['results', L('عدد النتائج', 'Number of results')], ['budgetTotal', L('الميزانية الكلية', 'Total budget')], ['budgetDaily', L('الميزانية اليومية', 'Daily budget')]], { hintId: 'h-mode', hint: '' }) +
+      field('s.target', '', { lbl: 'l-target', unit: '', unitId: 'u-target', hintId: 'h-target', hint: '' }) +
+      '<div class="two">' + field('s.days', L('مدة الحملة (أيام)', 'Campaign duration (days)'), { unit: L('يوم', 'days'), hint: L('عدد أيام الاختبار', 'Number of test days') }) +
+      field('s.startDate', L('تاريخ بداية الحملة', 'Campaign start date'), { t: 'date', hint: L('مهم لو الميزانية Lifetime', 'Important if the budget is Lifetime') }) + '</div>' +
+      field('s.margin', L('هامش أمان للميزانية (%)', 'Budget safety margin (%)'), { t: 'pct', hint: L('احتياطي لو التكلفة زادت (اتركه 0% لو مش عايزه)', 'A buffer in case the cost rises (leave 0% if you don\'t want it)') })) +
+    card('3', L('إعداد الحملة', 'Campaign setup'),
+      '<div class="two">' + select('s.budgetType', L('نوع الميزانية', 'Budget type'), [['Daily', L('Daily — يومية', 'Daily — per day')], ['Lifetime', L('Lifetime — للفترة كلها', 'Lifetime — for the whole period')]]) +
+      select('s.campaignType', L('نوع الحملة', 'Campaign type'), [['CBO', L('CBO — على الحملة', 'CBO — at campaign level')], ['ABO', L('ABO — على المجموعة', 'ABO — at ad-set level')]]) + '</div>' +
+      '<div class="two">' + field('s.adSets', L('عدد المجموعات (Ad Sets)', 'Number of ad sets (Ad Sets)'), { unit: L('مجموعة', 'ad sets') }) + field('s.adsPerSet', L('الإعلانات في كل مجموعة', 'Ads per ad set'), { unit: L('إعلان', 'ads') }) + '</div>') +
+    card('4', L('إعدادات متقدمة', 'Advanced settings'),
+      ('<div class="f"><label>' + L('مؤشر حجم التعلّم (نتيجة/أسبوع/مجموعة)', 'Learning guide value (results/week/ad set)') + '</label><div class="kpi" style="padding:8px 12px"><b class="num" id="v-learn"></b></div><small class="hint">' + L('مؤشر إرشادي لحجم البيانات — ليس شرطاً لنجاح الحملة', 'A guide value for data volume — not a condition for campaign success') + '</small></div>') +
+      field('s.minBudgetMult', L('أقل ميزانية يومية للمجموعة (× تكلفة النتيجة)', 'Minimum daily budget per ad set (× result cost)'), { unit: '×', hint: L('يعني على الأقل تكلفة نتيجة واحدة يومياً لكل مجموعة', 'That is, at least the cost of one result per day for each ad set') }));
+  var right =
+    card('5', L('النتيجة الرئيسية', 'Main result'),
+      '<div class="note" id="r-msg"></div><div class="kpis">' +
+      ('<div class="kpi main"><span class="l" id="l-total">' + L('الميزانية الإعلانية الكلية للفترة', 'Total ad budget for the period') + '</span><b class="v" id="v-total"></b><small id="n-total"></small></div>') +
+      ('<div class="kpi"><span class="l">' + L('الميزانية اليومية', 'Daily budget') + '</span><b class="v" id="v-daily"></b><small>' + L('الميزانية الكلية ÷ عدد الأيام', 'Total budget ÷ number of days') + '</small></div>') +
+      '<div class="kpi"><span class="l" id="l-res"></span><b class="v" id="v-res"></b><small id="n-res"></small></div>' +
+      '<div class="kpi wide"><span class="l" id="l-dres"></span><b class="v" id="v-dres"></b><small id="n-dres"></small></div>' +
+      ('<div class="kpi wide s-only"><span class="l">' + L('الإيراد الكلي المتوقع', 'Expected total revenue') + '</span><b class="v" id="v-rev"></b><small id="n-rev"></small></div>') +
+      '</div>', 'card-main') +
+    card('6', L('المطلوب إدخاله في Ads Manager', 'What to enter in Ads Manager'),
+      ('<div class="entry"><div class="erow"><div class="t1"><span class="l" id="l-entry"></span><small id="n-entry"></small></div><b class="vv" id="v-entry"></b><button type="button" class="btn ghost xs no-print" id="b-copy-entry">' + L('نسخ الرقم', 'Copy number') + '</button></div>') +
+      ('<div class="erow"><div class="t1"><span class="l">' + L('تاريخ نهاية الحملة (لـ Lifetime)', 'Campaign end date (for Lifetime)') + '</span><small id="n-end"></small></div><b class="vv num" id="v-end"></b></div></div>'));
+  var bottom =
+    card('7', L('تفاصيل التوزيع', 'Distribution details'), ('<div class="scroll"><table><thead><tr><th>' + L('البند', 'Item') + '</th><th class="n">' + L('يومياً', 'Per day') + '</th><th class="n">' + L('إجمالي الفترة', 'Whole-period total') + '</th></tr></thead><tbody id="t-dist"></tbody></table></div><small class="hint" style="margin-top:8px">' + L('متوسط الإعلان رقم نظري للمقارنة فقط — لا يعني أن المنصة ستوزّع الميزانية بالتساوي بين الإعلانات.', 'The average per ad is a theoretical figure for comparison only — it doesn\'t mean the platform will split the budget equally between ads.') + '</small>')) +
+    card('8', L('مؤشرات الأداء والفحص', 'Performance indicators and checks'), '<table class="kv"><tbody id="t-kpi"></tbody></table>');
+  return '<div class="grid"><div class="col">' + left + '</div><div class="col sticky">' + right + '</div></div><div class="row2">' + bottom + '</div>';
+}
+
+function buildScen() {
+  var rowsA = '', rowsB = '', i;
+  for (i = 0; i < 6; i++) rowsA += '<tr data-r="a' + i + ('"><td data-l="' + L('مضاعف النتائج', 'Results multiplier') + '">') + inCell('sc.rows.' + i + '.mult', '×', 'num', (L('مضاعف النتائج — سيناريو', 'Results multiplier — scenario') + ' ') + (i + 1)) + ('</td><td data-l="' + L('افتراض تغيّر التكلفة', 'Assumed cost change') + '">') + inCell('sc.rows.' + i + '.chg', '%', 'pct', (L('افتراض تغيّر التكلفة — سيناريو', 'Assumed cost change — scenario') + ' ') + (i + 1)) + '</td>' +
+    ('<td class="n" data-l="' + L('تكلفة النتيجة المعدّلة', 'Adjusted result cost') + '" data-c="cost"></td><td class="n" data-l="' + L('النتائج المستهدفة', 'Target results') + '" data-c="res"></td><td class="n" data-l="' + L('الميزانية الكلية', 'Total budget') + '" data-c="bud"></td><td class="n" data-l="' + L('الميزانية اليومية', 'Daily budget') + '" data-c="day"></td><td class="n s-only" data-l="' + L('الإيراد المتوقع', 'Expected revenue') + '" data-c="rev"></td><td class="n s-only" data-l="ROAS" data-c="roas"></td><td data-l="' + L('ملاحظة', 'Note') + '" data-c="note"></td></tr>');
+  for (i = 0; i < 8; i++) rowsB += '<tr data-r="b' + i + ('"><td data-l="' + L('التغيّر في التكلفة', 'Change in cost') + '">') + inCell('sc.sens.' + i, '%', 'pct', (L('التغيّر في التكلفة — صف', 'Change in cost — row') + ' ') + (i + 1)) + ('</td><td class="n" data-l="' + L('التكلفة الجديدة', 'New cost') + '" data-c="cost"></td><td class="n s-only" data-l="' + L('ROAS المتوقع', 'Expected ROAS') + '" data-c="roas"></td><td class="n" data-l="' + L('الميزانية الكلية', 'Total budget') + '" data-c="bud"></td><td class="n" data-l="' + L('الميزانية اليومية', 'Daily budget') + '" data-c="day"></td><td class="n" data-l="' + L('الفرق عن الأساسية', 'Difference from base') + '" data-c="diff"></td><td class="s-only" data-l="' + L('الحالة', 'Status') + '" data-c="st"></td></tr>');
+  return ctxBar() + '<div class="grid">' +
+    '<div class="col">' + card('1', L('حاسبة عكسية: لو عندي ميزانية ثابتة، هجيب كام نتيجة؟', 'Reverse calculation: with a fixed budget, how many results will I get?'),
+      field('sc.daily', L('الميزانية اليومية المتاحة', 'Available daily budget'), { cur: true }) + kv([
+        [L('مدة الحملة (أيام)', 'Campaign duration (days)'), 'rv-days'], [L('إجمالي الميزانية', 'Total budget'), 'rv-total'], [L('عدد النتائج (إجمالي)', 'Number of results (total)'), 'rv-res'], [L('النتائج اليومية المتوقعة', 'Expected daily results'), 'rv-dres'],
+        [L('الإيراد المتوقع (إجمالي)', 'Expected revenue (total)'), 'rv-rev', '', 's-only'], [L('الإيراد اليومي المتوقع', 'Expected daily revenue'), 'rv-drev', '', 's-only']])) + '</div>' +
+    '<div class="col">' + card('', L('كيف تقرأها؟', 'How to read it?'), ('<p style="color:var(--muted);font-size:.93rem">' + L('الحاسبة العكسية بتقولك لو ميزانيتك اليومية ثابتة (من غير هامش تقريب للميزانية الكلية) هتجيب كام نتيجة في فترة الحملة، بنفس التكلفة وهامش الأمان اللي في تاب «الحاسبة».', 'The reverse calculator shows how many results a fixed daily budget buys over the campaign period, using the same cost and safety margin as in the «Calculator» tab (without rounding up the total budget).') + '</p><p style="color:var(--muted);font-size:.93rem;margin-top:8px">' + L('وجداول التوسيع والحساسية تحت بتفترض تغيّر تكلفة النتيجة عشان تشوف أثره على الميزانية والـ ROAS. الافتراضات قابلة للتعديل — ماتفترضش إن التكلفة هتفضل ثابتة لما تضاعف الميزانية.', 'The scale-up and sensitivity tables below assume the result cost changes, so you can see the effect on the budget and ROAS. The assumptions are editable — don\'t assume the cost stays flat when you double the budget.') + '</p>')) + '</div></div>' +
+    '<div class="row2" style="grid-template-columns:1fr">' +
+    card('2', L('سيناريوهات التوسيع — مع افتراض تغيّر تكلفة النتيجة', 'Scale-up scenarios — with an assumed change in result cost'), ('<div class="scroll"><table class="tbl stack"><thead><tr><th>' + L('مضاعف النتائج', 'Results multiplier') + '</th><th>' + L('افتراض تغيّر التكلفة', 'Assumed cost change') + '</th><th class="n">' + L('تكلفة النتيجة المعدّلة', 'Adjusted result cost') + '</th><th class="n">' + L('النتائج المستهدفة', 'Target results') + '</th><th class="n">' + L('الميزانية الكلية', 'Total budget') + '</th><th class="n">' + L('الميزانية اليومية', 'Daily budget') + '</th><th class="n s-only">' + L('الإيراد المتوقع', 'Expected revenue') + '</th><th class="n s-only">ROAS</th><th>' + L('ملاحظة', 'Note') + '</th></tr></thead><tbody id="t-sc">') + rowsA + '</tbody></table></div>') +
+    card('3', L('حساسية التكلفة: لو التكلفة زادت أو قلّت، إيه اللي هيحصل؟', 'Cost sensitivity: what happens if the cost goes up or down?'), ('<div class="scroll"><table class="tbl stack"><thead><tr><th>' + L('التغيّر في التكلفة', 'Change in cost') + '</th><th class="n">' + L('التكلفة الجديدة', 'New cost') + '</th><th class="n s-only">' + L('ROAS المتوقع', 'Expected ROAS') + '</th><th class="n">' + L('الميزانية الكلية', 'Total budget') + '</th><th class="n">' + L('الميزانية اليومية', 'Daily budget') + '</th><th class="n">' + L('الفرق عن الميزانية الأساسية', 'Difference from the base budget') + '</th><th class="s-only">' + L('الحالة مقابل ROAS المطلوب', 'Status vs required ROAS') + '</th></tr></thead><tbody id="t-sens">') + rowsB + '</tbody></table></div>') + '</div>';
+}
+function inCell(k, unit, t, label) {
+  return '<div class="ctl"><input id="' + fid(k) + '" type="text" inputmode="decimal" autocomplete="off" data-k="' + k + '" data-t="' + t + '"' + (t === 'pct' ? ' data-pct' : '') + ' aria-label="' + esc(label || k) + '"><span class="u">' + unit + '</span></div>';
+}
+
+function buildProfit() {
+  return ctxBar() + '<div class="note" id="p-na" hidden></div><div class="grid">' +
+    '<div class="col">' +
+    card('1', L('بيانات من الحاسبة', 'Data from the Calculator'), ('<p class="sub2">' + L('مرتبطة بتاب «الحاسبة» — غيّرها من هناك.', 'Linked to the «Calculator» tab — change it there.') + '</p>') + kv([
+      [L('متوسط قيمة الطلب / سعر البيع', 'Average order value / selling price'), 'pl-price'], [L('عدد الـ Purchases المخطط', 'Planned Purchases'), 'pl-purch'], [L('الإنفاق الإعلاني المخطط (إجمالي الفترة)', 'Planned ad spend (whole period)'), 'pl-spend'], [L('تكلفة الـ Purchase الفعلية (CPA)', 'Actual Purchase cost (CPA)'), 'pl-cpa']])) +
+    card('2', L('افتراضات الربحية — مدخلات قابلة للتعديل', 'Profitability assumptions — editable inputs'),
+      field('pr.cogs', L('تكلفة المنتج / COGS لكل أوردر', 'Product cost / COGS per order'), { cur: true, hint: L('سعر الشراء/التصنيع بدون الإعلان', 'Purchase/manufacturing price, excluding ads') }) +
+      field('pr.shipping', L('تكلفة الشحن لكل شحنة', 'Shipping cost per shipment'), { cur: true, hint: L('تكلفة الشحنة الخارجة؛ المرتجع قد يتحمل شحن', 'Outbound shipping cost; returns may also bear shipping') }) +
+      field('pr.payFee', L('رسوم الدفع الإلكتروني (%)', 'Online payment fees (%)'), { t: 'pct', hint: L('مثال: 2.5%', 'e.g. 2.5%') }) +
+      field('pr.confirm', L('نسبة تأكيد الأوردرات (%)', 'Order confirmation rate (%)'), { t: 'pct', hint: L('من الـ Purchases المسجلة، كام أوردر بيتأكد؟', 'Of the recorded Purchases, how many orders get confirmed?') }) +
+      field('pr.delivery', L('نسبة التسليم من الأوردرات المؤكدة (%)', 'Delivery rate of confirmed orders (%)'), { t: 'pct', hint: L('من المؤكد، كام أوردر بيتسلّم؟', 'Of the confirmed orders, how many get delivered?') }) +
+      field('pr.returns', L('نسبة المرتجعات من الأوردرات المسلّمة (%)', 'Return rate of delivered orders (%)'), { t: 'pct', hint: L('من المسلّم، كام أوردر بيرجع؟', 'Of the delivered orders, how many come back?') }) +
+      field('pr.other', L('تكاليف متغيرة أخرى لكل أوردر صافي', 'Other variable costs per net order'), { cur: true, hint: L('تغليف / عمولات / تشغيل متغير', 'Packaging / commissions / variable operations') }) +
+      field('pr.targetMargin', L('هامش الربح المستهدف بعد الإعلانات (%)', 'Target profit margin after ads (%)'), { t: 'pct', hint: L('نسبة مستهدفة من صافي الإيراد المحصل', 'Target share of net collected revenue') })) +
+    '</div><div class="col">' +
+    card('', L('التقييم', 'Assessment'), kv([[(L('Effective CPA لكل أوردر صافي', 'Effective CPA per net order') + '<small>' + L('الإنفاق ÷ الأوردرات الصافية', 'Spend ÷ net orders') + '</small>'), 'pe-cpa'], [(L('Net Revenue ROAS (محصل / Spend)', 'Net Revenue ROAS (collected / spend)') + '<small>' + L('الإيراد المحصل ÷ الإنفاق الإعلاني', 'Collected revenue ÷ ad spend') + '</small>'), 'pe-nroas'],
+      [(L('Ads Manager ROAS المتوقع', 'Expected Ads Manager ROAS') + '<small>' + L('AOV ÷ CPA الأساسي', 'AOV ÷ base CPA') + '</small>'), 'pe-aroas'], [(L('مسافة الأمان عن Break-even CPA', 'Safety distance from break-even CPA') + '<small>' + L('موجب = عندك مساحة قبل الخسارة', 'Positive = you have room before a loss') + '</small>'), 'pe-room1'], [(L('مسافة الأمان عن Target CPA', 'Safety distance from target CPA') + '<small>' + L('موجب = التكلفة ضمن هدف هامش الربح', 'Positive = the cost is within the profit-margin target') + '</small>'), 'pe-room2'], [L('التقييم', 'Assessment'), 'pe-verdict']])) +
+    card('3', L('اقتصاديات الأوردر و Break-even', 'Order economics & break-even'), kv([
+      [(L('إيراد متوقع لكل Purchase مسجل', 'Expected revenue per recorded purchase') + '<small>' + L('بعد التأكيد والتسليم والمرتجعات', 'After confirmation, delivery and returns') + '</small>'), 'po-rev'], [L('COGS متوقع لكل Purchase مسجل', 'Expected COGS per recorded purchase'), 'po-cogs'], [(L('شحن متوقع لكل Purchase مسجل', 'Expected shipping per recorded purchase') + '<small>' + L('محسوب على الشحنات المسلّمة', 'Calculated on delivered shipments') + '</small>'), 'po-ship'],
+      [(L('رسوم دفع متوقعة لكل Purchase مسجل', 'Expected payment fees per recorded purchase') + '<small>' + L('على الإيراد المحصل', 'On collected revenue') + '</small>'), 'po-fee'], [L('تكاليف أخرى متوقعة لكل Purchase مسجل', 'Expected other costs per recorded purchase'), 'po-oth'],
+      [(L('Break-even CPA لكل Purchase مسجل', 'Break-even CPA per recorded purchase') + '<small>' + L('أقصى تكلفة إعلان قبل الربح = صفر', 'Max ad cost before profit hits zero') + '</small>'), 'po-becpa'], [('Break-even ROAS (Ads Manager)<small>' + L('قارنه بالـ ROAS الظاهر في Ads Manager', 'Compare it with the ROAS shown in Ads Manager') + '</small>'), 'po-beroas'],
+      [L('Target CPA لتحقيق هامش الربح', 'Target CPA to hit the profit margin'), 'po-tcpa'], [(L('Target ROAS لتحقيق هامش الربح', 'Target ROAS to hit the profit margin') + '<small>' + L('ROAS اللازم لتحقيق الهامش', 'ROAS needed to hit the margin') + '</small>'), 'po-troas']])) +
+    card('4', L('نتيجة الخطة على مستوى الحملة', 'Campaign-level plan result'), kv([
+      [L('أوردرات مؤكدة متوقعة', 'Expected confirmed orders'), 'pp-conf'], [L('شحنات مسلّمة متوقعة', 'Expected delivered shipments'), 'pp-deliv'], [L('أوردرات صافية بعد المرتجعات', 'Net orders after returns'), 'pp-net'], [L('صافي الإيراد المحصل', 'Net collected revenue'), 'pp-rev'], [L('إجمالي COGS', 'Total COGS'), 'pp-cogs'],
+      [L('إجمالي الشحن', 'Total shipping'), 'pp-ship'], [L('رسوم الدفع', 'Payment fees'), 'pp-fee'], [L('صافي الربح قبل المصاريف الثابتة', 'Net profit before fixed expenses'), 'pp-profit', '', 'hl'], [L('هامش الربح بعد الإعلانات', 'Profit margin after ads'), 'pp-margin']])) +
+    ('</div></div><p class="sub" style="margin:14px 0 0;font-size:.9rem">' + L('مهم: قيم التأكيد والتسليم والمرتجعات والتكاليف التشغيلية افتراضات قابلة للتعديل. استخدم متوسطات العميل الفعلية كلما توفرت؛ الأداة للتخطيط وليست ضماناً للأداء.', 'Important: confirmation, delivery, returns and operating costs are editable assumptions. Use your actual averages whenever available; this tool is for planning and not a guarantee of performance.') + '</p>');
+}
+
+var COST_ROWS; function init_COST_ROWS() { COST_ROWS = [['cpm', L('CPM — تكلفة 1000 ظهور', 'CPM — cost per 1,000 impressions'), L('الإنفاق ÷ الظهور × 1000', 'Spend ÷ impressions × 1000'), 1], ['cpc', L('CPC — تكلفة النقرة', 'CPC — cost per click'), L('الإنفاق ÷ النقرات', 'Spend ÷ clicks'), 1], ['cplpv', L('Cost per LPV — تكلفة زيارة الصفحة', 'Cost per LPV — cost per landing page view'), L('الإنفاق ÷ زيارات الصفحة', 'Spend ÷ landing page views'), 1],
+  ['ctr', L('CTR — نسبة النقر', 'CTR — click-through rate'), L('النقرات ÷ الظهور', 'Clicks ÷ impressions'), 0], ['cpp', L('CPP — تكلفة الأوردر', 'CPP — cost per order'), L('الإنفاق ÷ الأوردرات', 'Spend ÷ orders'), 1], ['cpl', L('CPL — تكلفة الليد', 'CPL — cost per lead'), L('الإنفاق ÷ الـ Leads', 'Spend ÷ Leads'), 1],
+  ['cpf', L('CPF — تكلفة المتابع', 'CPF — cost per follower'), L('الإنفاق ÷ المتابعين', 'Spend ÷ followers'), 1], ['cpi', L('CPI — تكلفة التثبيت', 'CPI — cost per install'), L('الإنفاق ÷ التثبيتات', 'Spend ÷ installs'), 1], ['cpv', L('CPV — تكلفة المشاهدة', 'CPV — cost per view'), L('الإنفاق ÷ مشاهدات ThruPlay', 'Spend ÷ ThruPlay views'), 1],
+  ['roas', L('ROAS الفعلي (x)', 'Actual ROAS (x)'), L('الإيراد ÷ الإنفاق', 'Revenue ÷ spend'), 0], ['aov', L('متوسط قيمة الأوردر — AOV', 'Average order value — AOV'), L('الإيراد ÷ الأوردرات', 'Revenue ÷ orders'), 1], ['clickToOrder', L('نسبة تحويل النقرة إلى أوردر', 'Click-to-order rate'), L('الأوردرات ÷ النقرات', 'Orders ÷ clicks'), 0],
+  ['clickToLead', L('نسبة تحويل النقرة إلى Lead', 'Click-to-lead rate'), L('الـ Leads ÷ النقرات', 'Leads ÷ clicks'), 0], ['cpconv', L('CPConv — تكلفة المحادثة', 'CPConv — cost per conversation'), L('الإنفاق ÷ المحادثات', 'Spend ÷ conversations'), 1], ['cpe', L('CPE — تكلفة التفاعل', 'CPE — cost per engagement'), L('الإنفاق ÷ التفاعلات', 'Spend ÷ engagements'), 1]]; }
+var OBJ_COSTKEY = { 'Sales': 'cpp', 'Leads': 'cpl', 'Followers': 'cpf', 'Traffic - LPV': 'cplpv', 'App Promotion': 'cpi', 'Video Views': 'cpv', 'Awareness': 'cpm', 'Traffic - Link Clicks': 'cpc', 'Messages': 'cpconv', 'Engagement': 'cpe' };
+function buildCosts() {
+  var left = card('1', L('أرقام حملة شغالة (من Ads Manager)', 'Numbers from a running campaign (from Ads Manager)'), ('<p class="sub2">' + L('اترك الخانة فاضية لو مش من هدف حملتك. استخدم أرقام نفس الحملة ونفس الفترة.', 'Leave a field empty if it doesn\'t apply to your campaign objective. Use numbers from the same campaign and the same period.') + '</p>') +
+    field('cs.spend', L('الإنفاق الإعلاني — Amount Spent', 'Amount spent (ad spend)'), { cur: true, hint: L('إجمالي المصروف في الفترة', 'Total spent in the period') }) +
+    field('cs.impressions', L('مرات الظهور — Impressions', 'Impressions')) + field('cs.clicks', L('النقرات على الرابط — Link Clicks', 'Link clicks')) + field('cs.lpv', L('زيارات الصفحة — Landing Page Views', 'Landing page views'), { hint: L('اختياري', 'Optional') }) +
+    field('cs.purchases', L('الأوردرات — Purchases', 'Purchases (orders)'), { hint: L('لو الحملة Sales', 'If the campaign is Sales') }) + field('cs.leads', L('الـ Leads', 'Leads'), { hint: L('لو الحملة Leads', 'If the campaign is Leads') }) + field('cs.followers', L('المتابعين الجدد — Followers', 'New followers'), { hint: L('لو الحملة Followers', 'If the campaign is Followers') }) +
+    field('cs.installs', L('تثبيتات التطبيق — App Installs', 'App installs'), { hint: L('لو الحملة App Promotion', 'If the campaign is App Promotion') }) + field('cs.thruplay', L('مشاهدات الفيديو — ThruPlay', 'ThruPlay video views'), { hint: L('لو الحملة Video Views', 'If the campaign is Video Views') }) +
+    field('cs.purchaseValue', L('إيراد المبيعات — Purchase Value', 'Purchase value (sales revenue)'), { cur: true, hint: L('اختياري: لحساب ROAS الفعلي', 'Optional: to calculate the actual ROAS') }) +
+    field('cs.conversations', L('محادثات الرسائل — Messaging Conversations', 'Messaging conversations'), { hint: L('لو الحملة Messages', 'If the campaign is Messages') }) + field('cs.engagements', L('التفاعلات — Engagements', 'Engagements'), { hint: L('لو الحملة Engagement', 'If the campaign is Engagement') })) +
+    card('3', L('توقّع التكلفة قبل ما تبدأ', 'Estimate the cost before you start'), ('<p class="sub2">' + L('لو معندكش حملات سابقة: ابدأ بتيست صغير وخد الأرقام الفعلية من القسم الأول، ثم حدّث التوقّع.', 'If you have no previous campaigns: start with a small test, take the real numbers from the first section, then update the estimate.') + '</p>') +
+    field('cs.cpm', L('CPM المتوقع', 'Expected CPM'), { cur: true, hint: L('تكلفة 1000 ظهور — من حملات سابقة لنفس السوق', 'Cost per 1,000 impressions — from past campaigns in the same market') }) + field('cs.ctr', L('CTR المتوقع (نسبة النقر)', 'Expected CTR (click-through rate)'), { t: 'pct', hint: L('النقرات ÷ الظهور', 'Clicks ÷ impressions') }) +
+    field('cs.convRate', L('نسبة تحويل النقرة إلى نتيجة', 'Click-to-result rate'), { t: 'pct', hint: L('نتيجة = أوردر / Lead / LPV / محادثة / تثبيت حسب هدفك', 'Result = order / Lead / LPV / conversation / install, depending on your objective') }));
+  var rows = COST_ROWS.map(function (r) { return '<tr data-ck="' + r[0] + '"><td>' + r[1] + '<small class="hint" style="margin:0">' + r[2] + '</small></td><td class="n" data-v></td><td class="n no-print" data-a></td></tr>'; }).join('');
+  var right = '<div class="col">' + card('2', L('التكاليف والنسب المحسوبة', 'Calculated costs and rates'), '<div class="scroll"><table class="tbl"><tbody id="t-costs">' + rows + ('</tbody></table></div><div style="margin-top:10px"><span class="l" style="font-weight:700">' + L('فحص الأرقام:', 'Numbers check:') + ' </span><span id="v-ccheck"></span></div>')) +
+    card('', L('نتيجة التوقّع', 'Estimate result'), '<table class="kv"><tbody id="t-pred"></tbody></table><div id="a-pred" class="no-print" style="margin-top:10px"></div>') + '</div>';
+  return ctxBar() + '<div class="grid"><div class="col">' + left + '</div>' + right + '</div>';
+}
+
+function buildCat() {
+  var rows = '';
+  for (var i = 0; i < CAT_MAX; i++) rows += '<tr data-i="' + i + '"><td class="n dim cat-idx">' + (i + 1) + ('</td><td class="span2" data-l="' + L('اسم المنتج', 'Product name') + '"><div class="ctl nm"><input id="') + fid('cat.items.' + i + '.name') + '" type="text" maxlength="40" autocomplete="off" data-k="cat.items.' + i + ('.name" data-t="text" aria-label="' + L('اسم المنتج', 'Product name') + ' ') + (i + 1) + ('" placeholder="' + L('منتج', 'Product') + ' ') + (i + 1) + '"></div></td>' +
+    ('<td data-l="' + L('السعر', 'Price') + '">') + inCell('cat.items.' + i + '.price', '', 'num', (L('سعر المنتج', 'Product price') + ' ') + (i + 1)) + ('</td><td data-l="' + L('نسبة الأوردرات', 'Order share') + '">') + inCell('cat.items.' + i + '.share', '%', 'pct', (L('نسبة أوردرات المنتج', 'Product order share') + ' ') + (i + 1)) + ('</td><td data-l="' + L('هامش الربح', 'Profit margin') + '">') + inCell('cat.items.' + i + '.margin', '%', 'pct', (L('هامش ربح المنتج', 'Product profit margin') + ' ') + (i + 1)) + '</td>' +
+    ('<td class="n" data-l="' + L('الوزن', 'Weight') + '" data-c="w"></td><td class="n" data-l="' + L('مساهمته في AOV', 'Contribution to AOV') + '" data-c="g"></td><td data-l="' + L('الشريحة', 'Tier') + '" data-c="t"></td></tr>');
+  return ctxBar() + '<div class="note" id="c-na" hidden></div><div class="grid">' +
+    '<div class="col">' + card('1', L('النتيجة', 'Result'), kv([[(L('AOV المرجّح', 'Weighted AOV') + '<small>' + L('انقله لخانة سعر البيع في «الحاسبة»', 'Copy it to the Selling price field in the «Calculator»') + '</small>'), 'ct-aov'], [(L('المتوسط البسيط', 'Simple average') + '<small>' + L('بيساوي المرجّح لو سبت نسب الأوردرات فاضية', 'Equals the weighted figure if you leave order shares empty') + '</small>'), 'ct-simple'], [L('عدد المنتجات', 'Number of products'), 'ct-count'], [L('أرخص منتج', 'Cheapest product'), 'ct-min'], [L('أغلى منتج', 'Most expensive product'), 'ct-max'],
+      [L('نسبة الأغلى للأرخص (x)', 'Most expensive ÷ cheapest (x)'), 'ct-ratio'], [L('تقييم تفاوت الأسعار', 'Price spread assessment'), 'ct-spread'], [(L('هامش الربح المرجّح', 'Weighted profit margin') + '<small>' + L('من هامش كل منتج (اختياري) مرجّح بإيراده', 'From each product\'s margin (optional), weighted by its revenue') + '</small>'), 'ct-wm'], [(L('ROAS التعادل (x)', 'Break-even ROAS (x)') + '<small>' + L('أقل ROAS تتجنب بيه الخسارة (قبل تكاليف تانية)', 'The lowest ROAS that avoids a loss (before other costs)') + '</small>'), 'ct-be'], [L('ROAS المطلوب في «الحاسبة» (x)', 'Required ROAS in the «Calculator» (x)'), 'ct-req'], ['', 'ct-vs']]) +
+      ('<div class="no-print" style="margin-top:10px"><button type="button" class="btn ghost xs" id="b-aov">' + L('استخدم الـ AOV كسعر بيع في الحاسبة', 'Use the AOV as the selling price in the Calculator') + '</button></div>')) + '</div>' +
+    '<div class="col">' + card('3', L('تقسيم الكاتلوج لشرائح (Product Sets)', 'Catalog tiers (Product Sets)'),
+      '<div class="two">' + field('cat.cheapMax', L('رخيص: لحد سعر', 'Cheap: up to price'), { cur: true, ph: '' , wrap: 'w-cheap'}) + field('cat.midMax', L('متوسط: لحد سعر', 'Medium: up to price'), { cur: true, ph: '', wrap: 'w-mid' }) + '</div>' +
+      ('<small class="hint" style="margin:-6px 0 10px">' + L('الافتراضي: تقسيم المدى بين أرخص وأغلى منتج لتلات أجزاء (اكتب رقم لو عايز حدود مختلفة). ما فوق الحد الثاني = غالي.', 'Default: the range between the cheapest and the most expensive product is split into three equal parts (type a number for different limits). Anything above the second limit = expensive.') + '</small>') +
+      ('<div class="scroll"><table class="tbl tight stack"><thead><tr><th>' + L('الشريحة', 'Tier') + '</th><th class="n">' + L('عدد المنتجات', 'Number of products') + '</th><th class="n">' + L('AOV الشريحة', 'Tier AOV') + '</th><th class="n">' + L('حصتها من الأوردرات', 'Share of orders') + '</th><th class="n">' + L('هامش مرجّح', 'Weighted margin') + '</th><th class="n">' + L('ROAS التعادل', 'Break-even ROAS') + '</th><th class="n">' + L('ميزانية مقترحة', 'Suggested budget') + '</th></tr></thead><tbody id="t-tiers"></tbody></table></div>') +
+      ('<small class="hint" style="margin-top:8px">' + L('الميزانية المقترحة = حصة الشريحة من إيراد الكاتلوج. نقطة بداية، وبعد أسبوع وزّع حسب الأداء الفعلي. اعمل Product Set لكل شريحة، وفي «الحاسبة» ادخل AOV الشريحة وROAS المطلوب لها.', 'Suggested budget = the tier\'s share of catalog revenue. A starting point — after a week, rebalance by actual performance. Create one Product Set per tier, and in the «Calculator» enter the tier\'s AOV and its required ROAS.') + '</small>')) + '</div></div>' +
+    '<div class="row2" style="grid-template-columns:1fr">' + card('2', L('المنتجات (لحد 30 منتج)', 'Products (up to 30)'), ('<p class="sub2">' + L('اكتب سعر كل منتج. نسبة الأوردرات = حصته من مبيعات الكاتلوج (لو معرفتش سيبها فاضية فتتحسب بالتساوي). الهامش اختياري.', 'Enter each product\'s price. Order share = its share of the catalog\'s sales (leave it empty and shares are split equally). Margin is optional.') + '</p>') +
+      ('<div class="scroll"><table class="tbl grid2" style="min-width:680px"><thead><tr><th class="n">#</th><th>' + L('اسم المنتج', 'Product name') + '</th><th>' + L('السعر', 'Price') + '</th><th>' + L('نسبة الأوردرات', 'Order share') + '</th><th>' + L('هامش الربح', 'Profit margin') + '</th><th class="n">' + L('الوزن', 'Weight') + '</th><th class="n">' + L('مساهمته في AOV', 'Contribution to AOV') + '</th><th>' + L('الشريحة', 'Tier') + '</th></tr></thead><tbody id="t-cat">') + rows + '</tbody></table></div>' +
+      ('<div class="no-print" style="margin-top:10px"><button type="button" class="btn ghost xs" id="b-more">' + L('+ إضافة صفوف', '+ Add rows') + '</button></div>')) + '</div>';
+}
+
+/* ---------- mount ---------- */
+var TABS; function init_TABS() { TABS = [['calc', L('الحاسبة', 'Calculator'), 0, buildCalc], ['scen', L('سيناريوهات', 'Scenarios'), 0, buildScen], ['profit', L('الربحية', 'Profitability'), 1, buildProfit], ['costs', L('حاسبة التكاليف', 'Costs calculator'), 0, buildCosts], ['cat', L('الكاتلوج', 'Catalog'), 1, buildCat]]; }
+var app = $('#app');
+function initDefs() { init_OBJ_OPTS(); init_COST_ROWS(); init_TABS(); init_MODE_LBL(); init_NOTE(); init_VERDICT(); }
+function mount() {
+  initDefs();
+  $('#tabs').innerHTML = TABS.map(function (t) { return '<button type="button" role="tab" class="tab" id="tab-' + t[0] + '" aria-controls="panel-' + t[0] + '" data-tab="' + t[0] + '">' + t[1] + (t[2] ? '<span class="lock" hidden>Sales</span>' : '') + '</button>'; }).join('');
+  $('#panels').innerHTML = '<div class="printhead" id="printhead"><img src="images/logo.png" alt=""><b id="ph-t"></b></div>' +
+    TABS.map(function (t) { return '<div class="panel" role="tabpanel" id="panel-' + t[0] + '" aria-labelledby="tab-' + t[0] + '" hidden>' + t[3]() + '</div>'; }).join('');
+}
+mount();
+var T = function (id, html) { var e = document.getElementById(id); if (e) e.innerHTML = html; };
+var X = function (id, txt) { var e = document.getElementById(id); if (e) e.textContent = txt; };
+var catShown = 5;
+function computeCatShown() { var last = -1; state.cat.items.forEach(function (it, i) { if (it.name || isNum(it.price)) last = i; }); catShown = Math.min(CAT_MAX, Math.max(5, last + 2)); }
+computeCatShown();
+
+/* ---------- state changes ---------- */
+function revMode(m) { return m === 'revTotal' || m === 'revDaily'; }
+function changeObjective(key) {
+  var s = state.s, old = s.objective;
+  if (key === old) return;
+  state.mem[old] = { cost: s.cost, mode: s.mode, targets: JSON.parse(JSON.stringify(state.targets)) };
+  s.objective = key;
+  var o = OBJ(key), m = state.mem[key], fresh_ = false;
+  if (m) { s.cost = m.cost; s.mode = m.mode; state.targets = m.targets; }
+  else { var ex = EX[key]; s.cost = ex.cost; state.targets = exampleTargets(o, ex.cost, s.price, s.days); fresh_ = true; }
+  if (!o.hasRevenue && revMode(s.mode)) s.mode = 'results';
+  s.target = state.targets[s.mode];
+  if (!o.hasRevenue && (state.tab === 'profit' || state.tab === 'cat')) setTab('calc');
+  if (fresh_) toast(L('غيّرت التكلفة والكمية لأرقام مثال للهدف الجديد — حط أرقام حملتك.', 'I changed the cost and quantity to example numbers for the new objective — enter your campaign numbers.'));
+}
+function changeMode(m) { var s = state.s; state.targets[s.mode] = s.target; s.mode = m; s.target = state.targets[m]; }
+
+/* ---------- input binding ---------- */
+function onInput(e) {
+  var el = e.target, k = el && el.dataset && el.dataset.k;
+  if (!k) return;
+  var t = el.dataset.t, v;
+  if (t === 'sel' || t === 'text' || t === 'date') v = el.value;
+  else { v = parseNum(el.value); if (v !== null && !Number.isNaN(v) && el.hasAttribute('data-pct')) v = v / 100; }
+  if (k === 's.objective') changeObjective(v);
+  else if (k === 's.mode') changeMode(v);
+  else if (k === 's.target') { setP(k, v); state.targets[state.s.mode] = v; }
+  else setP(k, v);
+  if (k.indexOf('cat.items.') === 0) computeCatShownGrow();
+  update(el);
+}
+function computeCatShownGrow() { var before = catShown; computeCatShown(); if (catShown < before) catShown = before; }
+function syncInputs(src) {
+  $$('[data-k]').forEach(function (el) {
+    if (src && el === src && el.tagName === 'INPUT') return;   // never rewrite the field the user is typing in
+    var v = getP(el.dataset.k), t = el.dataset.t, out;
+    if (t === 'sel' || t === 'text' || t === 'date') out = v == null ? '' : String(v);
+    else out = isNum(v) ? trimNum(el.hasAttribute('data-pct') ? v * 100 : v) : '';
+    if (el.value !== out) el.value = out;
+  });
+}
+function applyErrors(prefix, errs) {
+  $$('[data-err^="' + prefix + '."]').forEach(function (el) {
+    var k = el.dataset.err.slice(prefix.length + 1), m = errs && errs[k] ? errText(errs[k]) : '';
+    if (el.textContent !== m) el.textContent = m;
+    var ctl = el.parentNode.querySelector('.ctl'); if (ctl) ctl.classList.toggle('bad', !!m);
+    var inp = el.parentNode.querySelector('input'); if (inp) { if (m) inp.setAttribute('aria-invalid', 'true'); else inp.removeAttribute('aria-invalid'); }
+  });
+}
+
+/* ---------- chrome: labels, visibility, tabs ---------- */
+var MODE_LBL; function init_MODE_LBL() { MODE_LBL = { results: L('عدد النتائج', 'Number of results'), revTotal: L('الإيراد الكلي', 'Total revenue'), revDaily: L('الإيراد اليومي', 'Daily revenue'), budgetTotal: L('الميزانية الكلية', 'Total budget'), budgetDaily: L('الميزانية اليومية', 'Daily budget') }; }
+function renderChrome() {
+  var s = state.s, o = OBJ(s.objective), cu = cur();
+  app.dataset.sales = o.hasRevenue ? '1' : '0'; app.dataset.freq = o.hasFreq ? '1' : '0';
+  $$('[data-cur]').forEach(function (el) { el.textContent = cu; });
+  $$('[data-ctx="obj"]').forEach(function (el) { el.textContent = objLabel(o); });
+  $$('[data-ctx="cur"]').forEach(function (el) { el.textContent = cu; });
+  var sel = document.getElementById('f-s-mode'), set = o.hasRevenue ? 'full' : 'basic';
+  if (sel.dataset.set !== set) {
+    var modes = o.hasRevenue ? ['results', 'revTotal', 'revDaily', 'budgetTotal', 'budgetDaily'] : ['results', 'budgetTotal', 'budgetDaily'];
+    sel.innerHTML = modes.map(function (m) { return '<option value="' + m + '">' + MODE_LBL[m] + '</option>'; }).join(''); sel.dataset.set = set;
+  }
+  X('h-event', (L('التحسين المقترح:', 'Suggested optimization:') + ' ') + o.event);
+  X('l-cost', o.costLabel);
+  T('h-cost', o.divisor === 1000 ? L('تكلفة كل 1000 ظهور (CPM)', 'Cost per 1,000 impressions (CPM)') : (L('مش عارف تحسبه؟ شوف تاب', 'Not sure how to calculate it? See the tab') + ' <button type="button" class="link" data-goto="costs">' + L('حاسبة التكاليف', 'Costs calculator') + '</button>'));
+  var m = s.mode, bud = m === 'budgetTotal' || m === 'budgetDaily';
+  X('l-target', m === 'budgetTotal' ? L('الميزانية الكلية المتاحة', 'Available total budget') : m === 'budgetDaily' ? L('الميزانية اليومية المتاحة', 'Available daily budget') : (m === 'results' || !o.hasRevenue) ? o.qtyLabel : m === 'revTotal' ? L('الإيراد الكلي المطلوب', 'Required total revenue') : L('الإيراد اليومي المطلوب', 'Required daily revenue'));
+  X('u-target', m === 'results' ? '' : cu);
+  X('h-mode', L('اختار: عدد النتائج', 'Choose: number of results') + (o.hasRevenue ? (' ' + L('/ إيراد مطلوب', '/ required revenue')) : '') + (' ' + L('/ ميزانية متاحة', '/ available budget')));
+  X('h-target', bud ? (o.hasRevenue ? L('هنحسب النتائج والإيراد المتوقع من الميزانية دي', 'We\'ll calculate the expected results and revenue from this budget') : L('هنحسب عدد النتائج المتوقعة من الميزانية دي', 'We\'ll calculate the expected number of results from this budget')) : (m === 'results' ? L('الهدف خلال فترة التيست كلها', 'The target for the whole test period') : L('هنحسب عدد النتائج والميزانية والـ ROAS', 'We\'ll calculate the number of results, the budget and the ROAS')));
+  X('v-learn', o.learning > 0 ? String(o.learning) : L('لا ينطبق على هذا الهدف', 'Not applicable for this objective'));
+  TABS.forEach(function (t) {
+    if (!t[2]) return;
+    var b = $('#tab-' + t[0]), dis = !o.hasRevenue;
+    b.setAttribute('aria-disabled', dis ? 'true' : 'false'); $('.lock', b).hidden = !dis;
+  });
+}
+function setTab(id) {
+  state.tab = id;
+  TABS.forEach(function (t) {
+    var on = t[0] === id;
+    var b = $('#tab-' + t[0]); b.setAttribute('aria-selected', on ? 'true' : 'false'); b.tabIndex = on ? 0 : -1;
+    $('#panel-' + t[0]).hidden = !on;
+  });
+}
+function gotoTab(id, scroll) {
+  var t = TABS.filter(function (x) { return x[0] === id; })[0];
+  if (!t) return;
+  if (t[2] && !OBJ(state.s.objective).hasRevenue) {
+    toast(L('تاب «', 'The «') + t[1] + L('» خاص بهدف Sales فقط (الإيراد والـ ROAS).', '» tab is for the Sales objective only (revenue and ROAS).'), { label: L('غيّر الهدف لـ Sales', 'Switch the objective to Sales'), fn: function () { changeObjective('Sales'); setTab(id); update(); } });
+    return;
+  }
+  setTab(id); update(); save();
+  if (scroll) app.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ---------- renderers ---------- */
+function trD(label, a, b) { return '<tr><td>' + label + '</td><td class="n">' + a + '</td><td class="n">' + b + '</td></tr>'; }
+function kvr(label, note, val) { return '<tr><td>' + label + (note ? '<small>' + note + '</small>' : '') + '</td><td>' + val + '</td></tr>'; }
+var lastEntry = null;
+function renderCalc(c) {
+  var s = state.s, o = OBJ(s.objective), cu = cur(), dash = '<span class="dim">—</span>';
+  if (!c.valid) {
+    ['v-total', 'v-daily', 'v-res', 'v-dres', 'v-rev', 'v-entry', 'v-end'].forEach(function (id) { T(id, dash); });
+    ['n-total', 'n-res', 'n-dres', 'n-rev', 'n-entry', 'n-end'].forEach(function (id) { X(id, ''); });
+    X('r-msg', L('كمّل الخانات اللي عليها خطأ (باللون الأحمر) عشان تظهر النتيجة.', 'Fix the fields marked in red to see the result.')); T('t-dist', ''); T('t-kpi', ''); lastEntry = null;
+    X('l-res', (L('عدد النتائج الكلي —', 'Total number of results —') + ' ') + o.unit); X('l-dres', (L('عدد النتائج اليومي المتوقع —', 'Expected daily results —') + ' ') + o.unit);
+    return;
+  }
+  var m = c.main, k = c.kpi, d = c.dist, K6 = o.hasRevenue, bud = m.budgetMode;
+  X('r-msg', bud ? L('بميزانية ' + money(m.totalBudget) + ' ' + cu + ' خلال ' + s.days + ' يوم: المتوقع ' + cnt(m.totalResults) + ' ' + o.unit + ' (≈ ' + cnt(m.dailyResults) + ' يومياً)' + (K6 ? ' — إيراد ' + money(m.revenue) + ' ' + cu + ' (ROAS ' + (k.roasFullBudget).toFixed(1) + 'x)' : ''), 'With a budget of ' + money(m.totalBudget) + ' ' + cu + ' over ' + s.days + ' ' + dW(s.days) + ': expected ' + cnt(m.totalResults) + ' ' + uP(o) + ' (≈ ' + cnt(m.dailyResults) + ' per day)' + (K6 ? ' — revenue ' + money(m.revenue) + ' ' + cu + ' (ROAS ' + (k.roasFullBudget).toFixed(1) + 'x)' : '')) : '');
+  T('v-total', mH(m.totalBudget, cu)); X('n-total', bud ? L('الميزانية اللي دخلتها (إجمالي الفترة)', 'The budget you entered (whole period)') : (o.divisor === 1000 ? L('عدد الظهور × CPM ÷ 1000 × (1 + هامش الأمان)', 'Impressions × CPM ÷ 1000 × (1 + safety margin)') : L('عدد النتائج × التكلفة × (1 + هامش الأمان)', 'Results × cost × (1 + safety margin)')));
+  T('v-daily', mH(m.dailyBudget, cu));
+  X('l-res', (L('عدد النتائج الكلي —', 'Total number of results —') + ' ') + o.unit); T('v-res', '<bdi class="num">' + cnt(m.totalResults) + '</bdi>');
+  X('n-res', bud ? L('محسوب: الميزانية ÷ (التكلفة × (1 + هامش الأمان)) — مقرّب لأسفل', 'Calculated: budget ÷ (cost × (1 + safety margin)) — rounded down') : (s.mode === 'results' || !K6) ? L('الكمية اللي دخلتها', 'The quantity you entered') : L('محسوب: الإيراد ÷ قيمة كل نتيجة (مقرّب لأعلى)', 'Calculated: revenue ÷ value per result (rounded up)'));
+  X('l-dres', (L('عدد النتائج اليومي المتوقع —', 'Expected daily results —') + ' ') + o.unit); T('v-dres', '<bdi class="num">' + cnt(m.dailyResults) + '</bdi>');
+  X('n-dres', L('متوسط يومي = العدد الكلي ÷ ' + s.days + ' يوم (الفعلي بيختلف من يوم ليوم)', 'Daily average = total number ÷ ' + s.days + ' ' + dW(s.days) + ' (the actual number varies from day to day)'));
+  if (K6) { T('v-rev', mH(m.revenue, cu)); X('n-rev', (L('ROAS المتوقع', 'Expected ROAS') + ' ') + xr(k.roas) + ' — ' + (k.roasStatus === 'ok' ? L('متوافق مع الـ ROAS المطلوب', 'Meets the required ROAS') : L('أقل من المطلوب (', 'Below the required level (') + s.roasReq.toFixed(2) + 'x)')); }
+  // ⑥
+  X('l-entry', L('ميزانية ' + (s.campaignType === 'CBO' ? 'الحملة (CBO)' : 'كل مجموعة (ABO)') + ' — ' + s.budgetType, (s.campaignType === 'CBO' ? 'Campaign budget (CBO)' : 'Budget for each ad set (ABO)') + ' — ' + s.budgetType));
+  T('v-entry', mH(c.entryBudget, cu)); lastEntry = c.entryBudget;
+  X('n-entry', s.campaignType === 'CBO' ? (L('فيسبوك هيوزّع الميزانية تلقائياً على', 'Facebook will distribute the budget automatically across') + ' ') + s.adSets + (' ' + L('مجموعة', 'ad sets')) : L('اكتب نفس الرقم في كل مجموعة (', 'Enter the same number in every ad set (') + s.adSets + (' ' + L('مجموعة)', 'ad sets)')));
+  T('v-end', '<bdi>' + dmy(c.endDate) + '</bdi>');
+  X('n-end', s.budgetType === 'Lifetime' ? L('حدد البداية والنهاية دي في فيسبوك', 'Set these start and end dates in Facebook') : L('في Daily: شغّل الحملة لـ ' + s.days + ' يوم وبعدين وقّف', 'In Daily: run the campaign for ' + s.days + ' ' + dW(s.days) + ', then stop'));
+  // ⑦
+  var rows = trD(L('الميزانية الإعلانية (', 'Ad budget (') + cu + ')', '<bdi>' + money(d.budget[0]) + '</bdi>', '<bdi>' + money(d.budget[1]) + '</bdi>');
+  if (K6) rows += trD(L('الإيراد المتوقع (', 'Expected revenue (') + cu + ')', '<bdi>' + money(d.revenue[0]) + '</bdi>', '<bdi>' + money(d.revenue[1]) + '</bdi>');
+  rows += trD((L('النتائج المتوقعة —', 'Expected results —') + ' ') + esc(o.unit), '<bdi>' + cnt(d.results[0]) + '</bdi>', '<bdi>' + cnt(d.results[1]) + '</bdi>');
+  rows += trD(L('متوسط ميزانية كل مجموعة (', 'Average budget per ad set (') + cu + ')', '<bdi>' + money(d.perAdSet[0]) + '</bdi>', '<bdi>' + money(d.perAdSet[1]) + '</bdi>');
+  rows += trD(L('متوسط نظري لكل إعلان (', 'Theoretical average per ad (') + cu + L(') — للمقارنة فقط', ') — for comparison only'), '<bdi>' + money(d.perAd) + '</bdi>', '<span class="dim">—</span>');
+  T('t-dist', rows);
+  // ⑧
+  var h = '';
+  if (K6) {
+    h += kvr(L('قيمة كل نتيجة متوقعة (', 'Expected value per result (') + cu + ')', L('سعر البيع', 'Selling price'), mH(k.valuePerResult, cu));
+    h += kvr(L('ROAS المتوقع (x)', 'Expected ROAS (x)'), '', '<bdi class="num">' + xr(k.roas) + '</bdi> ' + (k.roasStatus === 'ok' ? badge('ok', L('متوافق مع الـ ROAS المطلوب', 'Meets the required ROAS')) : badge('warn', L('أقل من المطلوب (', 'Below the required level (') + s.roasReq.toFixed(2) + 'x)')));
+    h += kvr((L('أقصى', 'Max') + ' ') + esc(o.abbr) + (' ' + L('مسموح لتحقيق الـ ROAS (', 'allowed to reach the ROAS (')) + cu + ')', '', mH(k.maxCost, cu) + ' ' + (k.maxCostStatus === 'ok' ? badge('ok', L('التكلفة ضمن الحد المسموح', 'Cost is within the allowed limit')) : badge('warn', L('التكلفة أعلى من المسموح — اخفضها أو زوّد القيمة', 'Cost is above the allowed maximum — lower it or raise the value'))));
+    h += kvr(L('ROAS لو صرفت الميزانية كلها (x)', 'ROAS if you spend the whole budget (x)'), L('بيختلف عن المتوقع لو حطيت هامش أمان', 'Differs from the expected figure if you set a safety margin'), '<bdi class="num">' + xr(k.roasFullBudget) + '</bdi>');
+    h += kvr(L('عدد الأوردرات المتوقعة', 'Expected number of orders'), L('نفس الكمية المطلوبة', 'Same as the required quantity'), '<bdi class="num">' + cnt(k.orders) + '</bdi>');
+    h += kvr(L('تكلفة الأوردر الفعلية المتوقعة (', 'Expected actual cost per order (') + cu + ')', '', mH(k.actualCost, cu));
+  }
+  h += kvr(L('إجمالي عدد الإعلانات', 'Total number of ads'), s.adSets + (' ' + L('مجموعة ×', 'ad sets ×') + ' ') + s.adsPerSet + (' ' + L('إعلان', 'ads')), '<bdi class="num">' + k.adsTotal + '</bdi>');
+  h += kvr(L('نتائج كل مجموعة (إجمالي الفترة)', 'Results per ad set (whole period)'), '', '<bdi class="num">' + cnt(k.perAdSetResults) + '</bdi>');
+  h += kvr(L('نتائج كل مجموعة أسبوعياً', 'Results per ad set per week'), '', '<bdi class="num">' + cnt(k.perAdSetWeekly) + '</bdi> ' + (k.learningStatus === 'na' ? badge('info', L('لا ينطبق على هذا الهدف', 'Not applicable for this objective')) : k.learningStatus === 'ok' ? badge('ok', L('حجم بيانات مناسب للمؤشر', 'Data volume suits the guide value')) : badge('info', L('أقل من المؤشر الإرشادي — ليس حكماً على نجاح الحملة', 'Below the guide value — not a verdict on campaign success'))));
+  h += kvr(L('مؤشر ميزانية يومية مبدئي للمجموعة (', 'Starting daily budget guide per ad set (') + cu + ')', '', mH(k.minDailyBudget, cu) + ' ' + (k.minDailyStatus === 'ok' ? badge('ok', L('أعلى من المؤشر المبدئي', 'Above the starting guide value')) : badge('info', L('أقل من المؤشر — راجع حجم الجمهور والهدف والتكلفة التاريخية', 'Below the guide value — check audience size, objective and historical cost'))));
+  if (o.hasFreq) h += kvr(L('الوصول المتوقع (Reach)', 'Expected reach (Reach)'), L('الظهور ÷ التكرار', 'Impressions ÷ frequency'), '<bdi class="num">' + cnt(k.reach) + '</bdi>');
+  T('t-kpi', h);
+}
+
+function setRow(tr, cells) { Object.keys(cells).forEach(function (c) { var td = $('[data-c="' + c + '"]', tr); if (td) td.innerHTML = cells[c]; }); }
+var NOTE; function init_NOTE() { NOTE = { current: ['cur', L('الإعداد الحالي', 'Current')], up: ['warn', L('افتراض ارتفاع التكلفة', 'Cost rises')], down: ['ok', L('افتراض تحسن التكلفة', 'Cost falls')], flat: [null, L('افتراض ثابت', 'Cost flat')] }; }
+function renderScen(c) {
+  var cu = cur(), dash = '<span class="dim">—</span>', o = OBJ(state.s.objective), K6 = o.hasRevenue, i;
+  var rowsA = $$('#t-sc tr'), rowsB = $$('#t-sens tr');
+  if (!c.valid) {
+    ['rv-days', 'rv-total', 'rv-res', 'rv-dres', 'rv-rev', 'rv-drev'].forEach(function (id) { T(id, dash); });
+    rowsA.concat(rowsB).forEach(function (tr) { $$('[data-c]', tr).forEach(function (td) { td.innerHTML = dash; }); });
+    return;
+  }
+  var sc = state.sc;
+  var okA = sc.rows.map(function (r) { return isNum(r.mult) && isNum(r.chg); });
+  var inp = { daily: isNum(sc.daily) ? sc.daily : NaN, rows: sc.rows.map(function (r) { return { mult: isNum(r.mult) ? r.mult : 0, chg: isNum(r.chg) ? r.chg : 0 }; }), sens: sc.sens.map(function (v) { return isNum(v) ? v : 0; }) };
+  var R = E.scenarios(state.s, inp, c), rv = R.reverse;
+  T('rv-days', '<bdi class="num">' + state.s.days + '</bdi>');
+  if (R.dailyOk) {
+    T('rv-total', mH(rv.totalBudget, cu)); T('rv-res', '<bdi class="num">' + cnt(rv.results) + '</bdi> ' + esc(uP(o))); T('rv-dres', '<bdi class="num">' + cnt(rv.daily) + '</bdi>');
+    if (K6) { T('rv-rev', mH(rv.revenue, cu)); T('rv-drev', mH(rv.revenueDaily, cu)); }
+  } else ['rv-total', 'rv-res', 'rv-dres', 'rv-rev', 'rv-drev'].forEach(function (id) { T(id, dash); });
+  R.rows.forEach(function (r, i) {
+    var tr = rowsA[i];
+    if (!okA[i]) { tr.className = ''; setRow(tr, { cost: dash, res: dash, bud: dash, day: dash, rev: dash, roas: dash, note: '' }); return; }
+    var nt = NOTE[r.note];
+    tr.className = r.note === 'current' ? 'cur' : '';
+    setRow(tr, { cost: mH(r.cost, cu), res: '<bdi class="num">' + cnt(r.results) + '</bdi>', bud: mH(r.budget, cu), day: mH(r.daily, cu), rev: K6 ? mH(r.revenue, cu) : '', roas: K6 ? '<bdi class="num">' + xr(r.roas) + '</bdi>' : '', note: nt[0] ? badge(nt[0], nt[1]) : '<span class="dim">' + nt[1] + '</span>' });
+  });
+  R.sens.forEach(function (r, i) {
+    var tr = rowsB[i];
+    if (!isNum(sc.sens[i])) { setRow(tr, { cost: dash, roas: dash, bud: dash, day: dash, diff: dash, st: '' }); return; }
+    setRow(tr, { cost: mH(r.cost, cu), roas: K6 ? '<bdi class="num">' + xr(r.roas) + '</bdi>' : '', bud: mH(r.budget, cu), day: mH(r.daily, cu), diff: '<bdi class="num">' + (r.diff > 0 ? '+' : '') + money(r.diff) + '</bdi>', st: K6 ? (r.status === 'ok' ? badge('ok', L('ROAS محقق', 'ROAS achieved')) : badge('warn', L('ROAS أقل من المطلوب', 'ROAS below the required level'))) : '' });
+  });
+}
+
+var VERDICT; function init_VERDICT() { VERDICT = { loss_before_ads: ['bad', L('اقتصاديات الأوردر غير مربحة قبل الإعلان', 'Order economics are unprofitable before ads')], above_breakeven: ['bad', L('CPA أعلى من Break-even', 'CPA is above break-even')], below_target: ['warn', L('مربح لكن أقل من هامش الربح المستهدف', 'Profitable but below the target profit margin')], good: ['ok', L('ضمن هدف الربحية', 'Within the profitability target')] }; }
+function renderProfit(c) {
+  var cu = cur(), dash = '<span class="dim">—</span>', o = OBJ(state.s.objective);
+  var ids = ['pl-price', 'pl-purch', 'pl-spend', 'pl-cpa', 'pe-cpa', 'pe-nroas', 'pe-aroas', 'pe-room1', 'pe-room2', 'pe-verdict', 'po-rev', 'po-cogs', 'po-ship', 'po-fee', 'po-oth', 'po-becpa', 'po-beroas', 'po-tcpa', 'po-troas', 'pp-conf', 'pp-deliv', 'pp-net', 'pp-rev', 'pp-cogs', 'pp-ship', 'pp-fee', 'pp-profit', 'pp-margin'];
+  function clear() { ids.forEach(function (id) { T(id, dash); }); }
+  if (!o.hasRevenue || !c.valid) { clear(); applyErrors('pr', {}); return; }
+  var P = E.profit(state.s, state.pr, c);
+  applyErrors('pr', P.errors || {});
+  if (!P.valid) { clear(); return; }
+  var l = P.linked, po = P.perOrder, pl = P.plan, n = function (v) { return '<bdi class="num">' + cnt(v) + '</bdi>'; };
+  T('pl-price', mH(l.price, cu)); T('pl-purch', n(l.purchases)); T('pl-spend', mH(l.spend, cu)); T('pl-cpa', mH(l.cpa, cu));
+  T('pe-cpa', mH(P.effectiveCpa, cu)); T('pe-nroas', '<bdi class="num">' + xr(P.netRoas) + '</bdi>'); T('pe-aroas', '<bdi class="num">' + xr(P.adsManagerRoas) + '</bdi>');
+  T('pe-room1', mH(P.roomBreakeven, cu)); T('pe-room2', mH(P.roomTarget, cu)); var v = VERDICT[P.verdict]; T('pe-verdict', badge(v[0], v[1]));
+  T('po-rev', mH(po.revenue, cu)); T('po-cogs', mH(po.cogs, cu)); T('po-ship', mH(po.shipping, cu)); T('po-fee', mH(po.payFee, cu)); T('po-oth', mH(po.other, cu));
+  T('po-becpa', mH(po.breakevenCpa, cu)); T('po-beroas', isNum(po.breakevenRoas) ? '<bdi class="num">' + xr(po.breakevenRoas) + '</bdi>' : dash);
+  T('po-tcpa', mH(po.targetCpa, cu)); T('po-troas', isNum(po.targetRoas) ? '<bdi class="num">' + xr(po.targetRoas) + '</bdi>' : dash);
+  T('pp-conf', n(pl.confirmed)); T('pp-deliv', n(pl.delivered)); T('pp-net', n(pl.net)); T('pp-rev', mH(pl.netRevenue, cu)); T('pp-cogs', mH(pl.cogs, cu)); T('pp-ship', mH(pl.shipping, cu)); T('pp-fee', mH(pl.payFees, cu));
+  T('pp-profit', mH(pl.profit, cu)); T('pp-margin', '<bdi class="num">' + pc(pl.margin) + '</bdi>');
+}
+
+function pc2(n) { return isNum(n) ? (n * 100).toFixed(2) + '%' : '—'; }
+var lastCosts = null;
+function renderCosts() {
+  var cu = cur(), o = OBJ(state.s.objective), R = E.costs(state.cs), a = R.actual, key = OBJ_COSTKEY[o.key];
+  lastCosts = R;
+  COST_ROWS.forEach(function (r) {
+    var tr = $('#t-costs [data-ck="' + r[0] + '"]'), v = a[r[0]], txt;
+    if (!isNum(v)) txt = '<span class="dim">—</span>';
+    else if (r[0] === 'roas') txt = '<bdi class="num">' + xr(v) + '</bdi>';
+    else if (r[0] === 'ctr' || r[0] === 'clickToOrder' || r[0] === 'clickToLead') txt = '<bdi class="num">' + pc2(v) + '</bdi>';
+    else txt = mH(v, cu);
+    $('[data-v]', tr).innerHTML = txt;
+    var match = r[0] === key; tr.className = match ? 'cur' : '';
+    $('[data-a]', tr).innerHTML = match && isNum(v) ? '<button type="button" class="btn ghost xs" data-use-cost="' + r[0] + ('">' + L('استخدمه في الحاسبة', 'Use in Calculator') + '</button>') : '';
+  });
+  T('v-ccheck', a.check === 'ok' ? badge('ok', L('الأرقام منطقية', 'The numbers look consistent')) : badge('warn', a.check === 'clicks_gt_impr' ? L('النقرات أكبر من الظهور — راجع الأرقام', 'Clicks exceed impressions — check the numbers') : L('زيارات الصفحة أكبر من النقرات — راجع الأرقام', 'Landing page views exceed clicks — check the numbers')));
+  var p = R.predicted;
+  T('t-pred', kvr(L('CPC المتوقع (', 'Expected CPC (') + cu + ')', 'CPM ÷ 1000 ÷ CTR', mH(p.cpc, cu)) + kvr(L('تكلفة النتيجة المتوقعة (', 'Expected result cost (') + cu + ')', L('CPC ÷ نسبة التحويل ← استخدمها كتكلفة نتيجة متوقعة حسب الهدف', 'CPC ÷ conversion rate ← use it as the expected result cost for your objective'), mH(p.resultCost, cu)) +
+    kvr(L('نقرات كل 1000 ظهور', 'Clicks per 1,000 impressions'), '1000 × CTR', isNum(p.clicksPer1000) ? '<bdi class="num">' + cnt(p.clicksPer1000) + '</bdi>' : '<span class="dim">—</span>') + kvr(L('نتائج كل 1000 ظهور', 'Results per 1,000 impressions'), L('النقرات × نسبة التحويل', 'Clicks × conversion rate'), isNum(p.resultsPer1000) ? '<bdi class="num">' + (Math.round(p.resultsPer1000 * 1000) / 1000) + '</bdi>' : '<span class="dim">—</span>'));
+  T('a-pred', isNum(p.resultCost) ? ('<button type="button" class="btn ghost xs" data-use-cost="resultCost">' + L('استخدمها كتكلفة في الحاسبة', 'Use it as the cost in the Calculator') + '</button>') : '');
+}
+
+var lastCat = null;
+function renderCat(c) {
+  var cu = cur(), o = OBJ(state.s.objective), dash = '<span class="dim">—</span>';
+  var trs = $$('#t-cat tr');
+  trs.forEach(function (tr, i) { tr.hidden = i >= catShown; });
+  $('#b-more').hidden = catShown >= CAT_MAX;
+  var ids = ['ct-aov', 'ct-simple', 'ct-count', 'ct-min', 'ct-max', 'ct-ratio', 'ct-spread', 'ct-wm', 'ct-be', 'ct-req', 'ct-vs'];
+  if (!o.hasRevenue || !c.valid) { ids.forEach(function (id) { T(id, dash); }); T('t-tiers', ''); lastCat = null; return; }
+  var cat = {
+    items: state.cat.items.map(function (it) { return { name: it.name, price: isNum(it.price) ? it.price : null, share: isNum(it.share) ? it.share : null, margin: isNum(it.margin) ? it.margin : null }; }),
+    cheapMax: isNum(state.cat.cheapMax) ? state.cat.cheapMax : null, midMax: isNum(state.cat.midMax) ? state.cat.midMax : null
+  };
+  var R = E.catalog(state.s, cat, c); lastCat = R;
+  R.rows.forEach(function (r, i) {
+    var tr = trs[i]; if (!tr) return;
+    setRow(tr, { w: r.empty ? '' : '<bdi class="num">' + pc(r.weight) + '</bdi>', g: r.empty ? '' : mH(r.contrib, cu), t: r.empty ? '' : esc(tierName(r.tier)) });
+  });
+  var chp = document.getElementById('f-cat-cheapMax'), mdp = document.getElementById('f-cat-midMax');
+  chp.placeholder = R.count ? String(R.defaultCheapMax) : ''; mdp.placeholder = R.count ? String(R.defaultMidMax) : '';
+  T('ct-aov', mH(R.aov, cu)); T('ct-simple', mH(R.simple, cu)); T('ct-count', '<bdi class="num">' + R.count + '</bdi>'); T('ct-min', mH(R.min, cu)); T('ct-max', mH(R.max, cu));
+  T('ct-ratio', '<bdi class="num">' + (Math.round(R.ratio * 100) / 100) + '</bdi>');
+  T('ct-spread', R.spread === 'none' ? dash : R.spread === 'close' ? badge('ok', L('الأسعار قريبة — رقم AOV واحد كفاية', 'Prices are close — one AOV figure is enough')) : R.spread === 'mixed' ? badge('warn', L('متفاوتة — الأفضل تحدد نسب الأوردرات', 'Spread out — better to set order shares')) : badge('bad', L('تفاوت كبير — قسّم لشرائح', 'Large gap — split into tiers')));
+  T('ct-wm', '<bdi class="num">' + pc(R.wMargin) + '</bdi>'); T('ct-be', isNum(R.breakevenRoas) ? '<bdi class="num">' + xr(R.breakevenRoas) + '</bdi>' : dash);
+  T('ct-req', '<bdi class="num">' + xr(R.roasReq) + '</bdi>');
+  T('ct-vs', R.roasVsBreakeven === 'ok' ? badge('ok', L('أعلى من التعادل', 'Above break-even')) : R.roasVsBreakeven === 'bad' ? badge('bad', L('أقل من ROAS التعادل — هتخسر', 'Below break-even ROAS — you will lose money')) : '');
+  T('t-tiers', R.tiers.map(function (t) {
+    return ('<tr><td data-l="' + L('الشريحة', 'Tier') + '"><b>') + esc(tierName(t.name)) + ('</b></td><td class="n" data-l="' + L('عدد المنتجات', 'Number of products') + '"><bdi class="num">') + t.count + ('</bdi></td><td class="n" data-l="' + L('AOV الشريحة', 'Tier AOV') + '">') + mH(t.aov, cu) + ('</td><td class="n" data-l="' + L('حصتها من الأوردرات', 'Share of orders') + '"><bdi class="num">') + pc(t.share) + ('</bdi></td><td class="n" data-l="' + L('هامش مرجّح', 'Weighted margin') + '"><bdi class="num">') + pc(t.margin) + ('</bdi></td><td class="n" data-l="' + L('ROAS التعادل', 'Break-even ROAS') + '">') + (isNum(t.breakevenRoas) ? '<bdi class="num">' + xr(t.breakevenRoas) + '</bdi>' : dash) + ('</td><td class="n" data-l="' + L('ميزانية مقترحة', 'Suggested budget') + '"><bdi class="num">') + pc(t.budgetShare) + '</bdi></td></tr>';
+  }).join(''));
+}
+
+/* ---------- mobile summary bar ---------- */
+var vis = { app: false, main: false };
+var lastBar = ['—', '—', '—'];
+function renderBar(c) {
+  var cu = cur();
+  if (c && c.valid) lastBar = [money(c.main.totalBudget) + ' ' + cu, money(c.main.dailyBudget) + ' ' + cu, cnt(c.main.totalResults)];
+  else lastBar = ['—', '—', '—'];
+  X('sb-1', lastBar[0]); X('sb-2', lastBar[1]); X('sb-3', lastBar[2]); X('sb-3l', OBJ(state.s.objective).abbr === 'CPP' ? L('أوردرات', 'Orders') : L('النتائج', 'Results'));
+  var show = state.tab === 'calc' && vis.app && !vis.main && window.matchMedia('(max-width:980px)').matches;
+  $('#sumbar').classList.toggle('on', show); document.body.classList.toggle('has-bar', show);
+}
+
+var lastC = null;
+function update(src) {
+  var c = E.calc(state.s); lastC = c;
+  renderChrome(); syncInputs(src); applyErrors('s', c.errors);
+  renderCalc(c); renderScen(c); renderProfit(c); renderCosts(); renderCat(c); renderBar(c);
+  $('#ph-t').textContent = (L('حاسبة الميزانية الإعلانية —', 'Ads Budget Calculator —') + ' ') + state.s.objective + ' · ' + state.s.currency + ' · ' + new Date().toISOString().slice(0, 10);
+  save();
+}
+
+/* ---------- events ---------- */
+var panels = $('#panels');
+panels.addEventListener('input', onInput);
+panels.addEventListener('change', onInput);
+document.addEventListener('click', function (e) {
+  var g = e.target.closest && e.target.closest('[data-goto]');
+  if (g) { e.preventDefault(); gotoTab(g.dataset.goto, true); return; }
+  var tb = e.target.closest && e.target.closest('[data-tab]');
+  if (tb) { gotoTab(tb.dataset.tab, false); return; }
+  var uc = e.target.closest && e.target.closest('[data-use-cost]');
+  if (uc && lastCosts) {
+    var k = uc.dataset.useCost, v = k === 'resultCost' ? lastCosts.predicted.resultCost : lastCosts.actual[k];
+    if (isNum(v)) { state.s.cost = Math.round(v * 100) / 100; update(); toast(L('اتنقلت التكلفة (', 'Cost (') + money(state.s.cost) + L(') لخانة التكلفة في تاب الحاسبة.', ') moved to the Cost field in the Calculator tab.'), { label: L('افتح الحاسبة', 'Open the Calculator'), fn: function () { gotoTab('calc', true); } }); }
+  }
+});
+$('#tabs').addEventListener('keydown', function (e) {
+  var keys = lang === 'ar' ? { ArrowLeft: 1, ArrowRight: -1, Home: 'h', End: 'e' } : { ArrowRight: 1, ArrowLeft: -1, Home: 'h', End: 'e' }; if (!(e.key in keys)) return;
+  var ids = TABS.map(function (t) { return t[0]; }), i = ids.indexOf(state.tab), n = ids.length;
+  var j = e.key === 'Home' ? 0 : e.key === 'End' ? n - 1 : (i + keys[e.key] + n) % n;   // RTL: ArrowLeft = next
+  e.preventDefault(); gotoTab(ids[j], false); var b = $('#tab-' + ids[j]); if (b) b.focus();
+});
+function bindPanelButtons() {
+$('#b-copy-entry').addEventListener('click', function () {
+  if (!isNum(lastEntry)) return;
+  copyText(String(Math.round(lastEntry * 100) / 100)).then(function () { toast((L('اتنسخ الرقم:', 'Number copied:') + ' ') + money(lastEntry)); }, function () { toast((L('مقدرتش أنسخ — انسخ الرقم يدوياً:', 'Couldn\'t copy — copy the number manually:') + ' ') + money(lastEntry)); });
+});
+$('#b-aov').addEventListener('click', function () {
+  if (lastCat && lastCat.applicable && lastCat.count) { state.s.price = Math.round(lastCat.aov * 100) / 100; update(); toast(L('اتنقل الـ AOV (', 'AOV (') + money(state.s.price) + L(') لخانة سعر البيع في الحاسبة.', ') moved to the Selling price field in the Calculator.'), { label: L('افتح الحاسبة', 'Open the Calculator'), fn: function () { gotoTab('calc', true); } }); }
+  else toast(L('أضف سعر منتج واحد على الأقل الأول.', 'Add at least one product price first.'));
+});
+$('#b-more').addEventListener('click', function () { catShown = Math.min(CAT_MAX, catShown + 5); update(); });
+}
+bindPanelButtons();
+$('#b-share').addEventListener('click', function () {
+  var url = location.href.split('#')[0] + '#d=' + encodeState();
+  copyText(url).then(function () { toast(L('اتنسخ لينك الحساب — أي حد يفتحه هيشوف نفس الأرقام.', 'Calculation link copied — anyone who opens it will see the same numbers.')); }, function () { try { history.replaceState(null, '', '#d=' + encodeState()); } catch (e) { /* ignore */ } toast(L('انسخ اللينك من شريط العنوان فوق.', 'Copy the link from the address bar above.')); });
+});
+$('#b-print').addEventListener('click', function () { window.print(); });
+var resetT = null;
+$('#b-reset').addEventListener('click', function () {
+  var b = this;
+  if (b.dataset.armed) {
+    clearTimeout(resetT); delete b.dataset.armed; b.innerHTML = D2('مسح الكل', 'Clear all');
+    var tab = state.tab; state = fresh(); state.tab = tab; computeCatShown();
+    try { localStorage.removeItem(KEY); } catch (e) { /* ignore */ }
+    setTab('calc'); update(); toast(L('رجعنا للأرقام المثال.', 'Reset to the example numbers.'));
+  } else {
+    b.dataset.armed = '1'; b.innerHTML = D2('تأكيد المسح؟', 'Confirm reset?'); resetT = setTimeout(function () { delete b.dataset.armed; b.innerHTML = D2('مسح الكل', 'Clear all'); }, 3500);
+  }
+});
+$('#sumbar').addEventListener('click', function () { document.getElementById('card-main').scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+$('#sumbar').addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); } });
+window.addEventListener('resize', function () { renderBar(lastC); });
+window.addEventListener('beforeprint', function () { update(); });
+var io = null;
+if ('IntersectionObserver' in window) {
+  io = new IntersectionObserver(function (es) { es.forEach(function (en) { vis[en.target === app ? 'app' : 'main'] = en.isIntersecting; }); renderBar(lastC); }, { threshold: 0.05 });
+}
+function observeCard() { if (!io) return; io.disconnect(); io.observe(app); io.observe(document.getElementById('card-main')); }
+observeCard();
+
+/* ---------- static page bits ---------- */
+function staticBits() {
+  var s0 = E.defaults(), c0 = E.calc(s0), o0 = OBJ(s0.objective), cu0 = s0.currency;
+  X('s-title', L('مبيعات (Sales) — ' + s0.target + ' أوردر بتكلفة ' + s0.cost + ' ' + cu0 + ' خلال ' + s0.days + ' أيام', 'Sales — ' + s0.target + ' orders at ' + s0.cost + ' ' + cu0 + ' each, over ' + s0.days + ' days'));
+  T('s-big', '<bdi>' + money(c0.main.totalBudget) + '</bdi> <span style="font-size:1rem;color:var(--muted)">' + cu0 + (' ' + L('ميزانية كلية', 'total budget') + '</span>'));
+  T('s-dl', ('<dt>' + L('الميزانية اليومية', 'Daily budget') + '</dt><dd>') + mH(c0.main.dailyBudget, cu0) + ('</dd><dt>' + L('أوردرات يومياً', 'Orders per day') + '</dt><dd><bdi>') + cnt(c0.main.dailyResults) + ('</bdi></dd><dt>' + L('الإيراد المتوقع (سعر البيع', 'Expected revenue (selling price') + ' ') + s0.price + ')</dt><dd>' + mH(c0.main.revenue, cu0) + ('</dd><dt>' + L('ROAS المتوقع', 'Expected ROAS') + '</dt><dd><bdi>') + xr(c0.main.roas) + '</bdi></dd>');
+  X('yr', String(new Date().getFullYear()));
+  T('obj-table', ('<thead><tr><th>' + L('الهدف', 'Objective') + '</th><th>' + L('وحدة النتيجة', 'Result unit') + '</th><th>' + L('اختصار التكلفة', 'Cost abbreviation') + '</th><th>' + L('الحدث المقترح في Ads Manager', 'Suggested event in Ads Manager') + '</th><th class="n">' + L('مؤشر التعلّم', 'Learning guide value') + '</th><th>' + L('إيراد و ROAS', 'Revenue & ROAS') + '</th></tr></thead><tbody>') +
+    OB.map(function (o0) { var o = OBJ(o0.key); return '<tr><td><b dir="ltr">' + esc(o.key) + '</b>' + (o.ar === o.key ? '' : ' <span class="dim">— ' + esc(o.ar) + '</span>') + '</td><td>' + esc(o.unit) + '</td><td><span class="tag" dir="ltr">' + esc(o.abbr) + '</span></td><td class="ev">' + esc(o.event) + '</td><td class="n">' + (o.learning ? o.learning : '<span class="dim">—</span>') + '</td><td>' + (o.hasRevenue ? badge('ok', L('متاح', 'Available')) : ('<span class="dim">' + L('لا ينطبق', 'Not applicable') + '</span>')) + '</td></tr>'; }).join('') + '</tbody>');
+  var msg = L('أهلاً، استخدمت حاسبة الميزانية الإعلانية وعايز أستفسر.', 'Hello, I used the Ads Budget Calculator and have a question.');
+  $$('[data-wa]').forEach(function (a) { a.setAttribute('href', 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg)); });
+}
+staticBits();
+
+
+/* ---------- language ---------- */
+function applyLangChrome() {
+  document.title = L('حاسبة الميزانية الإعلانية — احسب ميزانية حملاتك مجاناً | Alrefay Eldesouky', 'Ads Budget Calculator — plan your campaign budget for free | Alrefay Eldesouky');
+  var md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', L('أداة مجانية تحسب لك الميزانية الكلية واليومية وعدد النتائج المتوقعة وتوزيع الميزانية على المجموعات لأي هدف إعلاني — مع ROAS والربحية للمبيعات. من غير تسجيل.', 'A free tool that calculates your total and daily budget, the expected results and how the budget splits across ad sets for any ad objective — with ROAS and profitability for sales. No signup.'));
+  [['nav-main', L('التنقل', 'Navigation')], ['sample-aside', L('مثال محسوب', 'Worked example')], ['tabs', L('أقسام الحاسبة', 'Calculator sections')],
+   ['sumbar', L('ملخص النتيجة — اضغط للانتقال للنتائج', 'Result summary — tap to jump to the results')], ['lang', L('Switch to English', 'التبديل إلى العربية')]].forEach(function (p) {
+    var e = document.getElementById(p[0]); if (e) e.setAttribute('aria-label', p[1]);
+  });
+}
+function setLang(l) {
+  if (l === lang) return;
+  lang = l;
+  var d = document.documentElement;
+  d.setAttribute('lang', l); d.setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr'); d.className = 'm-' + l; d.setAttribute('data-lang', l);
+  try { localStorage.setItem(LANGKEY, l); } catch (e) { /* storage blocked: the choice just won't be remembered */ }
+  var rb = $('#b-reset'); clearTimeout(resetT); delete rb.dataset.armed; rb.innerHTML = D2('مسح الكل', 'Clear all');
+  $('#toast').hidden = true;
+  mount(); bindPanelButtons(); observeCard(); staticBits(); setTab(state.tab); applyLangChrome(); update();
+}
+$('#lang').addEventListener('click', function () { setLang(lang === 'ar' ? 'en' : 'ar'); });
+
+/* ---------- start ---------- */
+setTab(state.tab);
+applyLangChrome();
+update();
+if (loadedFromLink) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) { /* ignore */ } toast(L('اتفتح حساب مشارَك معاك — دي الأرقام اللي اتبعتتلك.', 'A shared calculation was opened — these are the numbers that were sent to you.')); }
+})();
+
+</script>
+</body>
+</html>
