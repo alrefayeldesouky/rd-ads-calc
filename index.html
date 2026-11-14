@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="ar" dir="rtl" class="m-ar" data-lang="ar">
+<html lang="ar" dir="rtl" class="m-ar" data-lang="ar" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<script>(function(){var l='ar';try{var q=/[?&]lang=(ar|en)/.exec(location.search);if(q)l=q[1];else{var s=localStorage.getItem('rdAdsCalc.lang');if(s==='en'||s==='ar')l=s}}catch(e){}var d=document.documentElement;d.setAttribute('lang',l);d.setAttribute('dir',l==='ar'?'rtl':'ltr');d.className='m-'+l;d.setAttribute('data-lang',l)})()</script>
 <title>حاسبة الميزانية الإعلانية | Ads Budget Calculator — Alrefay Eldesouky</title>
 <meta name="description" content="أداة مجانية تحسب الميزانية الكلية واليومية وعدد النتائج المتوقعة وتوزيع الميزانية على المجموعات لأي هدف إعلاني — مع ROAS والربحية للمبيعات. من غير تسجيل. | A free tool that calculates your total and daily budget, the expected results and how the budget splits across ad sets for any ad objective — with ROAS and profitability for sales. No signup.">
 <meta name="theme-color" content="#121212">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="dark light">
+<script>(function(){var l='ar';try{var q=/[?&]lang=(ar|en)/.exec(location.search);if(q)l=q[1];else{var s=localStorage.getItem('rdAdsCalc.lang');if(s==='en'||s==='ar')l=s}}catch(e){}var d=document.documentElement;d.setAttribute('lang',l);d.setAttribute('dir',l==='ar'?'rtl':'ltr');d.className='m-'+l;d.setAttribute('data-lang',l);var t='dark';try{var qt=/[?&]theme=(light|dark)/.exec(location.search);if(qt)t=qt[1];else{var st=localStorage.getItem('rdAdsCalc.theme');if(st==='light'||st==='dark')t=st}}catch(e){}d.setAttribute('data-theme',t);if(t==='light'){var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content','#f6f4ec')}})()</script>
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_EG">
 <meta property="og:locale:alternate" content="en_US">
@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap">
 <style>
 :root{
-  --bg:#121212;--panel:#1b1b1b;--panel2:#242424;--line:#3a3a38;--fg:#f7f7f2;--muted:#b9b9b2;--yellow:#ffed00;--ink:#101010;
+  --bg:#121212;--panel:#1b1b1b;--panel2:#242424;--line:#3a3a38;--fg:#f7f7f2;--muted:#b9b9b2;--yellow:#ffed00;--ink:#101010;--accent:#ffed00;
   --ok:#a6c85a;--warn:#ffb84d;--bad:#ff7d70;--info:#9fb7d9;
   --display:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;
   color-scheme:dark;
@@ -59,14 +59,14 @@ bdi{unicode-bidi:isolate}
 .brand{font-weight:800;font-size:1.02rem;letter-spacing:.2px;direction:ltr;unicode-bidi:isolate}
 .top nav{margin-inline-start:auto;display:flex;gap:4px;align-items:center}
 .top nav a.l{font-weight:600;font-size:.93rem;text-decoration:none;color:var(--muted);padding:8px 10px;border-radius:8px}
-.top nav a.l:hover{color:var(--yellow)}
+.top nav a.l:hover{color:var(--accent)}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font:inherit;font-weight:800;font-size:1rem;text-decoration:none;
   background:var(--yellow);color:var(--ink);border:2px solid var(--yellow);border-radius:999px;padding:10px 24px;min-height:44px;cursor:pointer;transition:transform .15s,background .15s}
 .btn:hover{background:#fff36b;border-color:#fff36b;transform:translateY(-1px)}
 .btn svg{width:20px;height:20px;flex:none}
-.btn.ghost{background:transparent;color:var(--yellow)}
+.btn.ghost{background:transparent;color:var(--accent)}
 .btn.ghost:hover{background:rgba(255,237,0,.12);border-color:var(--yellow)}
 .btn.sm{padding:6px 16px;font-size:.92rem;min-height:40px}
 .btn.xs{padding:3px 12px;font-size:.84rem;min-height:32px;border-width:1.5px}
@@ -75,15 +75,15 @@ bdi{unicode-bidi:isolate}
 .hero{padding-block:54px 34px;display:grid;gap:34px;grid-template-columns:1.15fr .85fr;align-items:center}
 .kicker{display:inline-block;font-weight:800;font-size:.9rem;color:var(--ink);background:var(--yellow);padding:3px 14px;border-radius:6px;margin-bottom:16px}
 h1{font-weight:900;font-size:clamp(2rem,5.2vw,3.5rem);line-height:1.3;text-wrap:balance}
-h1 mark{background:none;color:var(--yellow);text-decoration:underline;text-decoration-thickness:5px;text-underline-offset:10px}
+h1 mark{background:none;color:var(--accent);text-decoration:underline;text-decoration-thickness:5px;text-underline-offset:10px}
 .lead{margin-top:18px;font-size:1.15rem;color:#e6e6df;max-width:36em}
 .acts{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
 .trust{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:.92rem;list-style:none;padding:0}
-.trust li::before{content:"✓";color:var(--yellow);font-weight:900;margin-inline-end:6px}
+.trust li::before{content:"✓";color:var(--accent);font-weight:900;margin-inline-end:6px}
 .sample{background:rgba(27,27,27,.94);border:1px solid var(--line);border-radius:20px;padding:20px 22px;box-shadow:0 0 0 8px rgba(255,237,0,.06)}
 .sample .tg{font-size:.82rem;font-weight:800;color:var(--ink);background:var(--yellow);border-radius:6px;padding:1px 10px;display:inline-block}
 .sample h2{all:unset;display:block;margin:10px 0 2px;font-weight:800;font-size:1.02rem;color:#e6e6df}
-.sample .big{font-size:clamp(2.2rem,5vw,3rem);font-weight:900;color:var(--yellow);line-height:1.2}
+.sample .big{font-size:clamp(2.2rem,5vw,3rem);font-weight:900;color:var(--accent);line-height:1.2}
 .sample dl{margin:12px 0 0;display:grid;grid-template-columns:1fr auto;gap:6px 14px;border-top:1px solid var(--line);padding-top:12px}
 .sample dt{color:var(--muted);font-size:.93rem}
 .sample dd{margin:0;font-weight:800;text-align:end}
@@ -91,7 +91,7 @@ h1 mark{background:none;color:var(--yellow);text-decoration:underline;text-decor
 
 /* sections */
 section{padding-block:56px 6px}
-h2.t{display:inline-block;font-weight:900;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.4;color:var(--yellow);border-bottom:4px solid var(--yellow);padding-bottom:2px;margin-bottom:16px}
+h2.t{display:inline-block;font-weight:900;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.4;color:var(--accent);border-bottom:4px solid var(--yellow);padding-bottom:2px;margin-bottom:16px}
 .sub{color:var(--muted);max-width:46em;margin-bottom:24px}
 h3{font-weight:800;font-size:1.1rem;color:#fff}
 
@@ -104,14 +104,14 @@ h3{font-weight:800;font-size:1.1rem;color:#fff}
 .tabs{display:flex;gap:4px;padding:8px 12px 0;background:var(--panel);overflow-x:auto;scrollbar-width:thin;border-bottom:1px solid var(--line)}
 .tab{flex:none;font:inherit;font-weight:700;font-size:.97rem;color:var(--muted);background:transparent;border:0;border-bottom:3px solid transparent;padding:10px 16px;cursor:pointer;white-space:nowrap;border-radius:8px 8px 0 0}
 .tab:hover{color:var(--fg)}
-.tab[aria-selected=true]{color:var(--yellow);border-bottom-color:var(--yellow);background:rgba(255,237,0,.06)}
+.tab[aria-selected=true]{color:var(--accent);border-bottom-color:var(--yellow);background:rgba(255,237,0,.06)}
 .tab[aria-disabled=true]{opacity:.45}
 .tab .lock{font-size:.72rem;font-weight:800;border:1px solid currentColor;border-radius:5px;padding:0 5px;margin-inline-start:6px}
 .panel{padding:18px}
 .ctx{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:14px;color:var(--muted);font-size:.92rem}
 .ctx b{color:var(--fg)}
 .chip{display:inline-block;border:1px solid var(--line);background:var(--panel2);border-radius:999px;padding:1px 12px;font-weight:700;font-size:.86rem;color:var(--fg)}
-.link{background:none;border:0;color:var(--yellow);font:inherit;font-weight:700;cursor:pointer;text-decoration:underline;padding:0}
+.link{background:none;border:0;color:var(--accent);font:inherit;font-weight:700;cursor:pointer;text-decoration:underline;padding:0}
 
 .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:16px;align-items:start}
 .col{display:grid;gap:16px;min-width:0}
@@ -137,7 +137,7 @@ html[dir=ltr] .ctl input[inputmode]{text-align:left}
 .ctl select{cursor:pointer}
 .ctl select option{background:#1b1b1b;color:var(--fg)}
 .ctl .u{display:grid;place-items:center;padding:0 12px;background:var(--panel2);color:var(--muted);font-weight:700;font-size:.85rem;border-inline-start:1.5px solid var(--line);white-space:nowrap}
-.ctl input[type=date]{direction:ltr;color-scheme:dark}
+.ctl input[type=date]{direction:ltr;color-scheme:inherit}
 html[dir=rtl] .ctl input[type=date]{text-align:right}
 html[dir=ltr] .ctl input[type=date]{text-align:left}
 .hint{display:block;color:var(--muted);font-size:.82rem;margin-top:3px;line-height:1.5}
@@ -154,7 +154,7 @@ html[dir=ltr] .ctl input[type=date]{text-align:left}
 .cu{font-size:.78em;font-weight:700;color:var(--muted)}
 .kpi small{display:block;color:var(--muted);font-size:.8rem;line-height:1.45;margin-top:2px}
 .kpi.main{grid-column:1/-1;border-color:var(--yellow);background:linear-gradient(135deg,rgba(255,237,0,.1),rgba(255,237,0,.02))}
-.kpi.main .v{font-size:2.3rem;color:var(--yellow)}
+.kpi.main .v{font-size:2.3rem;color:var(--accent)}
 .kpi.wide{grid-column:1/-1}
 .note{background:rgba(255,237,0,.07);border:1px solid rgba(255,237,0,.28);border-radius:10px;padding:8px 12px;font-size:.9rem;margin-bottom:10px}
 .note.warn{background:rgba(255,184,77,.08);border-color:rgba(255,184,77,.4)}
@@ -165,7 +165,7 @@ html[dir=ltr] .ctl input[type=date]{text-align:left}
 .st.warn{color:var(--warn)}.st.warn::before{content:"!"}
 .st.bad{color:var(--bad)}.st.bad::before{content:"✕"}
 .st.info{color:var(--info)}.st.info::before{content:"i"}
-.st.cur{color:var(--yellow)}.st.cur::before{content:"◀"}
+.st.cur{color:var(--accent)}.st.cur::before{content:"◀"}
 
 .entry{display:grid;gap:10px}
 .erow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px 13px}
@@ -195,7 +195,7 @@ tr.cur td{background:rgba(255,237,0,.06)}
 .kv td:last-child{font-weight:800;text-align:end}
 .kv td small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
 .dim{color:#77776f}
-.sep td{background:rgba(255,255,255,.03);font-weight:800;color:var(--yellow);font-size:.86rem}
+.sep td{background:rgba(255,255,255,.03);font-weight:800;color:var(--accent);font-size:.86rem}
 
 [data-sales="0"] .s-only,[data-sales="0"] [data-show="sales"]{display:none!important}
 [data-freq="0"] [data-show="freq"],[data-freq="0"] .f-only{display:none!important}
@@ -205,7 +205,7 @@ tr.cur td{background:rgba(255,237,0,.06)}
 .sumbar .c{flex:1;min-width:0;text-align:center}
 .sumbar .c b{display:block;font-weight:900;font-size:1.02rem;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sumbar .c span{display:block;font-size:.7rem;color:var(--muted);line-height:1.3}
-.sumbar .c:first-child b{color:var(--yellow)}
+.sumbar .c:first-child b{color:var(--accent)}
 
 /* toast */
 .toast{position:fixed;inset-inline:16px;bottom:78px;margin-inline:auto;max-width:460px;z-index:90;background:#2a2a28;border:1px solid var(--yellow);color:var(--fg);border-radius:12px;padding:10px 14px;font-weight:600;font-size:.93rem;box-shadow:0 8px 30px rgba(0,0,0,.5);display:flex;gap:12px;align-items:center}
@@ -223,7 +223,7 @@ tr.cur td{background:rgba(255,237,0,.06)}
 .faq details{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;padding:0 16px}
 .faq summary{cursor:pointer;font-weight:800;padding:13px 0;list-style:none;display:flex;gap:10px;align-items:center}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";margin-inline-start:auto;color:var(--yellow);font-weight:900;font-size:1.3rem;line-height:1}
+.faq summary::after{content:"+";margin-inline-start:auto;color:var(--accent);font-weight:900;font-size:1.3rem;line-height:1}
 .faq details[open] summary::after{content:"−"}
 .faq details p{color:#e0e0d9;padding-bottom:14px;font-size:.97rem}
 .cta{margin-top:56px;background:linear-gradient(135deg,rgba(255,237,0,.12),rgba(255,237,0,.03));border:1px solid rgba(255,237,0,.35);border-radius:22px;padding:30px 26px;display:flex;flex-wrap:wrap;gap:18px 30px;align-items:center}
@@ -313,6 +313,39 @@ html[dir=ltr] .hint,html[dir=ltr] .err{text-align:start}
 @media (max-width:520px){.lang{padding:5px 12px}.top .wrap{gap:8px}}
 @media (max-width:400px){.brand{display:none}}
 
+/* ---- theme toggle */
+.theme{display:inline-grid;place-items:center;width:40px;height:40px;padding:0;border-radius:50%;border:2px solid var(--line);background:transparent;color:var(--accent);cursor:pointer;transition:border-color .15s,background .15s}
+.theme:hover{border-color:var(--yellow);background:rgba(255,237,0,.08)}
+.theme svg{width:20px;height:20px}
+.theme .i-moon{display:none}
+html[data-theme=light] .theme .i-sun{display:none}
+html[data-theme=light] .theme .i-moon{display:block}
+.lang{color:var(--accent)}
+h1 mark{text-decoration-color:var(--yellow)}
+@media (max-width:520px){.theme{width:38px;height:38px}}
+
+/* ---- light theme (brand yellow stays a fill; text uses the darker --accent) */
+html[data-theme=light]{--bg:#f6f4ec;--panel:#ffffff;--panel2:#f1eee3;--line:#d9d4c2;--fg:#17170f;--muted:#5d5b4e;--accent:#6b5c00;--ok:#2f6f00;--warn:#995300;--bad:#b3261e;--info:#1f4fa3;color-scheme:light}
+html[data-theme=light] .page{background:linear-gradient(rgba(246,244,236,.95),rgba(246,244,236,.97)),url(images/bg.jpg) center top/900px auto repeat}
+html[data-theme=light] .top{background:rgba(246,244,236,.95)}
+html[data-theme=light] .lead,html[data-theme=light] .sample h2{color:#2b2a20}
+html[data-theme=light] h3,html[data-theme=light] .faq details p,html[data-theme=light] .cta p,html[data-theme=light] .toast{color:var(--fg)}
+html[data-theme=light] .sample{background:#fff;box-shadow:0 0 0 8px rgba(255,237,0,.28)}
+html[data-theme=light] .app{background:var(--panel)}
+html[data-theme=light] .ctl{background:#fff}
+html[data-theme=light] .ctl select option{background:#fff;color:var(--fg)}
+html[data-theme=light] .note{background:rgba(255,237,0,.28);border-color:rgba(130,112,0,.5)}
+html[data-theme=light] .note.warn{background:rgba(255,160,40,.16);border-color:rgba(180,100,0,.5)}
+html[data-theme=light] th,html[data-theme=light] .sep td{background:rgba(0,0,0,.04)}
+html[data-theme=light] tr.cur td,html[data-theme=light] .hl td,html[data-theme=light] .tab[aria-selected=true]{background:rgba(255,237,0,.3)}
+html[data-theme=light] .kpi.main{background:linear-gradient(135deg,rgba(255,237,0,.38),rgba(255,237,0,.12))}
+html[data-theme=light] .btn.ghost:hover,html[data-theme=light] .lang:hover,html[data-theme=light] .theme:hover{background:rgba(255,237,0,.35)}
+html[data-theme=light] .sumbar{background:rgba(255,255,255,.97)}
+html[data-theme=light] .toast{background:#fffdf0;box-shadow:0 8px 30px rgba(0,0,0,.18)}
+html[data-theme=light] .cta{background:linear-gradient(135deg,rgba(255,237,0,.4),rgba(255,237,0,.12));border-color:rgba(130,112,0,.45)}
+html[data-theme=light] .brandlink img,html[data-theme=light] footer .fl img{background:#121212;border-radius:9px;padding:4px 7px;box-sizing:content-box}
+html[data-theme=light] .tbl.stack tr.cur{border-color:#b9a400}
+
 </style>
 </head>
 <body>
@@ -327,6 +360,7 @@ html[dir=ltr] .hint,html[dir=ltr] .err{text-align:start}
       <a class="l" href="#how"><span class="l-ar">إزاي تشتغل</span><span class="l-en">How it works</span></a>
       <a class="l" href="#objectives"><span class="l-ar">الأهداف</span><span class="l-en">Objectives</span></a>
       <a class="l" href="#faq"><span class="l-ar">أسئلة</span><span class="l-en">FAQ</span></a>
+      <button class="theme" id="theme" type="button" aria-label="Switch to light mode"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
       <button class="lang" id="lang" type="button" aria-label="Switch to English"><span class="l-ar" lang="en" dir="ltr">EN</span><span class="l-en" lang="ar" dir="rtl">عربي</span></button>
       <a class="btn sm" data-wa href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"/></svg><span class="l-ar">واتساب</span><span class="l-en">WhatsApp</span></a>
     </nav>
@@ -1476,13 +1510,26 @@ function staticBits() {
 staticBits();
 
 
+/* ---------- theme ---------- */
+var THEMEKEY = 'rdAdsCalc.theme';
+var theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+function setTheme(x) {
+  theme = x;
+  document.documentElement.setAttribute('data-theme', x);
+  try { localStorage.setItem(THEMEKEY, x); } catch (e) { /* storage blocked: the choice just won't be remembered */ }
+  var mt = document.querySelector('meta[name="theme-color"]'); if (mt) mt.setAttribute('content', x === 'light' ? '#f6f4ec' : '#121212');
+  applyLangChrome();
+}
+$('#theme').addEventListener('click', function () { setTheme(theme === 'dark' ? 'light' : 'dark'); });
+
 /* ---------- language ---------- */
 function applyLangChrome() {
   document.title = L('حاسبة الميزانية الإعلانية — احسب ميزانية حملاتك مجاناً | Alrefay Eldesouky', 'Ads Budget Calculator — plan your campaign budget for free | Alrefay Eldesouky');
   var md = document.querySelector('meta[name="description"]');
   if (md) md.setAttribute('content', L('أداة مجانية تحسب لك الميزانية الكلية واليومية وعدد النتائج المتوقعة وتوزيع الميزانية على المجموعات لأي هدف إعلاني — مع ROAS والربحية للمبيعات. من غير تسجيل.', 'A free tool that calculates your total and daily budget, the expected results and how the budget splits across ad sets for any ad objective — with ROAS and profitability for sales. No signup.'));
   [['nav-main', L('التنقل', 'Navigation')], ['sample-aside', L('مثال محسوب', 'Worked example')], ['tabs', L('أقسام الحاسبة', 'Calculator sections')],
-   ['sumbar', L('ملخص النتيجة — اضغط للانتقال للنتائج', 'Result summary — tap to jump to the results')], ['lang', L('Switch to English', 'التبديل إلى العربية')]].forEach(function (p) {
+   ['sumbar', L('ملخص النتيجة — اضغط للانتقال للنتائج', 'Result summary — tap to jump to the results')], ['lang', L('Switch to English', 'التبديل إلى العربية')],
+   ['theme', theme === 'dark' ? L('التبديل إلى الوضع الفاتح', 'Switch to light mode') : L('التبديل إلى الوضع الداكن', 'Switch to dark mode')]].forEach(function (p) {
     var e = document.getElementById(p[0]); if (e) e.setAttribute('aria-label', p[1]);
   });
 }
