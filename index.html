@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>حاسبة الميزانية الإعلانية | Ads Budget Calculator — Alrefay Eldesouky</title>
-<meta name="description" content="أداة مجانية تحسب الميزانية الكلية واليومية وعدد النتائج المتوقعة وتوزيع الميزانية على المجموعات لأي هدف إعلاني — مع ROAS والربحية للمبيعات. من غير تسجيل. | A free tool that calculates your total and daily budget, the expected results and how the budget splits across ad sets for any ad objective — with ROAS and profitability for sales. No signup.">
+<meta name="description" content="أداة مجانية تحسب الميزانية الكلية واليومية وعدد النتائج المتوقعة وتوزيع الميزانية على المجموعات لأي هدف إعلاني، مع ROAS والربحية لحملات المبيعات. دون تسجيل. | A free tool that calculates your total and daily budget, the expected results and how the budget splits across ad sets for any ad objective — with ROAS and profitability for sales. No signup.">
 <meta name="theme-color" content="#121212">
 <meta name="color-scheme" content="dark light">
 <script>(function(){var l='ar';try{var q=/[?&]lang=(ar|en)/.exec(location.search);if(q)l=q[1];else{var s=localStorage.getItem('rdAdsCalc.lang');if(s==='en'||s==='ar')l=s}}catch(e){}var d=document.documentElement;d.setAttribute('lang',l);d.setAttribute('dir',l==='ar'?'rtl':'ltr');d.className='m-'+l;d.setAttribute('data-lang',l);var t='dark';try{var qt=/[?&]theme=(light|dark)/.exec(location.search);if(qt)t=qt[1];else{var st=localStorage.getItem('rdAdsCalc.theme');if(st==='light'||st==='dark')t=st}}catch(e){}d.setAttribute('data-theme',t);if(t==='light'){var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content','#f6f4ec')}})()</script>
@@ -13,7 +13,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:site_name" content="Alrefay Eldesouky">
 <meta property="og:title" content="حاسبة الميزانية الإعلانية | Ads Budget Calculator">
-<meta property="og:description" content="احسب ميزانية حملاتك والـ ROAS والربحية قبل ما تصرف جنيه · Plan your ad budget, ROAS and profit before you spend a penny">
+<meta property="og:description" content="احسب ميزانية حملاتك والـ ROAS والربحية قبل إطلاق الحملة · Plan your ad budget, ROAS and profit before you launch">
 <meta property="og:url" content="https://alrefayeldesouky.github.io/rd-ads-calc/">
 <meta property="og:image" content="https://alrefayeldesouky.github.io/rd-ads-calc/images/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -26,6 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap">
+<script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
   --bg:#121212;--panel:#1b1b1b;--panel2:#242424;--line:#3a3a38;--fg:#f7f7f2;--muted:#b9b9b2;--yellow:#ffed00;--ink:#101010;--accent:#ffed00;
@@ -38,7 +39,7 @@
 html{scroll-behavior:smooth;scroll-padding-top:78px;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--display);font-size:16.5px;line-height:1.7;
   padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
-.page{background:linear-gradient(rgba(14,14,14,.88),rgba(14,14,14,.92)),url(images/bg.jpg) center top/900px auto repeat}
+.page{background-color:var(--bg);background-image:radial-gradient(760px 420px at 50% 300px,rgba(18,18,18,.82),rgba(18,18,18,.35) 60%,transparent 100%),radial-gradient(1000px 520px at 50% -60px,rgba(255,237,0,.08),transparent 70%),linear-gradient(180deg,rgba(18,18,18,.1) 0,rgba(18,18,18,.5) 760px,rgba(18,18,18,.78) 1500px),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='504' height='504'%3E%3Crect width='504' height='504' fill='%230e0e0e'/%3E%3Cpolygon points='3%2C81 81%2C81 79.5%2C84 1.5%2C84' fill='%23060606'/%3E%3Cpolygon points='3%2C3 3%2C81 1.5%2C84 1.5%2C6' fill='%23060606' opacity='.7'/%3E%3Crect x='3' y='3' width='78' height='78' rx='2' fill='%231c1c1c'/%3E%3Crect x='5' y='3' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='87%2C81 165%2C81 162.5%2C86 84.5%2C86' fill='%23060606'/%3E%3Cpolygon points='87%2C3 87%2C81 84.5%2C86 84.5%2C8' fill='%23060606' opacity='.7'/%3E%3Crect x='87' y='3' width='78' height='78' rx='2' fill='%231a1a1a'/%3E%3Crect x='89' y='3' width='74' height='1.5' fill='%232a2a2a'/%3E%3Crect x='171' y='3' width='78' height='78' rx='2' fill='%23181818'/%3E%3Crect x='173' y='3' width='74' height='1.5' fill='%232a2a2a'/%3E%3Crect x='255' y='3' width='78' height='78' rx='2' fill='%231e1e1e'/%3E%3Crect x='257' y='3' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='339%2C81 417%2C81 413.0%2C89 335.0%2C89' fill='%23060606'/%3E%3Cpolygon points='339%2C3 339%2C81 335.0%2C89 335.0%2C11' fill='%23060606' opacity='.7'/%3E%3Crect x='339' y='3' width='78' height='78' rx='2' fill='%231a1a1a'/%3E%3Crect x='341' y='3' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='423%2C81 501%2C81 497.0%2C89 419.0%2C89' fill='%23060606'/%3E%3Cpolygon points='423%2C3 423%2C81 419.0%2C89 419.0%2C11' fill='%23060606' opacity='.7'/%3E%3Crect x='423' y='3' width='78' height='78' rx='2' fill='%231c1c1c'/%3E%3Crect x='425' y='3' width='74' height='1.5' fill='%232a2a2a'/%3E%3Crect x='3' y='87' width='78' height='78' rx='2' fill='%231a1a1a'/%3E%3Crect x='5' y='87' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='87%2C165 165%2C165 162.5%2C170 84.5%2C170' fill='%23060606'/%3E%3Cpolygon points='87%2C87 87%2C165 84.5%2C170 84.5%2C92' fill='%23060606' opacity='.7'/%3E%3Crect x='87' y='87' width='78' height='78' rx='2' fill='%23202020'/%3E%3Crect x='89' y='87' width='74' height='1.5' fill='%232a2a2a'/%3E%3Crect x='171' y='87' width='78' height='78' rx='2' fill='%231c1c1c'/%3E%3Crect x='173' y='87' width='74' height='1.5' fill='%232a2a2a'/%3E%3Crect x='255' y='87' width='78' height='78' rx='2' fill='%23181818'/%3E%3Crect x='257' y='87' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='339%2C165 417%2C165 414.5%2C170 336.5%2C170' fill='%23060606'/%3E%3Cpolygon points='339%2C87 339%2C165 336.5%2C170 336.5%2C92' fill='%23060606' opacity='.7'/%3E%3Crect x='339' y='87' width='78' height='78' rx='2' fill='%231a1a1a'/%3E%3Crect x='341' y='87' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='423%2C165 501%2C165 497.0%2C173 419.0%2C173' fill='%23060606'/%3E%3Cpolygon points='423%2C87 423%2C165 419.0%2C173 419.0%2C95' fill='%23060606' opacity='.7'/%3E%3Crect x='423' y='87' width='78' height='78' rx='2' fill='%231a1a1a'/%3E%3Crect x='425' y='87' width='74' height='1.5' fill='%232a2a2a'/%3E%3Crect x='3' y='171' width='78' height='78' rx='2' fill='%23181818'/%3E%3Crect x='5' y='171' width='74' height='1.5' fill='%232a2a2a'/%3E%3Crect x='87' y='171' width='78' height='78' rx='2' fill='%23181818'/%3E%3Crect x='89' y='171' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='171%2C249 249%2C249 245.0%2C257 167.0%2C257' fill='%23060606'/%3E%3Cpolygon points='171%2C171 171%2C249 167.0%2C257 167.0%2C179' fill='%23060606' opacity='.7'/%3E%3Crect x='171' y='171' width='78' height='78' rx='2' fill='%23202020'/%3E%3Crect x='173' y='171' width='74' height='1.5' fill='%232a2a2a'/%3E%3Crect x='255' y='171' width='78' height='78' rx='2' fill='%231c1c1c'/%3E%3Crect x='257' y='171' width='74' height='1.5' fill='%232a2a2a'/%3E%3Crect x='339' y='171' width='78' height='78' rx='2' fill='%23181818'/%3E%3Crect x='341' y='171' width='74' height='1.5' fill='%232a2a2a'/%3E%3Crect x='423' y='171' width='78' height='78' rx='2' fill='%231e1e1e'/%3E%3Crect x='425' y='171' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='3%2C333 81%2C333 78.5%2C338 0.5%2C338' fill='%23060606'/%3E%3Cpolygon points='3%2C255 3%2C333 0.5%2C338 0.5%2C260' fill='%23060606' opacity='.7'/%3E%3Crect x='3' y='255' width='78' height='78' rx='2' fill='%231c1c1c'/%3E%3Crect x='5' y='255' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='87%2C333 165%2C333 161.0%2C341 83.0%2C341' fill='%23060606'/%3E%3Cpolygon points='87%2C255 87%2C333 83.0%2C341 83.0%2C263' fill='%23060606' opacity='.7'/%3E%3Crect x='87' y='255' width='78' height='78' rx='2' fill='%231a1a1a'/%3E%3Crect x='89' y='255' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='171%2C333 249%2C333 245.0%2C341 167.0%2C341' fill='%23060606'/%3E%3Cpolygon points='171%2C255 171%2C333 167.0%2C341 167.0%2C263' fill='%23060606' opacity='.7'/%3E%3Crect x='171' y='255' width='78' height='78' rx='2' fill='%231e1e1e'/%3E%3Crect x='173' y='255' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='255%2C333 333%2C333 329.0%2C341 251.0%2C341' fill='%23060606'/%3E%3Cpolygon points='255%2C255 255%2C333 251.0%2C341 251.0%2C263' fill='%23060606' opacity='.7'/%3E%3Crect x='255' y='255' width='78' height='78' rx='2' fill='%231c1c1c'/%3E%3Crect x='257' y='255' width='74' height='1.5' fill='%232a2a2a'/%3E%3Crect x='339' y='255' width='78' height='78' rx='2' fill='%23181818'/%3E%3Crect x='341' y='255' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='423%2C333 501%2C333 497.0%2C341 419.0%2C341' fill='%23060606'/%3E%3Cpolygon points='423%2C255 423%2C333 419.0%2C341 419.0%2C263' fill='%23060606' opacity='.7'/%3E%3Crect x='423' y='255' width='78' height='78' rx='2' fill='%231c1c1c'/%3E%3Crect x='425' y='255' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='3%2C417 81%2C417 79.5%2C420 1.5%2C420' fill='%23060606'/%3E%3Cpolygon points='3%2C339 3%2C417 1.5%2C420 1.5%2C342' fill='%23060606' opacity='.7'/%3E%3Crect x='3' y='339' width='78' height='78' rx='2' fill='%231a1a1a'/%3E%3Crect x='5' y='339' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='87%2C417 165%2C417 161.0%2C425 83.0%2C425' fill='%23060606'/%3E%3Cpolygon points='87%2C339 87%2C417 83.0%2C425 83.0%2C347' fill='%23060606' opacity='.7'/%3E%3Crect x='87' y='339' width='78' height='78' rx='2' fill='%231a1a1a'/%3E%3Crect x='89' y='339' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='171%2C417 249%2C417 245.0%2C425 167.0%2C425' fill='%23060606'/%3E%3Cpolygon points='171%2C339 171%2C417 167.0%2C425 167.0%2C347' fill='%23060606' opacity='.7'/%3E%3Crect x='171' y='339' width='78' height='78' rx='2' fill='%231a1a1a'/%3E%3Crect x='173' y='339' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='255%2C417 333%2C417 329.0%2C425 251.0%2C425' fill='%23060606'/%3E%3Cpolygon points='255%2C339 255%2C417 251.0%2C425 251.0%2C347' fill='%23060606' opacity='.7'/%3E%3Crect x='255' y='339' width='78' height='78' rx='2' fill='%231c1c1c'/%3E%3Crect x='257' y='339' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='339%2C417 417%2C417 414.5%2C422 336.5%2C422' fill='%23060606'/%3E%3Cpolygon points='339%2C339 339%2C417 336.5%2C422 336.5%2C344' fill='%23060606' opacity='.7'/%3E%3Crect x='339' y='339' width='78' height='78' rx='2' fill='%23181818'/%3E%3Crect x='341' y='339' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='423%2C417 501%2C417 498.5%2C422 420.5%2C422' fill='%23060606'/%3E%3Cpolygon points='423%2C339 423%2C417 420.5%2C422 420.5%2C344' fill='%23060606' opacity='.7'/%3E%3Crect x='423' y='339' width='78' height='78' rx='2' fill='%231e1e1e'/%3E%3Crect x='425' y='339' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='3%2C501 81%2C501 78.5%2C506 0.5%2C506' fill='%23060606'/%3E%3Cpolygon points='3%2C423 3%2C501 0.5%2C506 0.5%2C428' fill='%23060606' opacity='.7'/%3E%3Crect x='3' y='423' width='78' height='78' rx='2' fill='%23181818'/%3E%3Crect x='5' y='423' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='87%2C501 165%2C501 162.5%2C506 84.5%2C506' fill='%23060606'/%3E%3Cpolygon points='87%2C423 87%2C501 84.5%2C506 84.5%2C428' fill='%23060606' opacity='.7'/%3E%3Crect x='87' y='423' width='78' height='78' rx='2' fill='%231e1e1e'/%3E%3Crect x='89' y='423' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='171%2C501 249%2C501 247.5%2C504 169.5%2C504' fill='%23060606'/%3E%3Cpolygon points='171%2C423 171%2C501 169.5%2C504 169.5%2C426' fill='%23060606' opacity='.7'/%3E%3Crect x='171' y='423' width='78' height='78' rx='2' fill='%231c1c1c'/%3E%3Crect x='173' y='423' width='74' height='1.5' fill='%232a2a2a'/%3E%3Crect x='255' y='423' width='78' height='78' rx='2' fill='%231c1c1c'/%3E%3Crect x='257' y='423' width='74' height='1.5' fill='%232a2a2a'/%3E%3Crect x='339' y='423' width='78' height='78' rx='2' fill='%23181818'/%3E%3Crect x='341' y='423' width='74' height='1.5' fill='%232a2a2a'/%3E%3Cpolygon points='423%2C501 501%2C501 499.5%2C504 421.5%2C504' fill='%23060606'/%3E%3Cpolygon points='423%2C423 423%2C501 421.5%2C504 421.5%2C426' fill='%23060606' opacity='.7'/%3E%3Crect x='423' y='423' width='78' height='78' rx='2' fill='%23181818'/%3E%3Crect x='425' y='423' width='74' height='1.5' fill='%232a2a2a'/%3E%3C/svg%3E");background-position:center top;background-size:auto,auto,auto,504px 504px;background-repeat:no-repeat,no-repeat,no-repeat,repeat}
 .wrap{max-width:1180px;margin-inline:auto;padding-inline:16px}
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -51,58 +52,61 @@ bdi{unicode-bidi:isolate}
 .skip{position:absolute;inset-inline-start:8px;top:-60px;background:var(--yellow);color:var(--ink);padding:8px 14px;border-radius:8px;font-weight:800;z-index:100}
 .skip:focus{top:8px}
 
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}*{scroll-behavior:auto!important}}
+@media print{.js .rv{opacity:1!important;transform:none!important}}
 /* header */
-.top{position:sticky;top:0;z-index:50;background:rgba(18,18,18,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top{position:sticky;top:0;z-index:50;background:rgba(18,18,18,.82);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid var(--line);transition:box-shadow .3s ease,background-color .3s ease}
+.top.sc{background:rgba(18,18,18,.94);box-shadow:0 10px 30px -18px rgba(0,0,0,.9)}
 .top .wrap{display:flex;align-items:center;gap:14px;padding-block:9px}
 .brandlink{display:flex;align-items:center;gap:11px;text-decoration:none}
-.brandlink img{height:34px;width:auto}
+.brandlink .logo{height:34px;width:54px;flex:none;display:block}
 .brand{font-weight:800;font-size:1.02rem;letter-spacing:.2px;direction:ltr;unicode-bidi:isolate}
 .top nav{margin-inline-start:auto;display:flex;gap:4px;align-items:center}
-.top nav a.l{font-weight:600;font-size:.93rem;text-decoration:none;color:var(--muted);padding:8px 10px;border-radius:8px}
+.top nav a.l{font-weight:600;font-size:.93rem;text-decoration:none;color:var(--muted);padding:8px 10px;border-radius:8px;transition:color .2s ease,background-color .2s ease}
+.top nav a.l:hover{background:rgba(255,255,255,.05)}
 .top nav a.l:hover{color:var(--accent)}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font:inherit;font-weight:800;font-size:1rem;text-decoration:none;
-  background:var(--yellow);color:var(--ink);border:2px solid var(--yellow);border-radius:999px;padding:10px 24px;min-height:44px;cursor:pointer;transition:transform .15s,background .15s}
-.btn:hover{background:#fff36b;border-color:#fff36b;transform:translateY(-1px)}
+  background:var(--yellow);color:var(--ink);border:2px solid var(--yellow);border-radius:999px;padding:10px 24px;min-height:44px;cursor:pointer;transition:transform .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .25s ease,color .2s ease}
+.btn:hover{background:#fff36b;border-color:#fff36b;transform:translateY(-2px);box-shadow:0 10px 26px -12px rgba(255,237,0,.6)}
+.btn:active{transform:translateY(0)}
+.btn.li{background:#0A66C2;border-color:#0A66C2;color:#fff}
+.btn.li:hover{background:#004182;border-color:#004182;color:#fff;box-shadow:0 10px 26px -12px rgba(10,102,194,.8)}
 .btn svg{width:20px;height:20px;flex:none}
 .btn.ghost{background:transparent;color:var(--accent)}
-.btn.ghost:hover{background:rgba(255,237,0,.12);border-color:var(--yellow)}
+.btn.ghost:hover{background:rgba(255,237,0,.12);border-color:var(--yellow);box-shadow:none}
 .btn.sm{padding:6px 16px;font-size:.92rem;min-height:40px}
 .btn.xs{padding:3px 12px;font-size:.84rem;min-height:32px;border-width:1.5px}
 
 /* hero */
-.hero{padding-block:54px 34px;display:grid;gap:34px;grid-template-columns:1.15fr .85fr;align-items:center}
-.kicker{display:inline-block;font-weight:800;font-size:.9rem;color:var(--ink);background:var(--yellow);padding:3px 14px;border-radius:6px;margin-bottom:16px}
+.hero{padding-block:76px 46px;display:grid;grid-template-columns:1fr;text-align:center}
+.hero>div{max-width:880px;margin-inline:auto}
+.kicker{display:inline-block;font-weight:800;font-size:.88rem;color:var(--ink);background:var(--yellow);padding:4px 16px;border-radius:999px;margin-bottom:18px;box-shadow:0 0 0 6px rgba(255,237,0,.12)}
 h1{font-weight:900;font-size:clamp(2rem,5.2vw,3.5rem);line-height:1.3;text-wrap:balance}
-h1 mark{background:none;color:var(--accent);text-decoration:underline;text-decoration-thickness:5px;text-underline-offset:10px}
-.lead{margin-top:18px;font-size:1.15rem;color:#e6e6df;max-width:36em}
-.acts{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
-.trust{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:.92rem;list-style:none;padding:0}
+h1 mark{background:none;color:var(--accent);text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:12px;text-decoration-color:rgba(255,237,0,.75)}
+.lead{margin:18px auto 0;font-size:1.15rem;color:#e6e6df;max-width:38em}
+.acts{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.trust{margin-top:24px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;color:var(--muted);font-size:.92rem;list-style:none;padding:0}
 .trust li::before{content:"✓";color:var(--accent);font-weight:900;margin-inline-end:6px}
-.sample{background:rgba(27,27,27,.94);border:1px solid var(--line);border-radius:20px;padding:20px 22px;box-shadow:0 0 0 8px rgba(255,237,0,.06)}
-.sample .tg{font-size:.82rem;font-weight:800;color:var(--ink);background:var(--yellow);border-radius:6px;padding:1px 10px;display:inline-block}
-.sample h2{all:unset;display:block;margin:10px 0 2px;font-weight:800;font-size:1.02rem;color:#e6e6df}
-.sample .big{font-size:clamp(2.2rem,5vw,3rem);font-weight:900;color:var(--accent);line-height:1.2}
-.sample dl{margin:12px 0 0;display:grid;grid-template-columns:1fr auto;gap:6px 14px;border-top:1px solid var(--line);padding-top:12px}
-.sample dt{color:var(--muted);font-size:.93rem}
-.sample dd{margin:0;font-weight:800;text-align:end}
-.sample p{margin-top:12px;color:var(--muted);font-size:.84rem;line-height:1.55}
 
 /* sections */
 section{padding-block:56px 6px}
-h2.t{display:inline-block;font-weight:900;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.4;color:var(--accent);border-bottom:4px solid var(--yellow);padding-bottom:2px;margin-bottom:16px}
+h2.t{position:relative;display:block;font-weight:900;font-size:clamp(1.6rem,3.6vw,2.2rem);line-height:1.4;color:var(--fg);padding-top:16px;margin-bottom:10px}
+h2.t::before{content:"";position:absolute;top:0;inset-inline-start:0;width:46px;height:4px;border-radius:4px;background:var(--yellow)}
 .sub{color:var(--muted);max-width:46em;margin-bottom:24px}
 h3{font-weight:800;font-size:1.1rem;color:#fff}
 
 /* app shell */
-.app{background:rgba(24,24,24,.96);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.app{background:rgba(24,24,24,.97);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 40px 90px -50px rgba(0,0,0,.95)}
 .app-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--panel)}
 .app-top .ttl{font-weight:900;font-size:1.15rem}
 .app-top .ttl small{display:block;font-weight:600;font-size:.82rem;color:var(--muted)}
 .app-top .tools{margin-inline-start:auto;display:flex;flex-wrap:wrap;gap:8px}
 .tabs{display:flex;gap:4px;padding:8px 12px 0;background:var(--panel);overflow-x:auto;scrollbar-width:thin;border-bottom:1px solid var(--line)}
-.tab{flex:none;font:inherit;font-weight:700;font-size:.97rem;color:var(--muted);background:transparent;border:0;border-bottom:3px solid transparent;padding:10px 16px;cursor:pointer;white-space:nowrap;border-radius:8px 8px 0 0}
+.tab{flex:none;font:inherit;font-weight:700;font-size:.97rem;color:var(--muted);background:transparent;border:0;border-bottom:3px solid transparent;padding:10px 16px;cursor:pointer;white-space:nowrap;border-radius:8px 8px 0 0;transition:color .2s ease,background-color .2s ease,border-color .2s ease}
 .tab:hover{color:var(--fg)}
 .tab[aria-selected=true]{color:var(--accent);border-bottom-color:var(--yellow);background:rgba(255,237,0,.06)}
 .tab[aria-disabled=true]{opacity:.45}
@@ -126,8 +130,8 @@ h3{font-weight:800;font-size:1.1rem;color:#fff}
 .f{margin-bottom:12px;min-width:0}
 .f:last-child{margin-bottom:0}
 .f>label{display:block;font-weight:700;font-size:.94rem;margin-bottom:4px}
-.ctl{display:flex;align-items:stretch;background:#0f0f0f;border:1.5px solid var(--line);border-radius:10px;overflow:hidden}
-.ctl:focus-within{border-color:var(--yellow)}
+.ctl{display:flex;align-items:stretch;background:#0f0f0f;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .2s ease,box-shadow .2s ease}
+.ctl:focus-within{border-color:var(--yellow);box-shadow:0 0 0 3px rgba(255,237,0,.14)}
 .ctl.bad{border-color:var(--bad)}
 .ctl input,.ctl select{flex:1;min-width:0;font:inherit;font-size:16px;font-weight:600;color:var(--fg);background:transparent;border:0;padding:9px 12px;min-height:44px;outline:none}
 .ctl input[inputmode]{direction:ltr}
@@ -213,26 +217,29 @@ tr.cur td{background:rgba(255,237,0,.06)}
 
 /* how / objectives / faq / cta */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s;padding:0;list-style:none;margin:0}
-.steps li{counter-increment:s;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+.steps li{counter-increment:s;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.steps li:hover{transform:translateY(-3px);border-color:rgba(255,237,0,.45);box-shadow:0 18px 40px -26px rgba(0,0,0,.9)}
 .steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--yellow);color:var(--ink);font-weight:900;margin-bottom:10px}
 .steps h3{margin-bottom:6px}
 .steps p{color:var(--muted);font-size:.95rem}
 .tblwrap{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .tblwrap table{min-width:720px}
 .tag{font-weight:800;background:var(--yellow);color:var(--ink);border-radius:6px;padding:0 9px;font-size:.84rem;white-space:nowrap}
-.faq details{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;padding:0 16px}
+.faq details{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;padding:0 18px;transition:border-color .2s ease,background-color .2s ease}
+.faq details:hover,.faq details[open]{border-color:rgba(255,237,0,.4)}
 .faq summary{cursor:pointer;font-weight:800;padding:13px 0;list-style:none;display:flex;gap:10px;align-items:center}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";margin-inline-start:auto;color:var(--accent);font-weight:900;font-size:1.3rem;line-height:1}
+.faq summary::after{content:"+";margin-inline-start:auto;color:var(--accent);font-weight:900;font-size:1.3rem;line-height:1;transition:transform .25s ease}
 .faq details[open] summary::after{content:"−"}
 .faq details p{color:#e0e0d9;padding-bottom:14px;font-size:.97rem}
 .cta{margin-top:56px;background:linear-gradient(135deg,rgba(255,237,0,.12),rgba(255,237,0,.03));border:1px solid rgba(255,237,0,.35);border-radius:22px;padding:30px 26px;display:flex;flex-wrap:wrap;gap:18px 30px;align-items:center}
 .cta .tx{flex:1 1 320px}
 .cta h2{font-weight:900;font-size:1.6rem;line-height:1.4}
 .cta p{color:#e0e0d9;margin-top:6px}
-footer{margin-top:50px;border-top:1px solid var(--line);padding-block:28px 40px;color:var(--muted);font-size:.88rem}
-footer .fl{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-footer .fl img{height:28px;width:auto}
+footer{margin-top:60px;border-top:1px solid var(--line);padding-block:30px 44px;color:var(--muted);font-size:.88rem;background:rgba(10,10,10,.55)}
+footer .ft{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding-bottom:18px;margin-bottom:16px;border-bottom:1px solid var(--line)}
+footer .fl{display:flex;align-items:center;gap:12px;color:var(--fg);font-size:1rem}
+footer .fl .logo{height:28px;width:44px;flex:none;display:block}
 footer p{max-width:60em;line-height:1.65}
 .printhead{display:none}
 
@@ -294,7 +301,8 @@ footer p{max-width:60em;line-height:1.65}
   .grid,.row2{grid-template-columns:1fr 1fr}
   section{padding-block:0}
   .printhead{display:flex;align-items:center;gap:12px;border-bottom:2px solid #111;padding-bottom:8px;margin-bottom:12px}
-  .printhead img{height:30px;filter:brightness(0)}
+  .printhead .logo{height:30px;width:47px}
+  .printhead .logo path{fill:#111}
   #calc>h2,#calc>.sub,.app-top{display:none!important}
   .app{border:0}
   .st{color:#111!important}
@@ -326,11 +334,13 @@ h1 mark{text-decoration-color:var(--yellow)}
 
 /* ---- light theme (brand yellow stays a fill; text uses the darker --accent) */
 html[data-theme=light]{--bg:#f6f4ec;--panel:#ffffff;--panel2:#f1eee3;--line:#d9d4c2;--fg:#17170f;--muted:#5d5b4e;--accent:#6b5c00;--ok:#2f6f00;--warn:#995300;--bad:#b3261e;--info:#1f4fa3;color-scheme:light}
-html[data-theme=light] .page{background:linear-gradient(rgba(246,244,236,.95),rgba(246,244,236,.97)),url(images/bg.jpg) center top/900px auto repeat}
-html[data-theme=light] .top{background:rgba(246,244,236,.95)}
-html[data-theme=light] .lead,html[data-theme=light] .sample h2{color:#2b2a20}
+html[data-theme=light] .page{background-image:radial-gradient(760px 420px at 50% 300px,rgba(246,244,236,.85),rgba(246,244,236,.4) 60%,transparent 100%),radial-gradient(1000px 520px at 50% -60px,rgba(255,237,0,.18),transparent 70%),linear-gradient(180deg,rgba(246,244,236,.1) 0,rgba(246,244,236,.55) 760px,rgba(246,244,236,.8) 1500px),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='504' height='504'%3E%3Crect width='504' height='504' fill='%23e6e2d5'/%3E%3Cpolygon points='3%2C81 81%2C81 79.5%2C84 1.5%2C84' fill='%23d8d3c2'/%3E%3Cpolygon points='3%2C3 3%2C81 1.5%2C84 1.5%2C6' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='3' y='3' width='78' height='78' rx='2' fill='%23f1eee5'/%3E%3Crect x='5' y='3' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='87%2C81 165%2C81 162.5%2C86 84.5%2C86' fill='%23d8d3c2'/%3E%3Cpolygon points='87%2C3 87%2C81 84.5%2C86 84.5%2C8' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='87' y='3' width='78' height='78' rx='2' fill='%23f3f1e9'/%3E%3Crect x='89' y='3' width='74' height='1.5' fill='%23ffffff'/%3E%3Crect x='171' y='3' width='78' height='78' rx='2' fill='%23f2f0e7'/%3E%3Crect x='173' y='3' width='74' height='1.5' fill='%23ffffff'/%3E%3Crect x='255' y='3' width='78' height='78' rx='2' fill='%23f5f3ec'/%3E%3Crect x='257' y='3' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='339%2C81 417%2C81 413.0%2C89 335.0%2C89' fill='%23d8d3c2'/%3E%3Cpolygon points='339%2C3 339%2C81 335.0%2C89 335.0%2C11' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='339' y='3' width='78' height='78' rx='2' fill='%23f3f1e9'/%3E%3Crect x='341' y='3' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='423%2C81 501%2C81 497.0%2C89 419.0%2C89' fill='%23d8d3c2'/%3E%3Cpolygon points='423%2C3 423%2C81 419.0%2C89 419.0%2C11' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='423' y='3' width='78' height='78' rx='2' fill='%23f1eee5'/%3E%3Crect x='425' y='3' width='74' height='1.5' fill='%23ffffff'/%3E%3Crect x='3' y='87' width='78' height='78' rx='2' fill='%23f3f1e9'/%3E%3Crect x='5' y='87' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='87%2C165 165%2C165 162.5%2C170 84.5%2C170' fill='%23d8d3c2'/%3E%3Cpolygon points='87%2C87 87%2C165 84.5%2C170 84.5%2C92' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='87' y='87' width='78' height='78' rx='2' fill='%23efece2'/%3E%3Crect x='89' y='87' width='74' height='1.5' fill='%23ffffff'/%3E%3Crect x='171' y='87' width='78' height='78' rx='2' fill='%23f1eee5'/%3E%3Crect x='173' y='87' width='74' height='1.5' fill='%23ffffff'/%3E%3Crect x='255' y='87' width='78' height='78' rx='2' fill='%23f2f0e7'/%3E%3Crect x='257' y='87' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='339%2C165 417%2C165 414.5%2C170 336.5%2C170' fill='%23d8d3c2'/%3E%3Cpolygon points='339%2C87 339%2C165 336.5%2C170 336.5%2C92' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='339' y='87' width='78' height='78' rx='2' fill='%23f3f1e9'/%3E%3Crect x='341' y='87' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='423%2C165 501%2C165 497.0%2C173 419.0%2C173' fill='%23d8d3c2'/%3E%3Cpolygon points='423%2C87 423%2C165 419.0%2C173 419.0%2C95' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='423' y='87' width='78' height='78' rx='2' fill='%23f3f1e9'/%3E%3Crect x='425' y='87' width='74' height='1.5' fill='%23ffffff'/%3E%3Crect x='3' y='171' width='78' height='78' rx='2' fill='%23f2f0e7'/%3E%3Crect x='5' y='171' width='74' height='1.5' fill='%23ffffff'/%3E%3Crect x='87' y='171' width='78' height='78' rx='2' fill='%23f2f0e7'/%3E%3Crect x='89' y='171' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='171%2C249 249%2C249 245.0%2C257 167.0%2C257' fill='%23d8d3c2'/%3E%3Cpolygon points='171%2C171 171%2C249 167.0%2C257 167.0%2C179' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='171' y='171' width='78' height='78' rx='2' fill='%23efece2'/%3E%3Crect x='173' y='171' width='74' height='1.5' fill='%23ffffff'/%3E%3Crect x='255' y='171' width='78' height='78' rx='2' fill='%23f1eee5'/%3E%3Crect x='257' y='171' width='74' height='1.5' fill='%23ffffff'/%3E%3Crect x='339' y='171' width='78' height='78' rx='2' fill='%23f2f0e7'/%3E%3Crect x='341' y='171' width='74' height='1.5' fill='%23ffffff'/%3E%3Crect x='423' y='171' width='78' height='78' rx='2' fill='%23f5f3ec'/%3E%3Crect x='425' y='171' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='3%2C333 81%2C333 78.5%2C338 0.5%2C338' fill='%23d8d3c2'/%3E%3Cpolygon points='3%2C255 3%2C333 0.5%2C338 0.5%2C260' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='3' y='255' width='78' height='78' rx='2' fill='%23f1eee5'/%3E%3Crect x='5' y='255' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='87%2C333 165%2C333 161.0%2C341 83.0%2C341' fill='%23d8d3c2'/%3E%3Cpolygon points='87%2C255 87%2C333 83.0%2C341 83.0%2C263' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='87' y='255' width='78' height='78' rx='2' fill='%23f3f1e9'/%3E%3Crect x='89' y='255' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='171%2C333 249%2C333 245.0%2C341 167.0%2C341' fill='%23d8d3c2'/%3E%3Cpolygon points='171%2C255 171%2C333 167.0%2C341 167.0%2C263' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='171' y='255' width='78' height='78' rx='2' fill='%23f5f3ec'/%3E%3Crect x='173' y='255' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='255%2C333 333%2C333 329.0%2C341 251.0%2C341' fill='%23d8d3c2'/%3E%3Cpolygon points='255%2C255 255%2C333 251.0%2C341 251.0%2C263' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='255' y='255' width='78' height='78' rx='2' fill='%23f1eee5'/%3E%3Crect x='257' y='255' width='74' height='1.5' fill='%23ffffff'/%3E%3Crect x='339' y='255' width='78' height='78' rx='2' fill='%23f2f0e7'/%3E%3Crect x='341' y='255' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='423%2C333 501%2C333 497.0%2C341 419.0%2C341' fill='%23d8d3c2'/%3E%3Cpolygon points='423%2C255 423%2C333 419.0%2C341 419.0%2C263' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='423' y='255' width='78' height='78' rx='2' fill='%23f1eee5'/%3E%3Crect x='425' y='255' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='3%2C417 81%2C417 79.5%2C420 1.5%2C420' fill='%23d8d3c2'/%3E%3Cpolygon points='3%2C339 3%2C417 1.5%2C420 1.5%2C342' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='3' y='339' width='78' height='78' rx='2' fill='%23f3f1e9'/%3E%3Crect x='5' y='339' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='87%2C417 165%2C417 161.0%2C425 83.0%2C425' fill='%23d8d3c2'/%3E%3Cpolygon points='87%2C339 87%2C417 83.0%2C425 83.0%2C347' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='87' y='339' width='78' height='78' rx='2' fill='%23f3f1e9'/%3E%3Crect x='89' y='339' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='171%2C417 249%2C417 245.0%2C425 167.0%2C425' fill='%23d8d3c2'/%3E%3Cpolygon points='171%2C339 171%2C417 167.0%2C425 167.0%2C347' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='171' y='339' width='78' height='78' rx='2' fill='%23f3f1e9'/%3E%3Crect x='173' y='339' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='255%2C417 333%2C417 329.0%2C425 251.0%2C425' fill='%23d8d3c2'/%3E%3Cpolygon points='255%2C339 255%2C417 251.0%2C425 251.0%2C347' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='255' y='339' width='78' height='78' rx='2' fill='%23f1eee5'/%3E%3Crect x='257' y='339' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='339%2C417 417%2C417 414.5%2C422 336.5%2C422' fill='%23d8d3c2'/%3E%3Cpolygon points='339%2C339 339%2C417 336.5%2C422 336.5%2C344' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='339' y='339' width='78' height='78' rx='2' fill='%23f2f0e7'/%3E%3Crect x='341' y='339' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='423%2C417 501%2C417 498.5%2C422 420.5%2C422' fill='%23d8d3c2'/%3E%3Cpolygon points='423%2C339 423%2C417 420.5%2C422 420.5%2C344' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='423' y='339' width='78' height='78' rx='2' fill='%23f5f3ec'/%3E%3Crect x='425' y='339' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='3%2C501 81%2C501 78.5%2C506 0.5%2C506' fill='%23d8d3c2'/%3E%3Cpolygon points='3%2C423 3%2C501 0.5%2C506 0.5%2C428' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='3' y='423' width='78' height='78' rx='2' fill='%23f2f0e7'/%3E%3Crect x='5' y='423' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='87%2C501 165%2C501 162.5%2C506 84.5%2C506' fill='%23d8d3c2'/%3E%3Cpolygon points='87%2C423 87%2C501 84.5%2C506 84.5%2C428' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='87' y='423' width='78' height='78' rx='2' fill='%23f5f3ec'/%3E%3Crect x='89' y='423' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='171%2C501 249%2C501 247.5%2C504 169.5%2C504' fill='%23d8d3c2'/%3E%3Cpolygon points='171%2C423 171%2C501 169.5%2C504 169.5%2C426' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='171' y='423' width='78' height='78' rx='2' fill='%23f1eee5'/%3E%3Crect x='173' y='423' width='74' height='1.5' fill='%23ffffff'/%3E%3Crect x='255' y='423' width='78' height='78' rx='2' fill='%23f1eee5'/%3E%3Crect x='257' y='423' width='74' height='1.5' fill='%23ffffff'/%3E%3Crect x='339' y='423' width='78' height='78' rx='2' fill='%23f2f0e7'/%3E%3Crect x='341' y='423' width='74' height='1.5' fill='%23ffffff'/%3E%3Cpolygon points='423%2C501 501%2C501 499.5%2C504 421.5%2C504' fill='%23d8d3c2'/%3E%3Cpolygon points='423%2C423 423%2C501 421.5%2C504 421.5%2C426' fill='%23d8d3c2' opacity='.7'/%3E%3Crect x='423' y='423' width='78' height='78' rx='2' fill='%23f2f0e7'/%3E%3Crect x='425' y='423' width='74' height='1.5' fill='%23ffffff'/%3E%3C/svg%3E")}
+html[data-theme=light] .top{background:rgba(246,244,236,.85)}
+html[data-theme=light] .top.sc{background:rgba(246,244,236,.96);box-shadow:0 10px 30px -20px rgba(0,0,0,.35)}
+html[data-theme=light] footer{background:rgba(255,255,255,.55)}
+html[data-theme=light] .app{box-shadow:0 40px 90px -55px rgba(0,0,0,.35)}
+html[data-theme=light] .lead{color:#2b2a20}
 html[data-theme=light] h3,html[data-theme=light] .faq details p,html[data-theme=light] .cta p,html[data-theme=light] .toast{color:var(--fg)}
-html[data-theme=light] .sample{background:#fff;box-shadow:0 0 0 8px rgba(255,237,0,.28)}
 html[data-theme=light] .app{background:var(--panel)}
 html[data-theme=light] .ctl{background:#fff}
 html[data-theme=light] .ctl select option{background:#fff;color:var(--fg)}
@@ -343,7 +353,7 @@ html[data-theme=light] .btn.ghost:hover,html[data-theme=light] .lang:hover,html[
 html[data-theme=light] .sumbar{background:rgba(255,255,255,.97)}
 html[data-theme=light] .toast{background:#fffdf0;box-shadow:0 8px 30px rgba(0,0,0,.18)}
 html[data-theme=light] .cta{background:linear-gradient(135deg,rgba(255,237,0,.4),rgba(255,237,0,.12));border-color:rgba(130,112,0,.45)}
-html[data-theme=light] .brandlink img,html[data-theme=light] footer .fl img{background:#121212;border-radius:9px;padding:4px 7px;box-sizing:content-box}
+html[data-theme=light] .brandlink .logo,html[data-theme=light] footer .fl .logo{background:#121212;border-radius:9px;padding:4px 7px;box-sizing:content-box}
 html[data-theme=light] .tbl.stack tr.cur{border-color:#b9a400}
 
 </style>
@@ -354,15 +364,15 @@ html[data-theme=light] .tbl.stack tr.cur{border-color:#b9a400}
 
 <header class="top">
   <div class="wrap">
-    <a class="brandlink" href="#top" aria-label="Alrefay Eldesouky"><img src="images/logo-sm.png" alt="" width="55" height="34"><span class="brand">Alrefay Eldesouky</span></a>
+    <a class="brandlink" href="#top" aria-label="Alrefay Eldesouky"><svg class="logo" viewBox="0 0 512 325" role="img" aria-label="RD"><path fill="#ffed00" fill-rule="evenodd" d="M452.0 32.0 L436.0 21.0 L427.0 16.0 L416.0 11.0 L404.8 7.0 L393.8 4.0 L383.8 2.0 L373.5 1.0 L372.0 2.8 L325.0 77.2 L325.2 78.0 L364.5 78.0 L376.8 79.8 L384.2 82.0 L394.2 86.8 L402.0 92.2 L411.0 101.0 L418.8 111.5 L423.0 119.5 L425.8 126.0 L429.8 139.8 L431.0 147.0 L431.8 155.2 L431.8 169.2 L430.0 183.2 L425.8 198.0 L421.0 208.5 L417.0 215.2 L413.0 220.8 L403.8 230.5 L396.2 236.2 L392.2 238.8 L386.0 241.8 L375.5 245.0 L362.8 246.5 L300.0 246.2 L299.5 245.5 L299.8 119.2 L299.0 118.8 L220.0 244.2 L220.0 323.5 L220.8 324.2 L366.2 324.2 L378.0 323.5 L390.2 321.5 L402.0 318.5 L415.8 313.8 L429.2 307.5 L439.2 301.8 L452.0 292.8 L460.2 285.8 L469.8 276.2 L475.8 269.2 L486.5 254.2 L492.5 243.8 L499.8 228.0 L505.5 210.5 L509.5 191.0 L510.8 179.5 L511.0 170.8 L511.8 167.2 L511.8 158.0 L511.2 157.2 L510.5 142.5 L508.5 127.5 L504.8 111.2 L500.5 98.5 L491.8 79.5 L482.8 64.8 L472.8 51.8 L460.0 38.8Z M333.2 0.0 L136.8 0.0 L136.0 0.5 L124.2 1.2 L113.5 3.0 L105.0 5.0 L94.8 8.2 L87.5 11.2 L79.5 15.2 L70.2 21.0 L62.5 27.0 L56.5 32.5 L49.0 40.8 L42.0 50.5 L37.0 59.5 L34.2 65.8 L31.0 75.0 L28.0 87.5 L26.2 102.8 L26.2 118.0 L27.2 129.0 L29.0 138.8 L33.0 152.0 L37.2 161.2 L43.0 170.2 L50.2 179.2 L59.0 187.8 L68.5 194.8 L79.2 200.5 L80.0 201.2 L80.0 202.0 L5.0 317.0 L0.0 323.8 L1.2 324.8 L2.2 324.2 L94.8 324.0 L96.2 322.2 L161.0 219.2 L162.2 218.5 L195.2 218.8 L197.0 217.8 L333.5 1.0Z M108.0 96.5 L111.5 91.0 L118.2 85.0 L123.8 82.0 L129.5 80.0 L135.2 78.8 L141.8 78.0 L219.5 78.0 L220.2 78.8 L220.2 140.0 L219.5 140.8 L143.8 140.8 L136.8 140.0 L130.5 138.8 L120.8 135.8 L114.5 132.0 L110.5 128.2 L107.8 124.2 L106.8 121.5 L105.8 115.8 L105.8 105.5 L106.8 100.2Z"/></svg><span class="brand">Alrefay Eldesouky</span></a>
     <nav id="nav-main" aria-label="التنقل">
       <a class="l" href="#calc"><span class="l-ar">الحاسبة</span><span class="l-en">Calculator</span></a>
-      <a class="l" href="#how"><span class="l-ar">إزاي تشتغل</span><span class="l-en">How it works</span></a>
+      <a class="l" href="#how"><span class="l-ar">طريقة الاستخدام</span><span class="l-en">How it works</span></a>
       <a class="l" href="#objectives"><span class="l-ar">الأهداف</span><span class="l-en">Objectives</span></a>
-      <a class="l" href="#faq"><span class="l-ar">أسئلة</span><span class="l-en">FAQ</span></a>
+      <a class="l" href="#faq"><span class="l-ar">الأسئلة</span><span class="l-en">FAQ</span></a>
       <button class="theme" id="theme" type="button" aria-label="Switch to light mode"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
       <button class="lang" id="lang" type="button" aria-label="Switch to English"><span class="l-ar" lang="en" dir="ltr">EN</span><span class="l-en" lang="ar" dir="rtl">عربي</span></button>
-      <a class="btn sm" data-wa href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"/></svg><span class="l-ar">واتساب</span><span class="l-en">WhatsApp</span></a>
+      <a class="btn sm li" href="https://www.linkedin.com/in/alrefayeldesouky/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true" style="width:17px;height:17px"><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8c0-14.3 5.7-27.9 15.8-38S39.6 0 53.8 0s27.9 5.7 38 15.8 15.8 23.8 15.8 38c0 29.7-24.1 54.3-53.8 54.3M447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg>LinkedIn</a>
     </nav>
   </div>
 </header>
@@ -373,36 +383,29 @@ html[data-theme=light] .tbl.stack tr.cur{border-color:#b9a400}
 <div class="hero">
   <div>
     <span class="kicker"><span class="l-ar">أداة مجانية</span><span class="l-en">Free tool</span></span>
-    <h1><span class="l-ar">احسب ميزانية إعلاناتك</span><span class="l-en">Know your ad budget</span> <mark><span class="l-ar">قبل</span><span class="l-en">before</span></mark> <span class="l-ar">ما تصرف جنيه</span><span class="l-en">you spend a penny</span></h1>
-    <p class="lead"><span class="l-ar">اختار هدف الحملة، وحط تكلفة النتيجة المتوقعة، وهتعرف الميزانية الكلية واليومية وعدد النتائج وتوزيعها على المجموعات — وللمبيعات كمان الـ ROAS وهل الأرقام دي مربحة ولا لأ.</span><span class="l-en">Pick your campaign objective and enter the expected cost per result, and you'll get the total and daily budget, the number of results and how it splits across ad sets — plus, for sales, the ROAS and whether those numbers are actually profitable.</span></p>
+    <h1><span class="l-ar">خطّط ميزانيتك الإعلانية</span><span class="l-en">Plan your ad budget</span> <mark><span class="l-ar">قبل</span><span class="l-en">before</span></mark> <span class="l-ar">إطلاق الحملة</span><span class="l-en">you launch</span></h1>
+    <p class="lead"><span class="l-ar">اختر هدف الحملة وأدخل تكلفة النتيجة المتوقعة، لتحصل على الميزانية الكلية واليومية وعدد النتائج وتوزيعها على المجموعات، بالإضافة إلى الـ ROAS ومدى ربحية الأرقام في حملات المبيعات.</span><span class="l-en">Pick your campaign objective and enter the expected cost per result, and you'll get the total and daily budget, the number of results and how it splits across ad sets — plus, for sales, the ROAS and whether those numbers are actually profitable.</span></p>
     <div class="acts">
       <a class="btn" href="#calc"><span class="l-ar">ابدأ الحساب</span><span class="l-en">Start calculating</span></a>
-      <a class="btn ghost" href="#how"><span class="l-ar">إزاي بتشتغل؟</span><span class="l-en">How does it work?</span></a>
+      <a class="btn ghost" href="#how"><span class="l-ar">كيف تعمل الأداة؟</span><span class="l-en">How does it work?</span></a>
     </div>
     <ul class="trust">
-      <li><span class="l-ar">من غير تسجيل</span><span class="l-en">No signup</span></li>
-      <li><span class="l-ar">أرقامك بتفضل على جهازك</span><span class="l-en">Your numbers stay on your device</span></li>
-      <li><span class="l-ar">شغالة على الموبايل</span><span class="l-en">Works on mobile</span></li>
+      <li><span class="l-ar">بدون تسجيل</span><span class="l-en">No signup</span></li>
+      <li><span class="l-ar">بياناتك تبقى على جهازك</span><span class="l-en">Your numbers stay on your device</span></li>
+      <li><span class="l-ar">متوافقة مع الجوال</span><span class="l-en">Works on mobile</span></li>
     </ul>
   </div>
-  <aside class="sample" id="sample-aside" aria-label="مثال محسوب">
-    <span class="tg"><span class="l-ar">مثال حي</span><span class="l-en">Live example</span></span>
-    <h2 id="s-title"></h2>
-    <div class="big num" id="s-big"></div>
-    <dl id="s-dl"></dl>
-    <p><span class="l-ar">مثال بأرقام افتراضية للتوضيح — غيّرها لأرقام حملتك في الحاسبة تحت.</span><span class="l-en">An example with placeholder numbers — replace them with your own campaign numbers in the calculator below.</span></p>
-  </aside>
 </div>
 
 <section id="calc" aria-labelledby="calc-h">
   <h2 class="t" id="calc-h"><span class="l-ar">حاسبة الميزانية</span><span class="l-en">Budget calculator</span></h2>
-  <p class="sub"><span class="l-ar">كل الحسابات بتتم على جهازك لحظياً، وآخر أرقام كتبتها بتتحفظ تلقائياً في المتصفح. تقدر تبعت حسابك لأي حد بلينك.</span><span class="l-en">All calculations run instantly on your device, and the last numbers you typed are saved automatically in your browser. You can send your calculation to anyone with a link.</span></p>
+  <p class="sub"><span class="l-ar">تتم جميع الحسابات لحظيًا على جهازك، وتُحفظ آخر أرقام أدخلتها تلقائيًا في المتصفح، ويمكنك مشاركة حسابك عبر رابط.</span><span class="l-en">All calculations run instantly on your device, and the last numbers you typed are saved automatically in your browser. You can send your calculation to anyone with a link.</span></p>
 
   <div class="app" id="app">
     <div class="app-top">
       <div class="ttl"><span class="l-ar">حاسبة الميزانية الإعلانية</span><span class="l-en">Ads Budget Calculator</span><small><span class="l-ar">Ads Budget Calculator</span><span class="l-en">حاسبة الميزانية الإعلانية</span></small></div>
       <div class="tools">
-        <button class="btn ghost xs" id="b-share" type="button"><span class="l-ar">نسخ لينك الحساب</span><span class="l-en">Copy calculation link</span></button>
+        <button class="btn ghost xs" id="b-share" type="button"><span class="l-ar">نسخ رابط الحساب</span><span class="l-en">Copy calculation link</span></button>
         <button class="btn ghost xs" id="b-print" type="button"><span class="l-ar">طباعة / PDF</span><span class="l-en">Print / PDF</span></button>
         <button class="btn ghost xs" id="b-reset" type="button"><span class="l-ar">مسح الكل</span><span class="l-en">Clear all</span></button>
       </div>
@@ -413,52 +416,45 @@ html[data-theme=light] .tbl.stack tr.cur{border-color:#b9a400}
 </section>
 
 <section id="how" aria-labelledby="how-h">
-  <h2 class="t" id="how-h"><span class="l-ar">إزاي تشتغل بيها</span><span class="l-en">How to use it</span></h2>
-  <p class="sub"><span class="l-ar">تلات خطوات، وبعدها راجع الربحية وجرّب سيناريوهات التوسيع.</span><span class="l-en">Three steps, then review profitability and try the scale-up scenarios.</span></p>
+  <h2 class="t" id="how-h"><span class="l-ar">طريقة الاستخدام</span><span class="l-en">How to use it</span></h2>
+  <p class="sub"><span class="l-ar">ثلاث خطوات، ثم راجع الربحية وجرّب سيناريوهات التوسيع.</span><span class="l-en">Three steps, then review profitability and try the scale-up scenarios.</span></p>
   <ol class="steps">
-    <li><h3><span class="l-ar">حدد الهدف والتكلفة</span><span class="l-en">Set the objective and the cost</span></h3><p><span class="l-ar">اختار الهدف الإعلاني والعملة، وحط تكلفة النتيجة المتوقعة من حملات سابقة. مش معاك رقم؟ جرّب تاب «حاسبة التكاليف» تحسبه من أرقام حملة شغالة أو تتوقعه من CPM وCTR.</span><span class="l-en">Choose the ad objective and the currency, then enter the expected cost per result from past campaigns. No number yet? Try the «Costs calculator» tab to work it out from a running campaign or to estimate it from CPM and CTR.</span></p></li>
-    <li><h3><span class="l-ar">اكتب هدفك</span><span class="l-en">Enter your target</span></h3><p><span class="l-ar">دخّل عدد النتائج اللي عايزها، أو الإيراد المطلوب (للمبيعات)، أو الميزانية اللي معاك — والأداة تحسب الباقي وتقولك المطلوب إدخاله في Ads Manager.</span><span class="l-en">Enter the number of results you want, the revenue you need (for sales) or the budget you have — the tool calculates the rest and tells you what to enter in Ads Manager.</span></p></li>
-    <li><h3><span class="l-ar">راجع وقرّر</span><span class="l-en">Review and decide</span></h3><p><span class="l-ar">شوف مؤشرات الفحص (ROAS، أقصى تكلفة مسموحة، حجم بيانات كل مجموعة)، وراجع تاب «الربحية» لحساب Break-even وصافي الربح قبل ما تعتمد الميزانية.</span><span class="l-en">Check the indicators (ROAS, the maximum allowed cost, the data volume per ad set), and review the «Profitability» tab for break-even and net profit before you approve the budget.</span></p></li>
+    <li><h3><span class="l-ar">حدد الهدف والتكلفة</span><span class="l-en">Set the objective and the cost</span></h3><p><span class="l-ar">اختر الهدف الإعلاني والعملة، وأدخل تكلفة النتيجة المتوقعة بناءً على حملات سابقة. إذا لم تتوفر لديك، استخدم تبويب «حاسبة التكاليف» لحسابها من أرقام حملة قائمة أو لتقديرها باستخدام CPM مع CTR.</span><span class="l-en">Choose the ad objective and the currency, then enter the expected cost per result from past campaigns. No number yet? Try the «Costs calculator» tab to work it out from a running campaign or to estimate it from CPM and CTR.</span></p></li>
+    <li><h3><span class="l-ar">أدخل هدفك</span><span class="l-en">Enter your target</span></h3><p><span class="l-ar">أدخل عدد النتائج المطلوبة، أو الإيراد المستهدف (للمبيعات)، أو الميزانية المتاحة، وستحسب الأداة باقي الأرقام وتوضح لك ما يجب إدخاله في Ads Manager.</span><span class="l-en">Enter the number of results you want, the revenue you need (for sales) or the budget you have — the tool calculates the rest and tells you what to enter in Ads Manager.</span></p></li>
+    <li><h3><span class="l-ar">راجع وقرّر</span><span class="l-en">Review and decide</span></h3><p><span class="l-ar">راجع مؤشرات الفحص (ROAS، وأقصى تكلفة مسموحة، وحجم بيانات كل مجموعة)، ثم راجع تبويب «الربحية» لحساب نقطة التعادل (Break-even) وصافي الربح قبل اعتماد الميزانية.</span><span class="l-en">Check the indicators (ROAS, the maximum allowed cost, the data volume per ad set), and review the «Profitability» tab for break-even and net profit before you approve the budget.</span></p></li>
   </ol>
-  <p class="sub" style="margin-top:16px;margin-bottom:0"><span class="l-ar">مهم: الأرقام تقدير مبني على التكلفة اللي بتدخلها. التكلفة الفعلية بتتغير مع الجمهور والعرض والمنافسة — ابدأ بتيست صغير وحدّث الأرقام بالنتائج الفعلية.</span><span class="l-en">Important: the numbers are an estimate built on the cost you enter. The actual cost changes with the audience, the offer and the competition — start with a small test and update the numbers with real results.</span></p>
+  <p class="sub" style="margin-top:16px;margin-bottom:0"><span class="l-ar">ملاحظة: الأرقام تقديرية ومبنية على التكلفة التي تُدخلها، والتكلفة الفعلية تتغير بحسب الجمهور والعرض والمنافسة. ابدأ باختبار صغير ثم حدّث الأرقام بالنتائج الفعلية.</span><span class="l-en">Important: the numbers are an estimate built on the cost you enter. The actual cost changes with the audience, the offer and the competition — start with a small test and update the numbers with real results.</span></p>
 </section>
 
 <section id="objectives" aria-labelledby="obj-h">
   <h2 class="t" id="obj-h"><span class="l-ar">الأهداف المدعومة</span><span class="l-en">Supported objectives</span></h2>
-  <p class="sub"><span class="l-ar">القالب كله بيتغير حسب الهدف: وحدة النتيجة، اسم التكلفة، والمؤشرات. الإيراد وسعر البيع والـ ROAS بتظهر مع هدف Sales فقط.</span><span class="l-en">The whole template adapts to the objective: the result unit, the cost name and the indicators. Revenue, selling price and ROAS appear with the Sales objective only.</span></p>
+  <p class="sub"><span class="l-ar">يتغير القالب بالكامل حسب الهدف: وحدة النتيجة، واسم التكلفة، والمؤشرات. ويظهر الإيراد وسعر البيع والـ ROAS مع هدف Sales فقط.</span><span class="l-en">The whole template adapts to the objective: the result unit, the cost name and the indicators. Revenue, selling price and ROAS appear with the Sales objective only.</span></p>
   <div class="tblwrap scroll"><table id="obj-table"></table></div>
-  <p class="sub" style="margin-top:12px"><span class="l-ar">الأحداث المقترحة توجيهية — اختار الـ Optimization Event الفعلي حسب إعدادات حسابك. ومؤشر التعلّم قيمة إرشادية لحجم البيانات وليست شرطاً لنجاح الحملة.</span><span class="l-en">The suggested events are guidance — choose the actual Optimization Event for your account settings. The learning guide is an indicative data-volume value, not a condition for campaign success.</span></p>
+  <p class="sub" style="margin-top:12px"><span class="l-ar">الأحداث المقترحة استرشادية، فاختر الـ Optimization Event الفعلي حسب إعدادات حسابك. ومؤشر التعلّم قيمة إرشادية لحجم البيانات وليس شرطًا لنجاح الحملة.</span><span class="l-en">The suggested events are guidance — choose the actual Optimization Event for your account settings. The learning guide is an indicative data-volume value, not a condition for campaign success.</span></p>
 </section>
 
 <section id="faq" class="faq" aria-labelledby="faq-h">
   <h2 class="t" id="faq-h"><span class="l-ar">أسئلة شائعة</span><span class="l-en">Frequently asked questions</span></h2>
-  <details><summary><span class="l-ar">هي مجانية فعلاً؟ وأرقامي بتروح فين؟</span><span class="l-en">Is it really free? And where do my numbers go?</span></summary><p><span class="l-ar">مجانية بالكامل ومن غير تسجيل. كل الحسابات بتحصل جوه متصفحك، ومفيش أرقامك بتتبعت لأي سيرفر. آخر حساب بتعمله بيتحفظ على جهازك أنت بس. ولو نسخت «لينك الحساب» فالأرقام بتكون جوه اللينك نفسه — يعني أي حد معاه اللينك يشوفها.</span><span class="l-en">Completely free and no signup. All calculations happen inside your browser and none of your numbers are sent to any server. Your last calculation is saved on your device only. If you copy the «calculation link», the numbers live inside the link itself — so anyone who has the link can see them.</span></p></details>
-  <details><summary><span class="l-ar">الأرقام دقيقة قد إيه؟</span><span class="l-en">How accurate are the numbers?</span></summary><p><span class="l-ar">الحسابات نفسها دقيقة ومطابقة لشيت الحساب الأصلي، لكن النتيجة النهائية بتعتمد على تكلفة النتيجة اللي أنت بتدخلها. دي أداة تخطيط وتقدير — مش ضمان لأداء الحملة. استخدم أرقام فعلية من حملات سابقة كل ما أمكن.</span><span class="l-en">The calculations themselves are exact and match the original calculation spreadsheet, but the final result depends on the cost per result you enter. This is a planning and estimation tool — not a guarantee of campaign performance. Use real numbers from past campaigns whenever you can.</span></p></details>
-  <details><summary><span class="l-ar">ليه الإيراد والـ ROAS بيظهروا مع Sales بس؟</span><span class="l-en">Why do revenue and ROAS appear only with Sales?</span></summary><p><span class="l-ar">لأن الإيراد المتوقع بيحتاج سعر بيع واضح للنتيجة، وده متاح بشكل مباشر في المبيعات. في باقي الأهداف (ليدز، متابعين، رسائل…) النتيجة ليها قيمة بيع مش معروفة من الإعلان نفسه، فبنحسب الميزانية وعدد النتائج بس.</span><span class="l-en">Because expected revenue needs a clear selling price per result, which is directly available in sales. In the other objectives (leads, followers, messages…) a result has a sale value that the ad itself doesn't tell you, so we calculate the budget and the number of results only.</span></p></details>
-  <details><summary><span class="l-ar">إيه هو هامش الأمان؟</span><span class="l-en">What is the safety margin?</span></summary><p><span class="l-ar">نسبة بتزودها على تكلفة النتيجة كاحتياطي لو التكلفة الفعلية زادت عن المتوقع. مثلاً 10% يعني الميزانية هتتحسب على تكلفة أعلى 10%. سيبه 0% لو مش عايزه.</span><span class="l-en">A percentage you add on top of the result cost as a buffer in case the actual cost turns out higher than expected. For example, 10% means the budget is calculated on a cost that is 10% higher. Leave it at 0% if you don't want it.</span></p></details>
-  <details><summary><span class="l-ar">الفرق بين CBO وABO؟</span><span class="l-en">What's the difference between CBO and ABO?</span></summary><p><span class="l-ar">في CBO الميزانية على مستوى الحملة والمنصة بتوزعها على المجموعات تلقائياً. في ABO بتحدد رقم لكل مجموعة. الأداة بتقولك الرقم المناسب في الحالتين. ومتوسط الميزانية لكل إعلان رقم نظري للمقارنة بس — المنصة مش بتوزع بالتساوي.</span><span class="l-en">In CBO the budget sits at campaign level and the platform distributes it across ad sets automatically. In ABO you set a number for each ad set. The tool gives you the right number in both cases. The average budget per ad is a theoretical figure for comparison only — the platform doesn't split it equally.</span></p></details>
-  <details><summary><span class="l-ar">إيه تاب الكاتلوج؟</span><span class="l-en">What is the Catalog tab?</span></summary><p><span class="l-ar">لو عندك أكتر من منتج بأسعار مختلفة، بتحسب متوسط قيمة الأوردر (AOV) المرجّح بنسب الأوردرات، وتقسم المنتجات لشرائح (رخيص/متوسط/غالي) مع ROAS التعادل لكل شريحة، وتنقل الـ AOV لخانة سعر البيع بضغطة. متاح مع Sales فقط.</span><span class="l-en">If you have several products at different prices, it calculates the average order value (AOV) weighted by order shares, splits the products into tiers (cheap / medium / expensive) with a break-even ROAS for each tier, and moves the AOV into the selling-price field in one tap. Available with Sales only.</span></p></details>
-  <details><summary><span class="l-ar">أقدر أشتغل من الموبايل أو أحفظ نتيجة؟</span><span class="l-en">Can I use it on mobile or save a result?</span></summary><p><span class="l-ar">أيوه، الصفحة متظبطة للموبايل وفيها شريط ملخص ثابت تحت. ولحفظ نتيجة: انسخ لينك الحساب أو اطبع الصفحة / احفظها PDF من زر «طباعة».</span><span class="l-en">Yes, the page is built for mobile and has a sticky summary bar at the bottom. To save a result: copy the calculation link, or print the page / save it as a PDF with the «Print» button.</span></p></details>
+  <details><summary><span class="l-ar">هل الأداة مجانية؟ وأين تُحفظ بياناتي؟</span><span class="l-en">Is it really free? And where do my numbers go?</span></summary><p><span class="l-ar">مجانية بالكامل ودون تسجيل. تتم جميع الحسابات داخل متصفحك، ولا تُرسل أرقامك إلى أي خادم، ويُحفظ آخر حساب على جهازك فقط. وعند نسخ «رابط الحساب» تكون الأرقام داخل الرابط نفسه، أي أن أي شخص لديه الرابط يمكنه الاطلاع عليها.</span><span class="l-en">Completely free and no signup. All calculations happen inside your browser and none of your numbers are sent to any server. Your last calculation is saved on your device only. If you copy the «calculation link», the numbers live inside the link itself — so anyone who has the link can see them.</span></p></details>
+  <details><summary><span class="l-ar">ما مدى دقة الأرقام؟</span><span class="l-en">How accurate are the numbers?</span></summary><p><span class="l-ar">المعادلات دقيقة، لكن النتيجة النهائية تعتمد على تكلفة النتيجة التي تُدخلها. هذه أداة للتخطيط والتقدير وليست ضمانًا لأداء الحملة، لذا استخدم أرقامًا فعلية من حملات سابقة كلما أمكن.</span><span class="l-en">The calculations themselves are exact and match the original calculation spreadsheet, but the final result depends on the cost per result you enter. This is a planning and estimation tool — not a guarantee of campaign performance. Use real numbers from past campaigns whenever you can.</span></p></details>
+  <details><summary><span class="l-ar">لماذا يظهر الإيراد والـ ROAS مع هدف Sales فقط؟</span><span class="l-en">Why do revenue and ROAS appear only with Sales?</span></summary><p><span class="l-ar">لأن حساب الإيراد المتوقع يتطلب سعر بيع واضحًا للنتيجة، وهو متاح مباشرة في حملات المبيعات. أما في الأهداف الأخرى (العملاء المحتملون، والمتابعون، والرسائل…) فقيمة النتيجة غير معروفة من الإعلان نفسه، لذلك تُحسب الميزانية وعدد النتائج فقط.</span><span class="l-en">Because expected revenue needs a clear selling price per result, which is directly available in sales. In the other objectives (leads, followers, messages…) a result has a sale value that the ad itself doesn't tell you, so we calculate the budget and the number of results only.</span></p></details>
+  <details><summary><span class="l-ar">ما هو هامش الأمان؟</span><span class="l-en">What is the safety margin?</span></summary><p><span class="l-ar">نسبة تُضاف إلى تكلفة النتيجة كاحتياطي في حال ارتفاع التكلفة الفعلية عن المتوقع؛ فمثلًا 10% تعني حساب الميزانية على تكلفة أعلى بنسبة 10%. اتركه 0% إذا لم تكن بحاجة إليه.</span><span class="l-en">A percentage you add on top of the result cost as a buffer in case the actual cost turns out higher than expected. For example, 10% means the budget is calculated on a cost that is 10% higher. Leave it at 0% if you don't want it.</span></p></details>
+  <details><summary><span class="l-ar">ما الفرق بين ميزانية CBO وميزانية ABO؟</span><span class="l-en">What's the difference between CBO and ABO?</span></summary><p><span class="l-ar">في CBO تُحدَّد الميزانية على مستوى الحملة وتوزعها المنصة على المجموعات تلقائيًا، وفي ABO تُحدَّد ميزانية لكل مجموعة، وتعرض الأداة الرقم المناسب في الحالتين. أما متوسط الميزانية لكل إعلان فرقم نظري للمقارنة فقط، لأن المنصة لا توزع الميزانية بالتساوي.</span><span class="l-en">In CBO the budget sits at campaign level and the platform distributes it across ad sets automatically. In ABO you set a number for each ad set. The tool gives you the right number in both cases. The average budget per ad is a theoretical figure for comparison only — the platform doesn't split it equally.</span></p></details>
+  <details><summary><span class="l-ar">ما هو تبويب الكتالوج؟</span><span class="l-en">What is the Catalog tab?</span></summary><p><span class="l-ar">إذا كان لديك أكثر من منتج بأسعار مختلفة، يحسب التبويب متوسط قيمة الطلب (AOV) المرجّح بنسب الطلبات، ويقسّم المنتجات إلى شرائح (اقتصادي/متوسط/مرتفع السعر) مع ROAS التعادل لكل شريحة، وينقل الـ AOV إلى حقل سعر البيع بضغطة واحدة. متاح مع هدف Sales فقط.</span><span class="l-en">If you have several products at different prices, it calculates the average order value (AOV) weighted by order shares, splits the products into tiers (cheap / medium / expensive) with a break-even ROAS for each tier, and moves the AOV into the selling-price field in one tap. Available with Sales only.</span></p></details>
+  <details><summary><span class="l-ar">هل يمكن استخدامها من الجوال أو حفظ النتيجة؟</span><span class="l-en">Can I use it on mobile or save a result?</span></summary><p><span class="l-ar">نعم، الصفحة متوافقة مع الجوال وتتضمن شريط ملخص ثابتًا في الأسفل. ولحفظ النتيجة: انسخ رابط الحساب، أو اطبع الصفحة أو احفظها بصيغة PDF من زر «طباعة».</span><span class="l-en">Yes, the page is built for mobile and has a sticky summary bar at the bottom. To save a result: copy the calculation link, or print the page / save it as a PDF with the «Print» button.</span></p></details>
 </section>
 
-<div class="cta">
-  <div class="tx">
-    <h2><span class="l-ar">محتاج حد يراجع أرقام حملتك أو يديرها؟</span><span class="l-en">Need someone to review your campaign numbers or run them?</span></h2>
-    <p><span class="l-ar">ابعتلي أرقامك على واتساب وهقولك رأيي بصراحة.</span><span class="l-en">Send me your numbers on WhatsApp and I'll give you my honest opinion.</span></p>
-  </div>
-  <div class="acts" style="margin:0">
-    <a class="btn" data-wa data-wa-cta href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"/></svg><span class="l-ar">كلمني على واتساب</span><span class="l-en">Message me on WhatsApp</span></a>
-    <a class="btn ghost" href="https://www.linkedin.com/in/alrefayeldesouky/" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true" style="width:17px;height:17px"><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8c0-14.3 5.7-27.9 15.8-38S39.6 0 53.8 0s27.9 5.7 38 15.8 15.8 23.8 15.8 38c0 29.7-24.1 54.3-53.8 54.3M447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg>LinkedIn</a>
-  </div>
-</div>
 
 </div>
 </main>
 
 <footer>
   <div class="wrap">
-    <div class="fl"><img src="images/logo-sm.png" alt="" width="45" height="28"><b dir="ltr">Alrefay Eldesouky</b></div>
-    <p><span class="l-ar">الأداة للتخطيط والتقدير فقط ولا تضمن نتائج أي حملة. الأرقام الناتجة تعتمد بالكامل على المدخلات. Meta وFacebook وInstagram وAds Manager علامات تجارية لأصحابها، وهذه الصفحة مستقلة ولا ترتبط بهم أو تمثلهم.</span><span class="l-en">This tool is for planning and estimation only and does not guarantee the results of any campaign. The output depends entirely on the inputs. Meta, Facebook, Instagram and Ads Manager are trademarks of their owners; this page is independent and is not affiliated with or representing them.</span></p>
+    <div class="ft">
+      <div class="fl"><svg class="logo" viewBox="0 0 512 325" role="img" aria-label="RD"><path fill="#ffed00" fill-rule="evenodd" d="M452.0 32.0 L436.0 21.0 L427.0 16.0 L416.0 11.0 L404.8 7.0 L393.8 4.0 L383.8 2.0 L373.5 1.0 L372.0 2.8 L325.0 77.2 L325.2 78.0 L364.5 78.0 L376.8 79.8 L384.2 82.0 L394.2 86.8 L402.0 92.2 L411.0 101.0 L418.8 111.5 L423.0 119.5 L425.8 126.0 L429.8 139.8 L431.0 147.0 L431.8 155.2 L431.8 169.2 L430.0 183.2 L425.8 198.0 L421.0 208.5 L417.0 215.2 L413.0 220.8 L403.8 230.5 L396.2 236.2 L392.2 238.8 L386.0 241.8 L375.5 245.0 L362.8 246.5 L300.0 246.2 L299.5 245.5 L299.8 119.2 L299.0 118.8 L220.0 244.2 L220.0 323.5 L220.8 324.2 L366.2 324.2 L378.0 323.5 L390.2 321.5 L402.0 318.5 L415.8 313.8 L429.2 307.5 L439.2 301.8 L452.0 292.8 L460.2 285.8 L469.8 276.2 L475.8 269.2 L486.5 254.2 L492.5 243.8 L499.8 228.0 L505.5 210.5 L509.5 191.0 L510.8 179.5 L511.0 170.8 L511.8 167.2 L511.8 158.0 L511.2 157.2 L510.5 142.5 L508.5 127.5 L504.8 111.2 L500.5 98.5 L491.8 79.5 L482.8 64.8 L472.8 51.8 L460.0 38.8Z M333.2 0.0 L136.8 0.0 L136.0 0.5 L124.2 1.2 L113.5 3.0 L105.0 5.0 L94.8 8.2 L87.5 11.2 L79.5 15.2 L70.2 21.0 L62.5 27.0 L56.5 32.5 L49.0 40.8 L42.0 50.5 L37.0 59.5 L34.2 65.8 L31.0 75.0 L28.0 87.5 L26.2 102.8 L26.2 118.0 L27.2 129.0 L29.0 138.8 L33.0 152.0 L37.2 161.2 L43.0 170.2 L50.2 179.2 L59.0 187.8 L68.5 194.8 L79.2 200.5 L80.0 201.2 L80.0 202.0 L5.0 317.0 L0.0 323.8 L1.2 324.8 L2.2 324.2 L94.8 324.0 L96.2 322.2 L161.0 219.2 L162.2 218.5 L195.2 218.8 L197.0 217.8 L333.5 1.0Z M108.0 96.5 L111.5 91.0 L118.2 85.0 L123.8 82.0 L129.5 80.0 L135.2 78.8 L141.8 78.0 L219.5 78.0 L220.2 78.8 L220.2 140.0 L219.5 140.8 L143.8 140.8 L136.8 140.0 L130.5 138.8 L120.8 135.8 L114.5 132.0 L110.5 128.2 L107.8 124.2 L106.8 121.5 L105.8 115.8 L105.8 105.5 L106.8 100.2Z"/></svg><b dir="ltr">Alrefay Eldesouky</b></div>
+      <a class="btn sm li" href="https://www.linkedin.com/in/alrefayeldesouky/" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true" style="width:17px;height:17px"><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8c0-14.3 5.7-27.9 15.8-38S39.6 0 53.8 0s27.9 5.7 38 15.8 15.8 23.8 15.8 38c0 29.7-24.1 54.3-53.8 54.3M447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg>LinkedIn</a>
+    </div>
+    <p><span class="l-ar">الأداة للتخطيط والتقدير فقط ولا تضمن نتائج أي حملة. الأرقام الناتجة تعتمد بالكامل على المدخلات. الأسماء <bdi dir="ltr" style="white-space:nowrap">Meta, Facebook, Instagram, Ads Manager</bdi> علامات تجارية لأصحابها، وهذه الصفحة مستقلة ولا ترتبط بهم أو تمثلهم.</span><span class="l-en">This tool is for planning and estimation only and does not guarantee the results of any campaign. The output depends entirely on the inputs. Meta, Facebook, Instagram and Ads Manager are trademarks of their owners; this page is independent and is not affiliated with or representing them.</span></p>
     <p style="margin-top:8px">© <span id="yr">2026</span> Alrefay Eldesouky</p>
   </div>
 </footer>
@@ -471,7 +467,7 @@ html[data-theme=light] .tbl.stack tr.cur{border-color:#b9a400}
   <div class="c"><b id="sb-3">—</b><span id="sb-3l"><span class="l-ar">النتائج</span><span class="l-en">Results</span></span></div>
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-<noscript><div style="padding:20px;text-align:center;background:#2a2a28;color:#fff"><span class="l-ar">الحاسبة محتاجة JavaScript. فعّله في المتصفح وحدّث الصفحة.</span><span class="l-en">The calculator needs JavaScript. Enable it in your browser and refresh the page.</span></div></noscript>
+<noscript><div style="padding:20px;text-align:center;background:#2a2a28;color:#fff"><span class="l-ar">تتطلب الحاسبة تفعيل JavaScript، فعّله في المتصفح ثم حدّث الصفحة.</span><span class="l-en">The calculator needs JavaScript. Enable it in your browser and refresh the page.</span></div></noscript>
 
 <script>
 /* Ads Budget Calculator — calculation engine.
@@ -484,13 +480,13 @@ html[data-theme=light] .tbl.stack tr.cur{border-color:#b9a400}
 
   // ---------- the "الأهداف" table (revenue & ROAS exist for Sales only) ----------
   const OBJECTIVES = [
-    { key: 'Sales', ar: 'مبيعات', unit: 'أوردر (Purchase)', abbr: 'CPP', costLabel: 'CPP المتوقع (تكلفة الأوردر)', qtyLabel: 'عدد الأوردرات المطلوبة', divisor: 1, hasRevenue: 1, valueLabel: 'سعر بيع المنتج', hasFreq: 0, learning: 50, event: 'Purchase (Conversions)' },
-    { key: 'Leads', ar: 'عملاء محتملين', unit: 'ليد (Lead)', abbr: 'CPL', costLabel: 'CPL المتوقع (تكلفة الليد)', qtyLabel: 'عدد الـ Leads المطلوبة', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 50, event: 'Lead (Conversions أو Instant Form)' },
+    { key: 'Sales', ar: 'مبيعات', unit: 'طلب شراء (Purchase)', abbr: 'CPP', costLabel: 'CPP المتوقع (تكلفة الطلب)', qtyLabel: 'عدد الطلبات المطلوبة', divisor: 1, hasRevenue: 1, valueLabel: 'سعر بيع المنتج', hasFreq: 0, learning: 50, event: 'Purchase (Conversions)' },
+    { key: 'Leads', ar: 'عملاء محتملين', unit: 'عميل محتمل (Lead)', abbr: 'CPL', costLabel: 'CPL المتوقع (تكلفة العميل المحتمل)', qtyLabel: 'عدد الـ Leads المطلوبة', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 50, event: 'Lead (Conversions أو Instant Form)' },
     { key: 'Followers', ar: 'متابعين', unit: 'متابع (Follower)', abbr: 'CPF', costLabel: 'CPF المتوقع (تكلفة المتابع)', qtyLabel: 'عدد المتابعين المطلوب', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 0, event: 'Profile Visits / Followers (Engagement)' },
     { key: 'Traffic - LPV', ar: 'زيارات الصفحة', unit: 'زيارة صفحة (Landing Page View)', abbr: 'CPLPV', costLabel: 'Cost per LPV المتوقع (تكلفة زيارة الصفحة)', qtyLabel: 'عدد زيارات الصفحة المطلوبة (LPV)', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 50, event: 'Landing Page Views' },
     { key: 'App Promotion', ar: 'ترويج تطبيق', unit: 'تثبيت (Install)', abbr: 'CPI', costLabel: 'CPI المتوقع (تكلفة التثبيت)', qtyLabel: 'عدد التثبيتات المطلوبة', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 50, event: 'App Installs' },
     { key: 'Video Views', ar: 'مشاهدات فيديو', unit: 'مشاهدة (ThruPlay)', abbr: 'CPV', costLabel: 'CPV المتوقع (تكلفة المشاهدة)', qtyLabel: 'عدد المشاهدات المطلوبة', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 0, event: 'ThruPlay / Video Views' },
-    { key: 'Awareness', ar: 'وعي بالعلامة', unit: 'ظهور (Impression)', abbr: 'CPM', costLabel: 'CPM المتوقع (تكلفة 1000 ظهور)', qtyLabel: 'عدد مرات الظهور المطلوبة (Impressions)', divisor: 1000, hasRevenue: 0, valueLabel: '', hasFreq: 1, learning: 0, event: 'Reach / Impressions' },
+    { key: 'Awareness', ar: 'الوعي بالعلامة التجارية', unit: 'ظهور (Impression)', abbr: 'CPM', costLabel: 'CPM المتوقع (تكلفة 1000 ظهور)', qtyLabel: 'عدد مرات الظهور المطلوبة (Impressions)', divisor: 1000, hasRevenue: 0, valueLabel: '', hasFreq: 1, learning: 0, event: 'Reach / Impressions' },
     { key: 'Traffic - Link Clicks', ar: 'نقرات على الرابط', unit: 'نقرة رابط (Link Click)', abbr: 'CPC', costLabel: 'CPC المتوقع (تكلفة نقرة الرابط)', qtyLabel: 'عدد نقرات الرابط المطلوبة', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 0, event: 'Link Clicks' },
     { key: 'Messages', ar: 'رسائل ومحادثات', unit: 'محادثة (Conversation)', abbr: 'CPConv', costLabel: 'تكلفة المحادثة المتوقعة (Cost per Conversation)', qtyLabel: 'عدد المحادثات المطلوبة', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 50, event: 'Messaging Conversations' },
     { key: 'Engagement', ar: 'تفاعل', unit: 'تفاعل (Engagement)', abbr: 'CPE', costLabel: 'CPE المتوقع (تكلفة التفاعل)', qtyLabel: 'عدد التفاعلات المطلوبة', divisor: 1, hasRevenue: 0, valueLabel: '', hasFreq: 0, learning: 0, event: 'Post Engagement' }
@@ -787,7 +783,6 @@ html[data-theme=light] .tbl.stack tr.cur{border-color:#b9a400}
 'use strict';
 var E = window.AdsEngine, OB = E.OBJECTIVES;
 var KEY = 'rdAdsCalc.v1';
-var WA_NUMBER = '201553909130';
 var $ = function (s, r) { return (r || document).querySelector(s); };
 var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
@@ -818,13 +813,13 @@ function OBJ(key) {
 }
 function uP(o) { return o.unitPl || o.unit; }
 function objLabel(o) { return o.ar === o.key ? o.key : o.key + ' (' + o.ar + ')'; }
-function tierName(x) { return x === '\u0631\u062e\u064a\u0635' ? L('رخيص', 'Cheap') : x === '\u0645\u062a\u0648\u0633\u0637' ? L('متوسط', 'Medium') : x === '\u063a\u0627\u0644\u064a' ? L('غالي', 'Expensive') : x; }
+function tierName(x) { return x === '\u0631\u062e\u064a\u0635' ? L('اقتصادي', 'Cheap') : x === '\u0645\u062a\u0648\u0633\u0637' ? L('متوسط', 'Medium') : x === '\u063a\u0627\u0644\u064a' ? L('مرتفع السعر', 'Expensive') : x; }
 function errText(code) {
   var M = {
-    cost: L('أدخل تكلفة أكبر من صفر', 'Enter a cost greater than zero'), price: L('أدخل سعر أكبر من صفر', 'Enter a price greater than zero'),
+    cost: L('أدخل تكلفة أكبر من صفر', 'Enter a cost greater than zero'), price: L('أدخل سعرًا أكبر من صفر', 'Enter a price greater than zero'),
     roasReq: L('أدخل ROAS أكبر من صفر', 'Enter a ROAS greater than zero'), frequency: L('أدخل Frequency أكبر من صفر', 'Enter a Frequency greater than zero'),
-    target: L('أدخل رقم أكبر من صفر', 'Enter a number greater than zero'), days: L('عدد أيام صحيح (1 أو أكتر)', 'Whole number of days (1 or more)'),
-    pct: L('من 0% إلى 100%', 'Between 0% and 100%'), int1: L('رقم صحيح (1 أو أكتر)', 'Whole number (1 or more)'), min0: L('صفر أو أكتر', 'Zero or more')
+    target: L('أدخل رقمًا أكبر من صفر', 'Enter a number greater than zero'), days: L('عدد أيام صحيح (1 أو أكثر)', 'Whole number of days (1 or more)'),
+    pct: L('من 0% إلى 100%', 'Between 0% and 100%'), int1: L('رقم صحيح (1 أو أكثر)', 'Whole number (1 or more)'), min0: L('صفر أو أكثر', 'Zero or more')
   };
   return M[code] || code;
 }
@@ -1018,22 +1013,22 @@ function buildCalc() {
       select('s.currency', L('العملة (Currency)', 'Currency'), E.CURRENCIES.map(function (c) { return [c, c]; }))) +
     card('1', L('بيانات الهدف والتكلفة', 'Objective and cost data'),
       field('s.cost', '', { lbl: 'l-cost', cur: true, hintId: 'h-cost', hint: '' }) +
-      field('s.price', L('سعر بيع المنتج', 'Product selling price'), { show: 'sales', cur: true, hint: L('السعر النهائي للعميل  |  عندك كاتلوج؟ شوف تاب «الكاتلوج»', 'The final customer price  |  Have a catalog? See the «Catalog» tab') }) +
+      field('s.price', L('سعر بيع المنتج', 'Product selling price'), { show: 'sales', cur: true, hint: L('السعر النهائي للعميل  |  لديك كتالوج؟ راجع تبويب «الكتالوج»', 'The final customer price  |  Have a catalog? See the «Catalog» tab') }) +
       field('s.roasReq', L('ROAS المطلوب (x)', 'Required ROAS (x)'), { show: 'sales', unit: 'x', hint: L('الحد الأدنى للعائد على الإنفاق الإعلاني', 'The minimum return on ad spend') }) +
-      field('s.frequency', L('التكرار المتوقع (Frequency)', 'Expected frequency (Frequency)'), { show: 'freq', unit: '×', hint: L('عشان نحسب الوصول (Reach)', 'To calculate reach (Reach)') })) +
+      field('s.frequency', L('التكرار المتوقع (Frequency)', 'Expected frequency (Frequency)'), { show: 'freq', unit: '×', hint: L('لحساب الوصول (Reach)', 'To calculate reach (Reach)') })) +
     card('2', L('هدف الحملة', 'Campaign goal'),
-      select('s.mode', L('الهدف المُدخل بـ', 'Target entered as'), [['results', L('عدد النتائج', 'Number of results')], ['budgetTotal', L('الميزانية الكلية', 'Total budget')], ['budgetDaily', L('الميزانية اليومية', 'Daily budget')]], { hintId: 'h-mode', hint: '' }) +
+      select('s.mode', L('طريقة إدخال الهدف', 'Target entered as'), [['results', L('عدد النتائج', 'Number of results')], ['budgetTotal', L('الميزانية الكلية', 'Total budget')], ['budgetDaily', L('الميزانية اليومية', 'Daily budget')]], { hintId: 'h-mode', hint: '' }) +
       field('s.target', '', { lbl: 'l-target', unit: '', unitId: 'u-target', hintId: 'h-target', hint: '' }) +
       '<div class="two">' + field('s.days', L('مدة الحملة (أيام)', 'Campaign duration (days)'), { unit: L('يوم', 'days'), hint: L('عدد أيام الاختبار', 'Number of test days') }) +
-      field('s.startDate', L('تاريخ بداية الحملة', 'Campaign start date'), { t: 'date', hint: L('مهم لو الميزانية Lifetime', 'Important if the budget is Lifetime') }) + '</div>' +
-      field('s.margin', L('هامش أمان للميزانية (%)', 'Budget safety margin (%)'), { t: 'pct', hint: L('احتياطي لو التكلفة زادت (اتركه 0% لو مش عايزه)', 'A buffer in case the cost rises (leave 0% if you don\'t want it)') })) +
+      field('s.startDate', L('تاريخ بداية الحملة', 'Campaign start date'), { t: 'date', hint: L('ضروري إذا كانت الميزانية Lifetime', 'Important if the budget is Lifetime') }) + '</div>' +
+      field('s.margin', L('هامش أمان للميزانية (%)', 'Budget safety margin (%)'), { t: 'pct', hint: L('احتياطي لارتفاع التكلفة (اتركه 0% إذا لم تكن بحاجة إليه)', 'A buffer in case the cost rises (leave 0% if you don\'t want it)') })) +
     card('3', L('إعداد الحملة', 'Campaign setup'),
-      '<div class="two">' + select('s.budgetType', L('نوع الميزانية', 'Budget type'), [['Daily', L('Daily — يومية', 'Daily — per day')], ['Lifetime', L('Lifetime — للفترة كلها', 'Lifetime — for the whole period')]]) +
+      '<div class="two">' + select('s.budgetType', L('نوع الميزانية', 'Budget type'), [['Daily', L('Daily — يومية', 'Daily — per day')], ['Lifetime', L('Lifetime — لكامل الفترة', 'Lifetime — for the whole period')]]) +
       select('s.campaignType', L('نوع الحملة', 'Campaign type'), [['CBO', L('CBO — على الحملة', 'CBO — at campaign level')], ['ABO', L('ABO — على المجموعة', 'ABO — at ad-set level')]]) + '</div>' +
       '<div class="two">' + field('s.adSets', L('عدد المجموعات (Ad Sets)', 'Number of ad sets (Ad Sets)'), { unit: L('مجموعة', 'ad sets') }) + field('s.adsPerSet', L('الإعلانات في كل مجموعة', 'Ads per ad set'), { unit: L('إعلان', 'ads') }) + '</div>') +
     card('4', L('إعدادات متقدمة', 'Advanced settings'),
       ('<div class="f"><label>' + L('مؤشر حجم التعلّم (نتيجة/أسبوع/مجموعة)', 'Learning guide value (results/week/ad set)') + '</label><div class="kpi" style="padding:8px 12px"><b class="num" id="v-learn"></b></div><small class="hint">' + L('مؤشر إرشادي لحجم البيانات — ليس شرطاً لنجاح الحملة', 'A guide value for data volume — not a condition for campaign success') + '</small></div>') +
-      field('s.minBudgetMult', L('أقل ميزانية يومية للمجموعة (× تكلفة النتيجة)', 'Minimum daily budget per ad set (× result cost)'), { unit: '×', hint: L('يعني على الأقل تكلفة نتيجة واحدة يومياً لكل مجموعة', 'That is, at least the cost of one result per day for each ad set') }));
+      field('s.minBudgetMult', L('أقل ميزانية يومية للمجموعة (× تكلفة النتيجة)', 'Minimum daily budget per ad set (× result cost)'), { unit: '×', hint: L('أي تكلفة نتيجة واحدة على الأقل يوميًا لكل مجموعة', 'That is, at least the cost of one result per day for each ad set') }));
   var right =
     card('5', L('النتيجة الرئيسية', 'Main result'),
       '<div class="note" id="r-msg"></div><div class="kpis">' +
@@ -1058,14 +1053,14 @@ function buildScen() {
     ('<td class="n" data-l="' + L('تكلفة النتيجة المعدّلة', 'Adjusted result cost') + '" data-c="cost"></td><td class="n" data-l="' + L('النتائج المستهدفة', 'Target results') + '" data-c="res"></td><td class="n" data-l="' + L('الميزانية الكلية', 'Total budget') + '" data-c="bud"></td><td class="n" data-l="' + L('الميزانية اليومية', 'Daily budget') + '" data-c="day"></td><td class="n s-only" data-l="' + L('الإيراد المتوقع', 'Expected revenue') + '" data-c="rev"></td><td class="n s-only" data-l="ROAS" data-c="roas"></td><td data-l="' + L('ملاحظة', 'Note') + '" data-c="note"></td></tr>');
   for (i = 0; i < 8; i++) rowsB += '<tr data-r="b' + i + ('"><td data-l="' + L('التغيّر في التكلفة', 'Change in cost') + '">') + inCell('sc.sens.' + i, '%', 'pct', (L('التغيّر في التكلفة — صف', 'Change in cost — row') + ' ') + (i + 1)) + ('</td><td class="n" data-l="' + L('التكلفة الجديدة', 'New cost') + '" data-c="cost"></td><td class="n s-only" data-l="' + L('ROAS المتوقع', 'Expected ROAS') + '" data-c="roas"></td><td class="n" data-l="' + L('الميزانية الكلية', 'Total budget') + '" data-c="bud"></td><td class="n" data-l="' + L('الميزانية اليومية', 'Daily budget') + '" data-c="day"></td><td class="n" data-l="' + L('الفرق عن الأساسية', 'Difference from base') + '" data-c="diff"></td><td class="s-only" data-l="' + L('الحالة', 'Status') + '" data-c="st"></td></tr>');
   return ctxBar() + '<div class="grid">' +
-    '<div class="col">' + card('1', L('حاسبة عكسية: لو عندي ميزانية ثابتة، هجيب كام نتيجة؟', 'Reverse calculation: with a fixed budget, how many results will I get?'),
+    '<div class="col">' + card('1', L('الحاسبة العكسية: كم نتيجة تحققها ميزانية ثابتة؟', 'Reverse calculation: with a fixed budget, how many results will I get?'),
       field('sc.daily', L('الميزانية اليومية المتاحة', 'Available daily budget'), { cur: true }) + kv([
         [L('مدة الحملة (أيام)', 'Campaign duration (days)'), 'rv-days'], [L('إجمالي الميزانية', 'Total budget'), 'rv-total'], [L('عدد النتائج (إجمالي)', 'Number of results (total)'), 'rv-res'], [L('النتائج اليومية المتوقعة', 'Expected daily results'), 'rv-dres'],
         [L('الإيراد المتوقع (إجمالي)', 'Expected revenue (total)'), 'rv-rev', '', 's-only'], [L('الإيراد اليومي المتوقع', 'Expected daily revenue'), 'rv-drev', '', 's-only']])) + '</div>' +
-    '<div class="col">' + card('', L('كيف تقرأها؟', 'How to read it?'), ('<p style="color:var(--muted);font-size:.93rem">' + L('الحاسبة العكسية بتقولك لو ميزانيتك اليومية ثابتة (من غير هامش تقريب للميزانية الكلية) هتجيب كام نتيجة في فترة الحملة، بنفس التكلفة وهامش الأمان اللي في تاب «الحاسبة».', 'The reverse calculator shows how many results a fixed daily budget buys over the campaign period, using the same cost and safety margin as in the «Calculator» tab (without rounding up the total budget).') + '</p><p style="color:var(--muted);font-size:.93rem;margin-top:8px">' + L('وجداول التوسيع والحساسية تحت بتفترض تغيّر تكلفة النتيجة عشان تشوف أثره على الميزانية والـ ROAS. الافتراضات قابلة للتعديل — ماتفترضش إن التكلفة هتفضل ثابتة لما تضاعف الميزانية.', 'The scale-up and sensitivity tables below assume the result cost changes, so you can see the effect on the budget and ROAS. The assumptions are editable — don\'t assume the cost stays flat when you double the budget.') + '</p>')) + '</div></div>' +
+    '<div class="col">' + card('', L('كيف تقرأ النتائج؟', 'How to read it?'), ('<p style="color:var(--muted);font-size:.93rem">' + L('توضح الحاسبة العكسية عدد النتائج المتوقعة خلال فترة الحملة إذا كانت ميزانيتك اليومية ثابتة (دون تقريب الميزانية الكلية)، بنفس التكلفة وهامش الأمان المحددين في تبويب «الحاسبة».', 'The reverse calculator shows how many results a fixed daily budget buys over the campaign period, using the same cost and safety margin as in the «Calculator» tab (without rounding up the total budget).') + '</p><p style="color:var(--muted);font-size:.93rem;margin-top:8px">' + L('أما جداول التوسيع والحساسية أدناه فتفترض تغيّر تكلفة النتيجة لتوضيح أثره على الميزانية والـ ROAS. الافتراضات قابلة للتعديل، ولا ينبغي افتراض ثبات التكلفة عند مضاعفة الميزانية.', 'The scale-up and sensitivity tables below assume the result cost changes, so you can see the effect on the budget and ROAS. The assumptions are editable — don\'t assume the cost stays flat when you double the budget.') + '</p>')) + '</div></div>' +
     '<div class="row2" style="grid-template-columns:1fr">' +
     card('2', L('سيناريوهات التوسيع — مع افتراض تغيّر تكلفة النتيجة', 'Scale-up scenarios — with an assumed change in result cost'), ('<div class="scroll"><table class="tbl stack"><thead><tr><th>' + L('مضاعف النتائج', 'Results multiplier') + '</th><th>' + L('افتراض تغيّر التكلفة', 'Assumed cost change') + '</th><th class="n">' + L('تكلفة النتيجة المعدّلة', 'Adjusted result cost') + '</th><th class="n">' + L('النتائج المستهدفة', 'Target results') + '</th><th class="n">' + L('الميزانية الكلية', 'Total budget') + '</th><th class="n">' + L('الميزانية اليومية', 'Daily budget') + '</th><th class="n s-only">' + L('الإيراد المتوقع', 'Expected revenue') + '</th><th class="n s-only">ROAS</th><th>' + L('ملاحظة', 'Note') + '</th></tr></thead><tbody id="t-sc">') + rowsA + '</tbody></table></div>') +
-    card('3', L('حساسية التكلفة: لو التكلفة زادت أو قلّت، إيه اللي هيحصل؟', 'Cost sensitivity: what happens if the cost goes up or down?'), ('<div class="scroll"><table class="tbl stack"><thead><tr><th>' + L('التغيّر في التكلفة', 'Change in cost') + '</th><th class="n">' + L('التكلفة الجديدة', 'New cost') + '</th><th class="n s-only">' + L('ROAS المتوقع', 'Expected ROAS') + '</th><th class="n">' + L('الميزانية الكلية', 'Total budget') + '</th><th class="n">' + L('الميزانية اليومية', 'Daily budget') + '</th><th class="n">' + L('الفرق عن الميزانية الأساسية', 'Difference from the base budget') + '</th><th class="s-only">' + L('الحالة مقابل ROAS المطلوب', 'Status vs required ROAS') + '</th></tr></thead><tbody id="t-sens">') + rowsB + '</tbody></table></div>') + '</div>';
+    card('3', L('حساسية التكلفة: ماذا يحدث إذا ارتفعت التكلفة أو انخفضت؟', 'Cost sensitivity: what happens if the cost goes up or down?'), ('<div class="scroll"><table class="tbl stack"><thead><tr><th>' + L('التغيّر في التكلفة', 'Change in cost') + '</th><th class="n">' + L('التكلفة الجديدة', 'New cost') + '</th><th class="n s-only">' + L('ROAS المتوقع', 'Expected ROAS') + '</th><th class="n">' + L('الميزانية الكلية', 'Total budget') + '</th><th class="n">' + L('الميزانية اليومية', 'Daily budget') + '</th><th class="n">' + L('الفرق عن الميزانية الأساسية', 'Difference from the base budget') + '</th><th class="s-only">' + L('الحالة مقابل ROAS المطلوب', 'Status vs required ROAS') + '</th></tr></thead><tbody id="t-sens">') + rowsB + '</tbody></table></div>') + '</div>';
 }
 function inCell(k, unit, t, label) {
   return '<div class="ctl"><input id="' + fid(k) + '" type="text" inputmode="decimal" autocomplete="off" data-k="' + k + '" data-t="' + t + '"' + (t === 'pct' ? ' data-pct' : '') + ' aria-label="' + esc(label || k) + '"><span class="u">' + unit + '</span></div>';
@@ -1074,48 +1069,48 @@ function inCell(k, unit, t, label) {
 function buildProfit() {
   return ctxBar() + '<div class="note" id="p-na" hidden></div><div class="grid">' +
     '<div class="col">' +
-    card('1', L('بيانات من الحاسبة', 'Data from the Calculator'), ('<p class="sub2">' + L('مرتبطة بتاب «الحاسبة» — غيّرها من هناك.', 'Linked to the «Calculator» tab — change it there.') + '</p>') + kv([
+    card('1', L('بيانات من الحاسبة', 'Data from the Calculator'), ('<p class="sub2">' + L('مرتبطة بتبويب «الحاسبة»، ويمكن تعديلها من هناك.', 'Linked to the «Calculator» tab — change it there.') + '</p>') + kv([
       [L('متوسط قيمة الطلب / سعر البيع', 'Average order value / selling price'), 'pl-price'], [L('عدد الـ Purchases المخطط', 'Planned Purchases'), 'pl-purch'], [L('الإنفاق الإعلاني المخطط (إجمالي الفترة)', 'Planned ad spend (whole period)'), 'pl-spend'], [L('تكلفة الـ Purchase الفعلية (CPA)', 'Actual Purchase cost (CPA)'), 'pl-cpa']])) +
     card('2', L('افتراضات الربحية — مدخلات قابلة للتعديل', 'Profitability assumptions — editable inputs'),
-      field('pr.cogs', L('تكلفة المنتج / COGS لكل أوردر', 'Product cost / COGS per order'), { cur: true, hint: L('سعر الشراء/التصنيع بدون الإعلان', 'Purchase/manufacturing price, excluding ads') }) +
-      field('pr.shipping', L('تكلفة الشحن لكل شحنة', 'Shipping cost per shipment'), { cur: true, hint: L('تكلفة الشحنة الخارجة؛ المرتجع قد يتحمل شحن', 'Outbound shipping cost; returns may also bear shipping') }) +
+      field('pr.cogs', L('تكلفة المنتج / COGS لكل طلب', 'Product cost / COGS per order'), { cur: true, hint: L('سعر الشراء أو التصنيع دون تكلفة الإعلان', 'Purchase/manufacturing price, excluding ads') }) +
+      field('pr.shipping', L('تكلفة الشحن لكل شحنة', 'Shipping cost per shipment'), { cur: true, hint: L('تكلفة الشحن الصادر، وقد تتحمل المرتجعات تكلفة شحن أيضًا', 'Outbound shipping cost; returns may also bear shipping') }) +
       field('pr.payFee', L('رسوم الدفع الإلكتروني (%)', 'Online payment fees (%)'), { t: 'pct', hint: L('مثال: 2.5%', 'e.g. 2.5%') }) +
-      field('pr.confirm', L('نسبة تأكيد الأوردرات (%)', 'Order confirmation rate (%)'), { t: 'pct', hint: L('من الـ Purchases المسجلة، كام أوردر بيتأكد؟', 'Of the recorded Purchases, how many orders get confirmed?') }) +
-      field('pr.delivery', L('نسبة التسليم من الأوردرات المؤكدة (%)', 'Delivery rate of confirmed orders (%)'), { t: 'pct', hint: L('من المؤكد، كام أوردر بيتسلّم؟', 'Of the confirmed orders, how many get delivered?') }) +
-      field('pr.returns', L('نسبة المرتجعات من الأوردرات المسلّمة (%)', 'Return rate of delivered orders (%)'), { t: 'pct', hint: L('من المسلّم، كام أوردر بيرجع؟', 'Of the delivered orders, how many come back?') }) +
-      field('pr.other', L('تكاليف متغيرة أخرى لكل أوردر صافي', 'Other variable costs per net order'), { cur: true, hint: L('تغليف / عمولات / تشغيل متغير', 'Packaging / commissions / variable operations') }) +
+      field('pr.confirm', L('نسبة تأكيد الطلبات (%)', 'Order confirmation rate (%)'), { t: 'pct', hint: L('نسبة الطلبات المؤكدة من إجمالي الـ Purchases المسجلة', 'Of the recorded Purchases, how many orders get confirmed?') }) +
+      field('pr.delivery', L('نسبة التسليم من الطلبات المؤكدة (%)', 'Delivery rate of confirmed orders (%)'), { t: 'pct', hint: L('نسبة الطلبات المسلّمة من الطلبات المؤكدة', 'Of the confirmed orders, how many get delivered?') }) +
+      field('pr.returns', L('نسبة المرتجعات من الطلبات المسلّمة (%)', 'Return rate of delivered orders (%)'), { t: 'pct', hint: L('نسبة الطلبات المرتجعة من الطلبات المسلّمة', 'Of the delivered orders, how many come back?') }) +
+      field('pr.other', L('تكاليف متغيرة أخرى لكل طلب صافٍ', 'Other variable costs per net order'), { cur: true, hint: L('تغليف / عمولات / تشغيل متغير', 'Packaging / commissions / variable operations') }) +
       field('pr.targetMargin', L('هامش الربح المستهدف بعد الإعلانات (%)', 'Target profit margin after ads (%)'), { t: 'pct', hint: L('نسبة مستهدفة من صافي الإيراد المحصل', 'Target share of net collected revenue') })) +
     '</div><div class="col">' +
-    card('', L('التقييم', 'Assessment'), kv([[(L('Effective CPA لكل أوردر صافي', 'Effective CPA per net order') + '<small>' + L('الإنفاق ÷ الأوردرات الصافية', 'Spend ÷ net orders') + '</small>'), 'pe-cpa'], [(L('Net Revenue ROAS (محصل / Spend)', 'Net Revenue ROAS (collected / spend)') + '<small>' + L('الإيراد المحصل ÷ الإنفاق الإعلاني', 'Collected revenue ÷ ad spend') + '</small>'), 'pe-nroas'],
-      [(L('Ads Manager ROAS المتوقع', 'Expected Ads Manager ROAS') + '<small>' + L('AOV ÷ CPA الأساسي', 'AOV ÷ base CPA') + '</small>'), 'pe-aroas'], [(L('مسافة الأمان عن Break-even CPA', 'Safety distance from break-even CPA') + '<small>' + L('موجب = عندك مساحة قبل الخسارة', 'Positive = you have room before a loss') + '</small>'), 'pe-room1'], [(L('مسافة الأمان عن Target CPA', 'Safety distance from target CPA') + '<small>' + L('موجب = التكلفة ضمن هدف هامش الربح', 'Positive = the cost is within the profit-margin target') + '</small>'), 'pe-room2'], [L('التقييم', 'Assessment'), 'pe-verdict']])) +
-    card('3', L('اقتصاديات الأوردر و Break-even', 'Order economics & break-even'), kv([
+    card('', L('التقييم', 'Assessment'), kv([[(L('Effective CPA لكل طلب صافٍ', 'Effective CPA per net order') + '<small>' + L('الإنفاق ÷ الطلبات الصافية', 'Spend ÷ net orders') + '</small>'), 'pe-cpa'], [(L('Net Revenue ROAS (محصل / Spend)', 'Net Revenue ROAS (collected / spend)') + '<small>' + L('الإيراد المحصل ÷ الإنفاق الإعلاني', 'Collected revenue ÷ ad spend') + '</small>'), 'pe-nroas'],
+      [(L('Ads Manager ROAS المتوقع', 'Expected Ads Manager ROAS') + '<small>' + L('AOV ÷ CPA الأساسي', 'AOV ÷ base CPA') + '</small>'), 'pe-aroas'], [(L('مسافة الأمان عن Break-even CPA', 'Safety distance from break-even CPA') + '<small>' + L('القيمة الموجبة = هامش متاح قبل الخسارة', 'Positive = you have room before a loss') + '</small>'), 'pe-room1'], [(L('مسافة الأمان عن Target CPA', 'Safety distance from target CPA') + '<small>' + L('القيمة الموجبة = التكلفة ضمن هامش الربح المستهدف', 'Positive = the cost is within the profit-margin target') + '</small>'), 'pe-room2'], [L('التقييم', 'Assessment'), 'pe-verdict']])) +
+    card('3', L('اقتصاديات الطلب ونقطة التعادل (Break-even)', 'Order economics & break-even'), kv([
       [(L('إيراد متوقع لكل Purchase مسجل', 'Expected revenue per recorded purchase') + '<small>' + L('بعد التأكيد والتسليم والمرتجعات', 'After confirmation, delivery and returns') + '</small>'), 'po-rev'], [L('COGS متوقع لكل Purchase مسجل', 'Expected COGS per recorded purchase'), 'po-cogs'], [(L('شحن متوقع لكل Purchase مسجل', 'Expected shipping per recorded purchase') + '<small>' + L('محسوب على الشحنات المسلّمة', 'Calculated on delivered shipments') + '</small>'), 'po-ship'],
       [(L('رسوم دفع متوقعة لكل Purchase مسجل', 'Expected payment fees per recorded purchase') + '<small>' + L('على الإيراد المحصل', 'On collected revenue') + '</small>'), 'po-fee'], [L('تكاليف أخرى متوقعة لكل Purchase مسجل', 'Expected other costs per recorded purchase'), 'po-oth'],
       [(L('Break-even CPA لكل Purchase مسجل', 'Break-even CPA per recorded purchase') + '<small>' + L('أقصى تكلفة إعلان قبل الربح = صفر', 'Max ad cost before profit hits zero') + '</small>'), 'po-becpa'], [('Break-even ROAS (Ads Manager)<small>' + L('قارنه بالـ ROAS الظاهر في Ads Manager', 'Compare it with the ROAS shown in Ads Manager') + '</small>'), 'po-beroas'],
       [L('Target CPA لتحقيق هامش الربح', 'Target CPA to hit the profit margin'), 'po-tcpa'], [(L('Target ROAS لتحقيق هامش الربح', 'Target ROAS to hit the profit margin') + '<small>' + L('ROAS اللازم لتحقيق الهامش', 'ROAS needed to hit the margin') + '</small>'), 'po-troas']])) +
     card('4', L('نتيجة الخطة على مستوى الحملة', 'Campaign-level plan result'), kv([
-      [L('أوردرات مؤكدة متوقعة', 'Expected confirmed orders'), 'pp-conf'], [L('شحنات مسلّمة متوقعة', 'Expected delivered shipments'), 'pp-deliv'], [L('أوردرات صافية بعد المرتجعات', 'Net orders after returns'), 'pp-net'], [L('صافي الإيراد المحصل', 'Net collected revenue'), 'pp-rev'], [L('إجمالي COGS', 'Total COGS'), 'pp-cogs'],
+      [L('الطلبات المؤكدة المتوقعة', 'Expected confirmed orders'), 'pp-conf'], [L('الشحنات المسلّمة المتوقعة', 'Expected delivered shipments'), 'pp-deliv'], [L('الطلبات الصافية بعد المرتجعات', 'Net orders after returns'), 'pp-net'], [L('صافي الإيراد المحصل', 'Net collected revenue'), 'pp-rev'], [L('إجمالي COGS', 'Total COGS'), 'pp-cogs'],
       [L('إجمالي الشحن', 'Total shipping'), 'pp-ship'], [L('رسوم الدفع', 'Payment fees'), 'pp-fee'], [L('صافي الربح قبل المصاريف الثابتة', 'Net profit before fixed expenses'), 'pp-profit', '', 'hl'], [L('هامش الربح بعد الإعلانات', 'Profit margin after ads'), 'pp-margin']])) +
     ('</div></div><p class="sub" style="margin:14px 0 0;font-size:.9rem">' + L('مهم: قيم التأكيد والتسليم والمرتجعات والتكاليف التشغيلية افتراضات قابلة للتعديل. استخدم متوسطات العميل الفعلية كلما توفرت؛ الأداة للتخطيط وليست ضماناً للأداء.', 'Important: confirmation, delivery, returns and operating costs are editable assumptions. Use your actual averages whenever available; this tool is for planning and not a guarantee of performance.') + '</p>');
 }
 
 var COST_ROWS; function init_COST_ROWS() { COST_ROWS = [['cpm', L('CPM — تكلفة 1000 ظهور', 'CPM — cost per 1,000 impressions'), L('الإنفاق ÷ الظهور × 1000', 'Spend ÷ impressions × 1000'), 1], ['cpc', L('CPC — تكلفة النقرة', 'CPC — cost per click'), L('الإنفاق ÷ النقرات', 'Spend ÷ clicks'), 1], ['cplpv', L('Cost per LPV — تكلفة زيارة الصفحة', 'Cost per LPV — cost per landing page view'), L('الإنفاق ÷ زيارات الصفحة', 'Spend ÷ landing page views'), 1],
-  ['ctr', L('CTR — نسبة النقر', 'CTR — click-through rate'), L('النقرات ÷ الظهور', 'Clicks ÷ impressions'), 0], ['cpp', L('CPP — تكلفة الأوردر', 'CPP — cost per order'), L('الإنفاق ÷ الأوردرات', 'Spend ÷ orders'), 1], ['cpl', L('CPL — تكلفة الليد', 'CPL — cost per lead'), L('الإنفاق ÷ الـ Leads', 'Spend ÷ Leads'), 1],
+  ['ctr', L('CTR — نسبة النقر', 'CTR — click-through rate'), L('النقرات ÷ الظهور', 'Clicks ÷ impressions'), 0], ['cpp', L('CPP — تكلفة الطلب', 'CPP — cost per order'), L('الإنفاق ÷ الطلبات', 'Spend ÷ orders'), 1], ['cpl', L('CPL — تكلفة العميل المحتمل', 'CPL — cost per lead'), L('الإنفاق ÷ الـ Leads', 'Spend ÷ Leads'), 1],
   ['cpf', L('CPF — تكلفة المتابع', 'CPF — cost per follower'), L('الإنفاق ÷ المتابعين', 'Spend ÷ followers'), 1], ['cpi', L('CPI — تكلفة التثبيت', 'CPI — cost per install'), L('الإنفاق ÷ التثبيتات', 'Spend ÷ installs'), 1], ['cpv', L('CPV — تكلفة المشاهدة', 'CPV — cost per view'), L('الإنفاق ÷ مشاهدات ThruPlay', 'Spend ÷ ThruPlay views'), 1],
-  ['roas', L('ROAS الفعلي (x)', 'Actual ROAS (x)'), L('الإيراد ÷ الإنفاق', 'Revenue ÷ spend'), 0], ['aov', L('متوسط قيمة الأوردر — AOV', 'Average order value — AOV'), L('الإيراد ÷ الأوردرات', 'Revenue ÷ orders'), 1], ['clickToOrder', L('نسبة تحويل النقرة إلى أوردر', 'Click-to-order rate'), L('الأوردرات ÷ النقرات', 'Orders ÷ clicks'), 0],
+  ['roas', L('ROAS الفعلي (x)', 'Actual ROAS (x)'), L('الإيراد ÷ الإنفاق', 'Revenue ÷ spend'), 0], ['aov', L('متوسط قيمة الطلب — AOV', 'Average order value — AOV'), L('الإيراد ÷ الطلبات', 'Revenue ÷ orders'), 1], ['clickToOrder', L('نسبة تحويل النقرة إلى طلب', 'Click-to-order rate'), L('الطلبات ÷ النقرات', 'Orders ÷ clicks'), 0],
   ['clickToLead', L('نسبة تحويل النقرة إلى Lead', 'Click-to-lead rate'), L('الـ Leads ÷ النقرات', 'Leads ÷ clicks'), 0], ['cpconv', L('CPConv — تكلفة المحادثة', 'CPConv — cost per conversation'), L('الإنفاق ÷ المحادثات', 'Spend ÷ conversations'), 1], ['cpe', L('CPE — تكلفة التفاعل', 'CPE — cost per engagement'), L('الإنفاق ÷ التفاعلات', 'Spend ÷ engagements'), 1]]; }
 var OBJ_COSTKEY = { 'Sales': 'cpp', 'Leads': 'cpl', 'Followers': 'cpf', 'Traffic - LPV': 'cplpv', 'App Promotion': 'cpi', 'Video Views': 'cpv', 'Awareness': 'cpm', 'Traffic - Link Clicks': 'cpc', 'Messages': 'cpconv', 'Engagement': 'cpe' };
 function buildCosts() {
-  var left = card('1', L('أرقام حملة شغالة (من Ads Manager)', 'Numbers from a running campaign (from Ads Manager)'), ('<p class="sub2">' + L('اترك الخانة فاضية لو مش من هدف حملتك. استخدم أرقام نفس الحملة ونفس الفترة.', 'Leave a field empty if it doesn\'t apply to your campaign objective. Use numbers from the same campaign and the same period.') + '</p>') +
-    field('cs.spend', L('الإنفاق الإعلاني — Amount Spent', 'Amount spent (ad spend)'), { cur: true, hint: L('إجمالي المصروف في الفترة', 'Total spent in the period') }) +
+  var left = card('1', L('أرقام حملة قائمة (من Ads Manager)', 'Numbers from a running campaign (from Ads Manager)'), ('<p class="sub2">' + L('اترك الحقل فارغًا إذا لم يكن ضمن هدف حملتك، واستخدم أرقام الحملة نفسها وللفترة نفسها.', 'Leave a field empty if it doesn\'t apply to your campaign objective. Use numbers from the same campaign and the same period.') + '</p>') +
+    field('cs.spend', L('الإنفاق الإعلاني — Amount Spent', 'Amount spent (ad spend)'), { cur: true, hint: L('إجمالي الإنفاق خلال الفترة', 'Total spent in the period') }) +
     field('cs.impressions', L('مرات الظهور — Impressions', 'Impressions')) + field('cs.clicks', L('النقرات على الرابط — Link Clicks', 'Link clicks')) + field('cs.lpv', L('زيارات الصفحة — Landing Page Views', 'Landing page views'), { hint: L('اختياري', 'Optional') }) +
-    field('cs.purchases', L('الأوردرات — Purchases', 'Purchases (orders)'), { hint: L('لو الحملة Sales', 'If the campaign is Sales') }) + field('cs.leads', L('الـ Leads', 'Leads'), { hint: L('لو الحملة Leads', 'If the campaign is Leads') }) + field('cs.followers', L('المتابعين الجدد — Followers', 'New followers'), { hint: L('لو الحملة Followers', 'If the campaign is Followers') }) +
-    field('cs.installs', L('تثبيتات التطبيق — App Installs', 'App installs'), { hint: L('لو الحملة App Promotion', 'If the campaign is App Promotion') }) + field('cs.thruplay', L('مشاهدات الفيديو — ThruPlay', 'ThruPlay video views'), { hint: L('لو الحملة Video Views', 'If the campaign is Video Views') }) +
+    field('cs.purchases', L('الطلبات — Purchases', 'Purchases (orders)'), { hint: L('إذا كانت الحملة Sales', 'If the campaign is Sales') }) + field('cs.leads', L('الـ Leads', 'Leads'), { hint: L('إذا كانت الحملة Leads', 'If the campaign is Leads') }) + field('cs.followers', L('المتابعين الجدد — Followers', 'New followers'), { hint: L('إذا كانت الحملة Followers', 'If the campaign is Followers') }) +
+    field('cs.installs', L('تثبيتات التطبيق — App Installs', 'App installs'), { hint: L('إذا كانت الحملة App Promotion', 'If the campaign is App Promotion') }) + field('cs.thruplay', L('مشاهدات الفيديو — ThruPlay', 'ThruPlay video views'), { hint: L('إذا كانت الحملة Video Views', 'If the campaign is Video Views') }) +
     field('cs.purchaseValue', L('إيراد المبيعات — Purchase Value', 'Purchase value (sales revenue)'), { cur: true, hint: L('اختياري: لحساب ROAS الفعلي', 'Optional: to calculate the actual ROAS') }) +
-    field('cs.conversations', L('محادثات الرسائل — Messaging Conversations', 'Messaging conversations'), { hint: L('لو الحملة Messages', 'If the campaign is Messages') }) + field('cs.engagements', L('التفاعلات — Engagements', 'Engagements'), { hint: L('لو الحملة Engagement', 'If the campaign is Engagement') })) +
-    card('3', L('توقّع التكلفة قبل ما تبدأ', 'Estimate the cost before you start'), ('<p class="sub2">' + L('لو معندكش حملات سابقة: ابدأ بتيست صغير وخد الأرقام الفعلية من القسم الأول، ثم حدّث التوقّع.', 'If you have no previous campaigns: start with a small test, take the real numbers from the first section, then update the estimate.') + '</p>') +
+    field('cs.conversations', L('محادثات الرسائل — Messaging Conversations', 'Messaging conversations'), { hint: L('إذا كانت الحملة Messages', 'If the campaign is Messages') }) + field('cs.engagements', L('التفاعلات — Engagements', 'Engagements'), { hint: L('إذا كانت الحملة Engagement', 'If the campaign is Engagement') })) +
+    card('3', L('توقّع التكلفة قبل البدء', 'Estimate the cost before you start'), ('<p class="sub2">' + L('إذا لم تكن لديك حملات سابقة: ابدأ باختبار صغير، ثم أدخل الأرقام الفعلية في القسم الأول وحدّث التوقّع.', 'If you have no previous campaigns: start with a small test, take the real numbers from the first section, then update the estimate.') + '</p>') +
     field('cs.cpm', L('CPM المتوقع', 'Expected CPM'), { cur: true, hint: L('تكلفة 1000 ظهور — من حملات سابقة لنفس السوق', 'Cost per 1,000 impressions — from past campaigns in the same market') }) + field('cs.ctr', L('CTR المتوقع (نسبة النقر)', 'Expected CTR (click-through rate)'), { t: 'pct', hint: L('النقرات ÷ الظهور', 'Clicks ÷ impressions') }) +
-    field('cs.convRate', L('نسبة تحويل النقرة إلى نتيجة', 'Click-to-result rate'), { t: 'pct', hint: L('نتيجة = أوردر / Lead / LPV / محادثة / تثبيت حسب هدفك', 'Result = order / Lead / LPV / conversation / install, depending on your objective') }));
+    field('cs.convRate', L('نسبة تحويل النقرة إلى نتيجة', 'Click-to-result rate'), { t: 'pct', hint: L('النتيجة = طلب / Lead / LPV / محادثة / تثبيت حسب هدفك', 'Result = order / Lead / LPV / conversation / install, depending on your objective') }));
   var rows = COST_ROWS.map(function (r) { return '<tr data-ck="' + r[0] + '"><td>' + r[1] + '<small class="hint" style="margin:0">' + r[2] + '</small></td><td class="n" data-v></td><td class="n no-print" data-a></td></tr>'; }).join('');
   var right = '<div class="col">' + card('2', L('التكاليف والنسب المحسوبة', 'Calculated costs and rates'), '<div class="scroll"><table class="tbl"><tbody id="t-costs">' + rows + ('</tbody></table></div><div style="margin-top:10px"><span class="l" style="font-weight:700">' + L('فحص الأرقام:', 'Numbers check:') + ' </span><span id="v-ccheck"></span></div>')) +
     card('', L('نتيجة التوقّع', 'Estimate result'), '<table class="kv"><tbody id="t-pred"></tbody></table><div id="a-pred" class="no-print" style="margin-top:10px"></div>') + '</div>';
@@ -1125,30 +1120,30 @@ function buildCosts() {
 function buildCat() {
   var rows = '';
   for (var i = 0; i < CAT_MAX; i++) rows += '<tr data-i="' + i + '"><td class="n dim cat-idx">' + (i + 1) + ('</td><td class="span2" data-l="' + L('اسم المنتج', 'Product name') + '"><div class="ctl nm"><input id="') + fid('cat.items.' + i + '.name') + '" type="text" maxlength="40" autocomplete="off" data-k="cat.items.' + i + ('.name" data-t="text" aria-label="' + L('اسم المنتج', 'Product name') + ' ') + (i + 1) + ('" placeholder="' + L('منتج', 'Product') + ' ') + (i + 1) + '"></div></td>' +
-    ('<td data-l="' + L('السعر', 'Price') + '">') + inCell('cat.items.' + i + '.price', '', 'num', (L('سعر المنتج', 'Product price') + ' ') + (i + 1)) + ('</td><td data-l="' + L('نسبة الأوردرات', 'Order share') + '">') + inCell('cat.items.' + i + '.share', '%', 'pct', (L('نسبة أوردرات المنتج', 'Product order share') + ' ') + (i + 1)) + ('</td><td data-l="' + L('هامش الربح', 'Profit margin') + '">') + inCell('cat.items.' + i + '.margin', '%', 'pct', (L('هامش ربح المنتج', 'Product profit margin') + ' ') + (i + 1)) + '</td>' +
+    ('<td data-l="' + L('السعر', 'Price') + '">') + inCell('cat.items.' + i + '.price', '', 'num', (L('سعر المنتج', 'Product price') + ' ') + (i + 1)) + ('</td><td data-l="' + L('نسبة الطلبات', 'Order share') + '">') + inCell('cat.items.' + i + '.share', '%', 'pct', (L('نسبة طلبات المنتج', 'Product order share') + ' ') + (i + 1)) + ('</td><td data-l="' + L('هامش الربح', 'Profit margin') + '">') + inCell('cat.items.' + i + '.margin', '%', 'pct', (L('هامش ربح المنتج', 'Product profit margin') + ' ') + (i + 1)) + '</td>' +
     ('<td class="n" data-l="' + L('الوزن', 'Weight') + '" data-c="w"></td><td class="n" data-l="' + L('مساهمته في AOV', 'Contribution to AOV') + '" data-c="g"></td><td data-l="' + L('الشريحة', 'Tier') + '" data-c="t"></td></tr>');
   return ctxBar() + '<div class="note" id="c-na" hidden></div><div class="grid">' +
-    '<div class="col">' + card('1', L('النتيجة', 'Result'), kv([[(L('AOV المرجّح', 'Weighted AOV') + '<small>' + L('انقله لخانة سعر البيع في «الحاسبة»', 'Copy it to the Selling price field in the «Calculator»') + '</small>'), 'ct-aov'], [(L('المتوسط البسيط', 'Simple average') + '<small>' + L('بيساوي المرجّح لو سبت نسب الأوردرات فاضية', 'Equals the weighted figure if you leave order shares empty') + '</small>'), 'ct-simple'], [L('عدد المنتجات', 'Number of products'), 'ct-count'], [L('أرخص منتج', 'Cheapest product'), 'ct-min'], [L('أغلى منتج', 'Most expensive product'), 'ct-max'],
-      [L('نسبة الأغلى للأرخص (x)', 'Most expensive ÷ cheapest (x)'), 'ct-ratio'], [L('تقييم تفاوت الأسعار', 'Price spread assessment'), 'ct-spread'], [(L('هامش الربح المرجّح', 'Weighted profit margin') + '<small>' + L('من هامش كل منتج (اختياري) مرجّح بإيراده', 'From each product\'s margin (optional), weighted by its revenue') + '</small>'), 'ct-wm'], [(L('ROAS التعادل (x)', 'Break-even ROAS (x)') + '<small>' + L('أقل ROAS تتجنب بيه الخسارة (قبل تكاليف تانية)', 'The lowest ROAS that avoids a loss (before other costs)') + '</small>'), 'ct-be'], [L('ROAS المطلوب في «الحاسبة» (x)', 'Required ROAS in the «Calculator» (x)'), 'ct-req'], ['', 'ct-vs']]) +
+    '<div class="col">' + card('1', L('النتيجة', 'Result'), kv([[(L('AOV المرجّح', 'Weighted AOV') + '<small>' + L('انقله إلى حقل سعر البيع في «الحاسبة»', 'Copy it to the Selling price field in the «Calculator»') + '</small>'), 'ct-aov'], [(L('المتوسط البسيط', 'Simple average') + '<small>' + L('يساوي المتوسط المرجّح إذا تُركت نسب الطلبات فارغة', 'Equals the weighted figure if you leave order shares empty') + '</small>'), 'ct-simple'], [L('عدد المنتجات', 'Number of products'), 'ct-count'], [L('أرخص منتج', 'Cheapest product'), 'ct-min'], [L('أغلى منتج', 'Most expensive product'), 'ct-max'],
+      [L('نسبة الأغلى للأرخص (x)', 'Most expensive ÷ cheapest (x)'), 'ct-ratio'], [L('تقييم تفاوت الأسعار', 'Price spread assessment'), 'ct-spread'], [(L('هامش الربح المرجّح', 'Weighted profit margin') + '<small>' + L('من هامش كل منتج (اختياري) مرجّح بإيراده', 'From each product\'s margin (optional), weighted by its revenue') + '</small>'), 'ct-wm'], [(L('ROAS التعادل (x)', 'Break-even ROAS (x)') + '<small>' + L('أقل ROAS لتجنّب الخسارة (قبل أي تكاليف أخرى)', 'The lowest ROAS that avoids a loss (before other costs)') + '</small>'), 'ct-be'], [L('ROAS المطلوب في «الحاسبة» (x)', 'Required ROAS in the «Calculator» (x)'), 'ct-req'], ['', 'ct-vs']]) +
       ('<div class="no-print" style="margin-top:10px"><button type="button" class="btn ghost xs" id="b-aov">' + L('استخدم الـ AOV كسعر بيع في الحاسبة', 'Use the AOV as the selling price in the Calculator') + '</button></div>')) + '</div>' +
-    '<div class="col">' + card('3', L('تقسيم الكاتلوج لشرائح (Product Sets)', 'Catalog tiers (Product Sets)'),
-      '<div class="two">' + field('cat.cheapMax', L('رخيص: لحد سعر', 'Cheap: up to price'), { cur: true, ph: '' , wrap: 'w-cheap'}) + field('cat.midMax', L('متوسط: لحد سعر', 'Medium: up to price'), { cur: true, ph: '', wrap: 'w-mid' }) + '</div>' +
-      ('<small class="hint" style="margin:-6px 0 10px">' + L('الافتراضي: تقسيم المدى بين أرخص وأغلى منتج لتلات أجزاء (اكتب رقم لو عايز حدود مختلفة). ما فوق الحد الثاني = غالي.', 'Default: the range between the cheapest and the most expensive product is split into three equal parts (type a number for different limits). Anything above the second limit = expensive.') + '</small>') +
-      ('<div class="scroll"><table class="tbl tight stack"><thead><tr><th>' + L('الشريحة', 'Tier') + '</th><th class="n">' + L('عدد المنتجات', 'Number of products') + '</th><th class="n">' + L('AOV الشريحة', 'Tier AOV') + '</th><th class="n">' + L('حصتها من الأوردرات', 'Share of orders') + '</th><th class="n">' + L('هامش مرجّح', 'Weighted margin') + '</th><th class="n">' + L('ROAS التعادل', 'Break-even ROAS') + '</th><th class="n">' + L('ميزانية مقترحة', 'Suggested budget') + '</th></tr></thead><tbody id="t-tiers"></tbody></table></div>') +
-      ('<small class="hint" style="margin-top:8px">' + L('الميزانية المقترحة = حصة الشريحة من إيراد الكاتلوج. نقطة بداية، وبعد أسبوع وزّع حسب الأداء الفعلي. اعمل Product Set لكل شريحة، وفي «الحاسبة» ادخل AOV الشريحة وROAS المطلوب لها.', 'Suggested budget = the tier\'s share of catalog revenue. A starting point — after a week, rebalance by actual performance. Create one Product Set per tier, and in the «Calculator» enter the tier\'s AOV and its required ROAS.') + '</small>')) + '</div></div>' +
-    '<div class="row2" style="grid-template-columns:1fr">' + card('2', L('المنتجات (لحد 30 منتج)', 'Products (up to 30)'), ('<p class="sub2">' + L('اكتب سعر كل منتج. نسبة الأوردرات = حصته من مبيعات الكاتلوج (لو معرفتش سيبها فاضية فتتحسب بالتساوي). الهامش اختياري.', 'Enter each product\'s price. Order share = its share of the catalog\'s sales (leave it empty and shares are split equally). Margin is optional.') + '</p>') +
-      ('<div class="scroll"><table class="tbl grid2" style="min-width:680px"><thead><tr><th class="n">#</th><th>' + L('اسم المنتج', 'Product name') + '</th><th>' + L('السعر', 'Price') + '</th><th>' + L('نسبة الأوردرات', 'Order share') + '</th><th>' + L('هامش الربح', 'Profit margin') + '</th><th class="n">' + L('الوزن', 'Weight') + '</th><th class="n">' + L('مساهمته في AOV', 'Contribution to AOV') + '</th><th>' + L('الشريحة', 'Tier') + '</th></tr></thead><tbody id="t-cat">') + rows + '</tbody></table></div>' +
+    '<div class="col">' + card('3', L('تقسيم الكتالوج إلى شرائح (Product Sets)', 'Catalog tiers (Product Sets)'),
+      '<div class="two">' + field('cat.cheapMax', L('اقتصادي: حتى سعر', 'Cheap: up to price'), { cur: true, ph: '' , wrap: 'w-cheap'}) + field('cat.midMax', L('متوسط: حتى سعر', 'Medium: up to price'), { cur: true, ph: '', wrap: 'w-mid' }) + '</div>' +
+      ('<small class="hint" style="margin:-6px 0 10px">' + L('الافتراضي: تقسيم المدى بين أقل وأعلى سعر إلى ثلاثة أجزاء (أدخل رقمًا لتحديد حدود مختلفة). ما يزيد عن الحد الثاني = مرتفع السعر.', 'Default: the range between the cheapest and the most expensive product is split into three equal parts (type a number for different limits). Anything above the second limit = expensive.') + '</small>') +
+      ('<div class="scroll"><table class="tbl tight stack"><thead><tr><th>' + L('الشريحة', 'Tier') + '</th><th class="n">' + L('عدد المنتجات', 'Number of products') + '</th><th class="n">' + L('AOV الشريحة', 'Tier AOV') + '</th><th class="n">' + L('حصتها من الطلبات', 'Share of orders') + '</th><th class="n">' + L('هامش مرجّح', 'Weighted margin') + '</th><th class="n">' + L('ROAS التعادل', 'Break-even ROAS') + '</th><th class="n">' + L('ميزانية مقترحة', 'Suggested budget') + '</th></tr></thead><tbody id="t-tiers"></tbody></table></div>') +
+      ('<small class="hint" style="margin-top:8px">' + L('الميزانية المقترحة = حصة الشريحة من إيراد الكتالوج، وهي نقطة بداية يُعاد توزيعها بعد أسبوع حسب الأداء الفعلي. أنشئ Product Set لكل شريحة، وأدخل في «الحاسبة» قيمة AOV للشريحة والـ ROAS المطلوب لها.', 'Suggested budget = the tier\'s share of catalog revenue. A starting point — after a week, rebalance by actual performance. Create one Product Set per tier, and in the «Calculator» enter the tier\'s AOV and its required ROAS.') + '</small>')) + '</div></div>' +
+    '<div class="row2" style="grid-template-columns:1fr">' + card('2', L('المنتجات (حتى 30 منتجًا)', 'Products (up to 30)'), ('<p class="sub2">' + L('أدخل سعر كل منتج. نسبة الطلبات = حصة المنتج من مبيعات الكتالوج (إذا لم تكن معروفة اتركها فارغة لتُوزّع بالتساوي). الهامش اختياري.', 'Enter each product\'s price. Order share = its share of the catalog\'s sales (leave it empty and shares are split equally). Margin is optional.') + '</p>') +
+      ('<div class="scroll"><table class="tbl grid2" style="min-width:680px"><thead><tr><th class="n">#</th><th>' + L('اسم المنتج', 'Product name') + '</th><th>' + L('السعر', 'Price') + '</th><th>' + L('نسبة الطلبات', 'Order share') + '</th><th>' + L('هامش الربح', 'Profit margin') + '</th><th class="n">' + L('الوزن', 'Weight') + '</th><th class="n">' + L('مساهمته في AOV', 'Contribution to AOV') + '</th><th>' + L('الشريحة', 'Tier') + '</th></tr></thead><tbody id="t-cat">') + rows + '</tbody></table></div>' +
       ('<div class="no-print" style="margin-top:10px"><button type="button" class="btn ghost xs" id="b-more">' + L('+ إضافة صفوف', '+ Add rows') + '</button></div>')) + '</div>';
 }
 
 /* ---------- mount ---------- */
-var TABS; function init_TABS() { TABS = [['calc', L('الحاسبة', 'Calculator'), 0, buildCalc], ['scen', L('سيناريوهات', 'Scenarios'), 0, buildScen], ['profit', L('الربحية', 'Profitability'), 1, buildProfit], ['costs', L('حاسبة التكاليف', 'Costs calculator'), 0, buildCosts], ['cat', L('الكاتلوج', 'Catalog'), 1, buildCat]]; }
+var TABS; function init_TABS() { TABS = [['calc', L('الحاسبة', 'Calculator'), 0, buildCalc], ['scen', L('سيناريوهات', 'Scenarios'), 0, buildScen], ['profit', L('الربحية', 'Profitability'), 1, buildProfit], ['costs', L('حاسبة التكاليف', 'Costs calculator'), 0, buildCosts], ['cat', L('الكتالوج', 'Catalog'), 1, buildCat]]; }
 var app = $('#app');
 function initDefs() { init_OBJ_OPTS(); init_COST_ROWS(); init_TABS(); init_MODE_LBL(); init_NOTE(); init_VERDICT(); }
 function mount() {
   initDefs();
   $('#tabs').innerHTML = TABS.map(function (t) { return '<button type="button" role="tab" class="tab" id="tab-' + t[0] + '" aria-controls="panel-' + t[0] + '" data-tab="' + t[0] + '">' + t[1] + (t[2] ? '<span class="lock" hidden>Sales</span>' : '') + '</button>'; }).join('');
-  $('#panels').innerHTML = '<div class="printhead" id="printhead"><img src="images/logo.png" alt=""><b id="ph-t"></b></div>' +
+  $('#panels').innerHTML = '<div class="printhead" id="printhead"><svg class="logo" viewBox="0 0 512 325" role="img" aria-label="RD"><path fill="#ffed00" fill-rule="evenodd" d="M452.0 32.0 L436.0 21.0 L427.0 16.0 L416.0 11.0 L404.8 7.0 L393.8 4.0 L383.8 2.0 L373.5 1.0 L372.0 2.8 L325.0 77.2 L325.2 78.0 L364.5 78.0 L376.8 79.8 L384.2 82.0 L394.2 86.8 L402.0 92.2 L411.0 101.0 L418.8 111.5 L423.0 119.5 L425.8 126.0 L429.8 139.8 L431.0 147.0 L431.8 155.2 L431.8 169.2 L430.0 183.2 L425.8 198.0 L421.0 208.5 L417.0 215.2 L413.0 220.8 L403.8 230.5 L396.2 236.2 L392.2 238.8 L386.0 241.8 L375.5 245.0 L362.8 246.5 L300.0 246.2 L299.5 245.5 L299.8 119.2 L299.0 118.8 L220.0 244.2 L220.0 323.5 L220.8 324.2 L366.2 324.2 L378.0 323.5 L390.2 321.5 L402.0 318.5 L415.8 313.8 L429.2 307.5 L439.2 301.8 L452.0 292.8 L460.2 285.8 L469.8 276.2 L475.8 269.2 L486.5 254.2 L492.5 243.8 L499.8 228.0 L505.5 210.5 L509.5 191.0 L510.8 179.5 L511.0 170.8 L511.8 167.2 L511.8 158.0 L511.2 157.2 L510.5 142.5 L508.5 127.5 L504.8 111.2 L500.5 98.5 L491.8 79.5 L482.8 64.8 L472.8 51.8 L460.0 38.8Z M333.2 0.0 L136.8 0.0 L136.0 0.5 L124.2 1.2 L113.5 3.0 L105.0 5.0 L94.8 8.2 L87.5 11.2 L79.5 15.2 L70.2 21.0 L62.5 27.0 L56.5 32.5 L49.0 40.8 L42.0 50.5 L37.0 59.5 L34.2 65.8 L31.0 75.0 L28.0 87.5 L26.2 102.8 L26.2 118.0 L27.2 129.0 L29.0 138.8 L33.0 152.0 L37.2 161.2 L43.0 170.2 L50.2 179.2 L59.0 187.8 L68.5 194.8 L79.2 200.5 L80.0 201.2 L80.0 202.0 L5.0 317.0 L0.0 323.8 L1.2 324.8 L2.2 324.2 L94.8 324.0 L96.2 322.2 L161.0 219.2 L162.2 218.5 L195.2 218.8 L197.0 217.8 L333.5 1.0Z M108.0 96.5 L111.5 91.0 L118.2 85.0 L123.8 82.0 L129.5 80.0 L135.2 78.8 L141.8 78.0 L219.5 78.0 L220.2 78.8 L220.2 140.0 L219.5 140.8 L143.8 140.8 L136.8 140.0 L130.5 138.8 L120.8 135.8 L114.5 132.0 L110.5 128.2 L107.8 124.2 L106.8 121.5 L105.8 115.8 L105.8 105.5 L106.8 100.2Z"/></svg><b id="ph-t"></b></div>' +
     TABS.map(function (t) { return '<div class="panel" role="tabpanel" id="panel-' + t[0] + '" aria-labelledby="tab-' + t[0] + '" hidden>' + t[3]() + '</div>'; }).join('');
 }
 mount();
@@ -1171,7 +1166,7 @@ function changeObjective(key) {
   if (!o.hasRevenue && revMode(s.mode)) s.mode = 'results';
   s.target = state.targets[s.mode];
   if (!o.hasRevenue && (state.tab === 'profit' || state.tab === 'cat')) setTab('calc');
-  if (fresh_) toast(L('غيّرت التكلفة والكمية لأرقام مثال للهدف الجديد — حط أرقام حملتك.', 'I changed the cost and quantity to example numbers for the new objective — enter your campaign numbers.'));
+  if (fresh_) toast(L('تم تحديث التكلفة والكمية بأرقام مثال تناسب الهدف الجديد، أدخل أرقام حملتك.', 'I changed the cost and quantity to example numbers for the new objective — enter your campaign numbers.'));
 }
 function changeMode(m) { var s = state.s; state.targets[s.mode] = s.target; s.mode = m; s.target = state.targets[m]; }
 
@@ -1223,12 +1218,12 @@ function renderChrome() {
   }
   X('h-event', (L('التحسين المقترح:', 'Suggested optimization:') + ' ') + o.event);
   X('l-cost', o.costLabel);
-  T('h-cost', o.divisor === 1000 ? L('تكلفة كل 1000 ظهور (CPM)', 'Cost per 1,000 impressions (CPM)') : (L('مش عارف تحسبه؟ شوف تاب', 'Not sure how to calculate it? See the tab') + ' <button type="button" class="link" data-goto="costs">' + L('حاسبة التكاليف', 'Costs calculator') + '</button>'));
+  T('h-cost', o.divisor === 1000 ? L('تكلفة كل 1000 ظهور (CPM)', 'Cost per 1,000 impressions (CPM)') : (L('لا تعرف قيمتها؟ راجع تبويب', 'Not sure how to calculate it? See the tab') + ' <button type="button" class="link" data-goto="costs">' + L('حاسبة التكاليف', 'Costs calculator') + '</button>'));
   var m = s.mode, bud = m === 'budgetTotal' || m === 'budgetDaily';
   X('l-target', m === 'budgetTotal' ? L('الميزانية الكلية المتاحة', 'Available total budget') : m === 'budgetDaily' ? L('الميزانية اليومية المتاحة', 'Available daily budget') : (m === 'results' || !o.hasRevenue) ? o.qtyLabel : m === 'revTotal' ? L('الإيراد الكلي المطلوب', 'Required total revenue') : L('الإيراد اليومي المطلوب', 'Required daily revenue'));
   X('u-target', m === 'results' ? '' : cu);
-  X('h-mode', L('اختار: عدد النتائج', 'Choose: number of results') + (o.hasRevenue ? (' ' + L('/ إيراد مطلوب', '/ required revenue')) : '') + (' ' + L('/ ميزانية متاحة', '/ available budget')));
-  X('h-target', bud ? (o.hasRevenue ? L('هنحسب النتائج والإيراد المتوقع من الميزانية دي', 'We\'ll calculate the expected results and revenue from this budget') : L('هنحسب عدد النتائج المتوقعة من الميزانية دي', 'We\'ll calculate the expected number of results from this budget')) : (m === 'results' ? L('الهدف خلال فترة التيست كلها', 'The target for the whole test period') : L('هنحسب عدد النتائج والميزانية والـ ROAS', 'We\'ll calculate the number of results, the budget and the ROAS')));
+  X('h-mode', L('اختر: عدد النتائج', 'Choose: number of results') + (o.hasRevenue ? (' ' + L('/ إيراد مطلوب', '/ required revenue')) : '') + (' ' + L('/ ميزانية متاحة', '/ available budget')));
+  X('h-target', bud ? (o.hasRevenue ? L('سيتم حساب النتائج والإيراد المتوقع بناءً على هذه الميزانية', 'We\'ll calculate the expected results and revenue from this budget') : L('سيتم حساب عدد النتائج المتوقعة بناءً على هذه الميزانية', 'We\'ll calculate the expected number of results from this budget')) : (m === 'results' ? L('الهدف خلال كامل فترة الاختبار', 'The target for the whole test period') : L('سيتم حساب عدد النتائج والميزانية والـ ROAS', 'We\'ll calculate the number of results, the budget and the ROAS')));
   X('v-learn', o.learning > 0 ? String(o.learning) : L('لا ينطبق على هذا الهدف', 'Not applicable for this objective'));
   TABS.forEach(function (t) {
     if (!t[2]) return;
@@ -1248,7 +1243,7 @@ function gotoTab(id, scroll) {
   var t = TABS.filter(function (x) { return x[0] === id; })[0];
   if (!t) return;
   if (t[2] && !OBJ(state.s.objective).hasRevenue) {
-    toast(L('تاب «', 'The «') + t[1] + L('» خاص بهدف Sales فقط (الإيراد والـ ROAS).', '» tab is for the Sales objective only (revenue and ROAS).'), { label: L('غيّر الهدف لـ Sales', 'Switch the objective to Sales'), fn: function () { changeObjective('Sales'); setTab(id); update(); } });
+    toast(L('تبويب «', 'The «') + t[1] + L('» خاص بهدف Sales فقط (الإيراد والـ ROAS).', '» tab is for the Sales objective only (revenue and ROAS).'), { label: L('غيّر الهدف إلى Sales', 'Switch the objective to Sales'), fn: function () { changeObjective('Sales'); setTab(id); update(); } });
     return;
   }
   setTab(id); update(); save();
@@ -1264,25 +1259,25 @@ function renderCalc(c) {
   if (!c.valid) {
     ['v-total', 'v-daily', 'v-res', 'v-dres', 'v-rev', 'v-entry', 'v-end'].forEach(function (id) { T(id, dash); });
     ['n-total', 'n-res', 'n-dres', 'n-rev', 'n-entry', 'n-end'].forEach(function (id) { X(id, ''); });
-    X('r-msg', L('كمّل الخانات اللي عليها خطأ (باللون الأحمر) عشان تظهر النتيجة.', 'Fix the fields marked in red to see the result.')); T('t-dist', ''); T('t-kpi', ''); lastEntry = null;
+    X('r-msg', L('صحّح الحقول المحددة باللون الأحمر لعرض النتيجة.', 'Fix the fields marked in red to see the result.')); T('t-dist', ''); T('t-kpi', ''); lastEntry = null;
     X('l-res', (L('عدد النتائج الكلي —', 'Total number of results —') + ' ') + o.unit); X('l-dres', (L('عدد النتائج اليومي المتوقع —', 'Expected daily results —') + ' ') + o.unit);
     return;
   }
   var m = c.main, k = c.kpi, d = c.dist, K6 = o.hasRevenue, bud = m.budgetMode;
   X('r-msg', bud ? L('بميزانية ' + money(m.totalBudget) + ' ' + cu + ' خلال ' + s.days + ' يوم: المتوقع ' + cnt(m.totalResults) + ' ' + o.unit + ' (≈ ' + cnt(m.dailyResults) + ' يومياً)' + (K6 ? ' — إيراد ' + money(m.revenue) + ' ' + cu + ' (ROAS ' + (k.roasFullBudget).toFixed(1) + 'x)' : ''), 'With a budget of ' + money(m.totalBudget) + ' ' + cu + ' over ' + s.days + ' ' + dW(s.days) + ': expected ' + cnt(m.totalResults) + ' ' + uP(o) + ' (≈ ' + cnt(m.dailyResults) + ' per day)' + (K6 ? ' — revenue ' + money(m.revenue) + ' ' + cu + ' (ROAS ' + (k.roasFullBudget).toFixed(1) + 'x)' : '')) : '');
-  T('v-total', mH(m.totalBudget, cu)); X('n-total', bud ? L('الميزانية اللي دخلتها (إجمالي الفترة)', 'The budget you entered (whole period)') : (o.divisor === 1000 ? L('عدد الظهور × CPM ÷ 1000 × (1 + هامش الأمان)', 'Impressions × CPM ÷ 1000 × (1 + safety margin)') : L('عدد النتائج × التكلفة × (1 + هامش الأمان)', 'Results × cost × (1 + safety margin)')));
+  T('v-total', mH(m.totalBudget, cu)); X('n-total', bud ? L('الميزانية المُدخلة (إجمالي الفترة)', 'The budget you entered (whole period)') : (o.divisor === 1000 ? L('عدد الظهور × CPM ÷ 1000 × (1 + هامش الأمان)', 'Impressions × CPM ÷ 1000 × (1 + safety margin)') : L('عدد النتائج × التكلفة × (1 + هامش الأمان)', 'Results × cost × (1 + safety margin)')));
   T('v-daily', mH(m.dailyBudget, cu));
   X('l-res', (L('عدد النتائج الكلي —', 'Total number of results —') + ' ') + o.unit); T('v-res', '<bdi class="num">' + cnt(m.totalResults) + '</bdi>');
-  X('n-res', bud ? L('محسوب: الميزانية ÷ (التكلفة × (1 + هامش الأمان)) — مقرّب لأسفل', 'Calculated: budget ÷ (cost × (1 + safety margin)) — rounded down') : (s.mode === 'results' || !K6) ? L('الكمية اللي دخلتها', 'The quantity you entered') : L('محسوب: الإيراد ÷ قيمة كل نتيجة (مقرّب لأعلى)', 'Calculated: revenue ÷ value per result (rounded up)'));
+  X('n-res', bud ? L('محسوب: الميزانية ÷ (التكلفة × (1 + هامش الأمان)) — مقرّب لأسفل', 'Calculated: budget ÷ (cost × (1 + safety margin)) — rounded down') : (s.mode === 'results' || !K6) ? L('الكمية المُدخلة', 'The quantity you entered') : L('محسوب: الإيراد ÷ قيمة كل نتيجة (مقرّب لأعلى)', 'Calculated: revenue ÷ value per result (rounded up)'));
   X('l-dres', (L('عدد النتائج اليومي المتوقع —', 'Expected daily results —') + ' ') + o.unit); T('v-dres', '<bdi class="num">' + cnt(m.dailyResults) + '</bdi>');
-  X('n-dres', L('متوسط يومي = العدد الكلي ÷ ' + s.days + ' يوم (الفعلي بيختلف من يوم ليوم)', 'Daily average = total number ÷ ' + s.days + ' ' + dW(s.days) + ' (the actual number varies from day to day)'));
+  X('n-dres', L('متوسط يومي = العدد الكلي ÷ ' + s.days + ' يوم (الرقم الفعلي يختلف من يوم لآخر)', 'Daily average = total number ÷ ' + s.days + ' ' + dW(s.days) + ' (the actual number varies from day to day)'));
   if (K6) { T('v-rev', mH(m.revenue, cu)); X('n-rev', (L('ROAS المتوقع', 'Expected ROAS') + ' ') + xr(k.roas) + ' — ' + (k.roasStatus === 'ok' ? L('متوافق مع الـ ROAS المطلوب', 'Meets the required ROAS') : L('أقل من المطلوب (', 'Below the required level (') + s.roasReq.toFixed(2) + 'x)')); }
   // ⑥
   X('l-entry', L('ميزانية ' + (s.campaignType === 'CBO' ? 'الحملة (CBO)' : 'كل مجموعة (ABO)') + ' — ' + s.budgetType, (s.campaignType === 'CBO' ? 'Campaign budget (CBO)' : 'Budget for each ad set (ABO)') + ' — ' + s.budgetType));
   T('v-entry', mH(c.entryBudget, cu)); lastEntry = c.entryBudget;
-  X('n-entry', s.campaignType === 'CBO' ? (L('فيسبوك هيوزّع الميزانية تلقائياً على', 'Facebook will distribute the budget automatically across') + ' ') + s.adSets + (' ' + L('مجموعة', 'ad sets')) : L('اكتب نفس الرقم في كل مجموعة (', 'Enter the same number in every ad set (') + s.adSets + (' ' + L('مجموعة)', 'ad sets)')));
+  X('n-entry', s.campaignType === 'CBO' ? (L('ستوزّع المنصة الميزانية تلقائيًا على', 'Facebook will distribute the budget automatically across') + ' ') + s.adSets + (' ' + L('مجموعة', 'ad sets')) : L('أدخل الرقم نفسه في كل مجموعة (', 'Enter the same number in every ad set (') + s.adSets + (' ' + L('مجموعة)', 'ad sets)')));
   T('v-end', '<bdi>' + dmy(c.endDate) + '</bdi>');
-  X('n-end', s.budgetType === 'Lifetime' ? L('حدد البداية والنهاية دي في فيسبوك', 'Set these start and end dates in Facebook') : L('في Daily: شغّل الحملة لـ ' + s.days + ' يوم وبعدين وقّف', 'In Daily: run the campaign for ' + s.days + ' ' + dW(s.days) + ', then stop'));
+  X('n-end', s.budgetType === 'Lifetime' ? L('حدّد تاريخي البداية والنهاية في Ads Manager', 'Set these start and end dates in Facebook') : L('في Daily: شغّل الحملة لمدة ' + s.days + ' يوم ثم أوقفها', 'In Daily: run the campaign for ' + s.days + ' ' + dW(s.days) + ', then stop'));
   // ⑦
   var rows = trD(L('الميزانية الإعلانية (', 'Ad budget (') + cu + ')', '<bdi>' + money(d.budget[0]) + '</bdi>', '<bdi>' + money(d.budget[1]) + '</bdi>');
   if (K6) rows += trD(L('الإيراد المتوقع (', 'Expected revenue (') + cu + ')', '<bdi>' + money(d.revenue[0]) + '</bdi>', '<bdi>' + money(d.revenue[1]) + '</bdi>');
@@ -1295,10 +1290,10 @@ function renderCalc(c) {
   if (K6) {
     h += kvr(L('قيمة كل نتيجة متوقعة (', 'Expected value per result (') + cu + ')', L('سعر البيع', 'Selling price'), mH(k.valuePerResult, cu));
     h += kvr(L('ROAS المتوقع (x)', 'Expected ROAS (x)'), '', '<bdi class="num">' + xr(k.roas) + '</bdi> ' + (k.roasStatus === 'ok' ? badge('ok', L('متوافق مع الـ ROAS المطلوب', 'Meets the required ROAS')) : badge('warn', L('أقل من المطلوب (', 'Below the required level (') + s.roasReq.toFixed(2) + 'x)')));
-    h += kvr((L('أقصى', 'Max') + ' ') + esc(o.abbr) + (' ' + L('مسموح لتحقيق الـ ROAS (', 'allowed to reach the ROAS (')) + cu + ')', '', mH(k.maxCost, cu) + ' ' + (k.maxCostStatus === 'ok' ? badge('ok', L('التكلفة ضمن الحد المسموح', 'Cost is within the allowed limit')) : badge('warn', L('التكلفة أعلى من المسموح — اخفضها أو زوّد القيمة', 'Cost is above the allowed maximum — lower it or raise the value'))));
-    h += kvr(L('ROAS لو صرفت الميزانية كلها (x)', 'ROAS if you spend the whole budget (x)'), L('بيختلف عن المتوقع لو حطيت هامش أمان', 'Differs from the expected figure if you set a safety margin'), '<bdi class="num">' + xr(k.roasFullBudget) + '</bdi>');
-    h += kvr(L('عدد الأوردرات المتوقعة', 'Expected number of orders'), L('نفس الكمية المطلوبة', 'Same as the required quantity'), '<bdi class="num">' + cnt(k.orders) + '</bdi>');
-    h += kvr(L('تكلفة الأوردر الفعلية المتوقعة (', 'Expected actual cost per order (') + cu + ')', '', mH(k.actualCost, cu));
+    h += kvr((L('أقصى', 'Max') + ' ') + esc(o.abbr) + (' ' + L('مسموح لتحقيق الـ ROAS (', 'allowed to reach the ROAS (')) + cu + ')', '', mH(k.maxCost, cu) + ' ' + (k.maxCostStatus === 'ok' ? badge('ok', L('التكلفة ضمن الحد المسموح', 'Cost is within the allowed limit')) : badge('warn', L('التكلفة أعلى من الحد المسموح، اخفضها أو ارفع القيمة', 'Cost is above the allowed maximum — lower it or raise the value'))));
+    h += kvr(L('ROAS عند إنفاق كامل الميزانية (x)', 'ROAS if you spend the whole budget (x)'), L('يختلف عن المتوقع عند إضافة هامش أمان', 'Differs from the expected figure if you set a safety margin'), '<bdi class="num">' + xr(k.roasFullBudget) + '</bdi>');
+    h += kvr(L('عدد الطلبات المتوقعة', 'Expected number of orders'), L('نفس الكمية المطلوبة', 'Same as the required quantity'), '<bdi class="num">' + cnt(k.orders) + '</bdi>');
+    h += kvr(L('تكلفة الطلب الفعلية المتوقعة (', 'Expected actual cost per order (') + cu + ')', '', mH(k.actualCost, cu));
   }
   h += kvr(L('إجمالي عدد الإعلانات', 'Total number of ads'), s.adSets + (' ' + L('مجموعة ×', 'ad sets ×') + ' ') + s.adsPerSet + (' ' + L('إعلان', 'ads')), '<bdi class="num">' + k.adsTotal + '</bdi>');
   h += kvr(L('نتائج كل مجموعة (إجمالي الفترة)', 'Results per ad set (whole period)'), '', '<bdi class="num">' + cnt(k.perAdSetResults) + '</bdi>');
@@ -1341,7 +1336,7 @@ function renderScen(c) {
   });
 }
 
-var VERDICT; function init_VERDICT() { VERDICT = { loss_before_ads: ['bad', L('اقتصاديات الأوردر غير مربحة قبل الإعلان', 'Order economics are unprofitable before ads')], above_breakeven: ['bad', L('CPA أعلى من Break-even', 'CPA is above break-even')], below_target: ['warn', L('مربح لكن أقل من هامش الربح المستهدف', 'Profitable but below the target profit margin')], good: ['ok', L('ضمن هدف الربحية', 'Within the profitability target')] }; }
+var VERDICT; function init_VERDICT() { VERDICT = { loss_before_ads: ['bad', L('اقتصاديات الطلب غير مربحة حتى قبل الإعلان', 'Order economics are unprofitable before ads')], above_breakeven: ['bad', L('CPA أعلى من Break-even', 'CPA is above break-even')], below_target: ['warn', L('مربح لكن أقل من هامش الربح المستهدف', 'Profitable but below the target profit margin')], good: ['ok', L('ضمن هدف الربحية', 'Within the profitability target')] }; }
 function renderProfit(c) {
   var cu = cur(), dash = '<span class="dim">—</span>', o = OBJ(state.s.objective);
   var ids = ['pl-price', 'pl-purch', 'pl-spend', 'pl-cpa', 'pe-cpa', 'pe-nroas', 'pe-aroas', 'pe-room1', 'pe-room2', 'pe-verdict', 'po-rev', 'po-cogs', 'po-ship', 'po-fee', 'po-oth', 'po-becpa', 'po-beroas', 'po-tcpa', 'po-troas', 'pp-conf', 'pp-deliv', 'pp-net', 'pp-rev', 'pp-cogs', 'pp-ship', 'pp-fee', 'pp-profit', 'pp-margin'];
@@ -1404,12 +1399,12 @@ function renderCat(c) {
   chp.placeholder = R.count ? String(R.defaultCheapMax) : ''; mdp.placeholder = R.count ? String(R.defaultMidMax) : '';
   T('ct-aov', mH(R.aov, cu)); T('ct-simple', mH(R.simple, cu)); T('ct-count', '<bdi class="num">' + R.count + '</bdi>'); T('ct-min', mH(R.min, cu)); T('ct-max', mH(R.max, cu));
   T('ct-ratio', '<bdi class="num">' + (Math.round(R.ratio * 100) / 100) + '</bdi>');
-  T('ct-spread', R.spread === 'none' ? dash : R.spread === 'close' ? badge('ok', L('الأسعار قريبة — رقم AOV واحد كفاية', 'Prices are close — one AOV figure is enough')) : R.spread === 'mixed' ? badge('warn', L('متفاوتة — الأفضل تحدد نسب الأوردرات', 'Spread out — better to set order shares')) : badge('bad', L('تفاوت كبير — قسّم لشرائح', 'Large gap — split into tiers')));
+  T('ct-spread', R.spread === 'none' ? dash : R.spread === 'close' ? badge('ok', L('الأسعار متقاربة، ويكفي رقم AOV واحد', 'Prices are close — one AOV figure is enough')) : R.spread === 'mixed' ? badge('warn', L('متفاوتة، ويُفضّل تحديد نسب الطلبات', 'Spread out — better to set order shares')) : badge('bad', L('تفاوت كبير، ويُفضّل التقسيم إلى شرائح', 'Large gap — split into tiers')));
   T('ct-wm', '<bdi class="num">' + pc(R.wMargin) + '</bdi>'); T('ct-be', isNum(R.breakevenRoas) ? '<bdi class="num">' + xr(R.breakevenRoas) + '</bdi>' : dash);
   T('ct-req', '<bdi class="num">' + xr(R.roasReq) + '</bdi>');
-  T('ct-vs', R.roasVsBreakeven === 'ok' ? badge('ok', L('أعلى من التعادل', 'Above break-even')) : R.roasVsBreakeven === 'bad' ? badge('bad', L('أقل من ROAS التعادل — هتخسر', 'Below break-even ROAS — you will lose money')) : '');
+  T('ct-vs', R.roasVsBreakeven === 'ok' ? badge('ok', L('أعلى من التعادل', 'Above break-even')) : R.roasVsBreakeven === 'bad' ? badge('bad', L('أقل من ROAS التعادل، أي خسارة', 'Below break-even ROAS — you will lose money')) : '');
   T('t-tiers', R.tiers.map(function (t) {
-    return ('<tr><td data-l="' + L('الشريحة', 'Tier') + '"><b>') + esc(tierName(t.name)) + ('</b></td><td class="n" data-l="' + L('عدد المنتجات', 'Number of products') + '"><bdi class="num">') + t.count + ('</bdi></td><td class="n" data-l="' + L('AOV الشريحة', 'Tier AOV') + '">') + mH(t.aov, cu) + ('</td><td class="n" data-l="' + L('حصتها من الأوردرات', 'Share of orders') + '"><bdi class="num">') + pc(t.share) + ('</bdi></td><td class="n" data-l="' + L('هامش مرجّح', 'Weighted margin') + '"><bdi class="num">') + pc(t.margin) + ('</bdi></td><td class="n" data-l="' + L('ROAS التعادل', 'Break-even ROAS') + '">') + (isNum(t.breakevenRoas) ? '<bdi class="num">' + xr(t.breakevenRoas) + '</bdi>' : dash) + ('</td><td class="n" data-l="' + L('ميزانية مقترحة', 'Suggested budget') + '"><bdi class="num">') + pc(t.budgetShare) + '</bdi></td></tr>';
+    return ('<tr><td data-l="' + L('الشريحة', 'Tier') + '"><b>') + esc(tierName(t.name)) + ('</b></td><td class="n" data-l="' + L('عدد المنتجات', 'Number of products') + '"><bdi class="num">') + t.count + ('</bdi></td><td class="n" data-l="' + L('AOV الشريحة', 'Tier AOV') + '">') + mH(t.aov, cu) + ('</td><td class="n" data-l="' + L('حصتها من الطلبات', 'Share of orders') + '"><bdi class="num">') + pc(t.share) + ('</bdi></td><td class="n" data-l="' + L('هامش مرجّح', 'Weighted margin') + '"><bdi class="num">') + pc(t.margin) + ('</bdi></td><td class="n" data-l="' + L('ROAS التعادل', 'Break-even ROAS') + '">') + (isNum(t.breakevenRoas) ? '<bdi class="num">' + xr(t.breakevenRoas) + '</bdi>' : dash) + ('</td><td class="n" data-l="' + L('ميزانية مقترحة', 'Suggested budget') + '"><bdi class="num">') + pc(t.budgetShare) + '</bdi></td></tr>';
   }).join(''));
 }
 
@@ -1420,7 +1415,7 @@ function renderBar(c) {
   var cu = cur();
   if (c && c.valid) lastBar = [money(c.main.totalBudget) + ' ' + cu, money(c.main.dailyBudget) + ' ' + cu, cnt(c.main.totalResults)];
   else lastBar = ['—', '—', '—'];
-  X('sb-1', lastBar[0]); X('sb-2', lastBar[1]); X('sb-3', lastBar[2]); X('sb-3l', OBJ(state.s.objective).abbr === 'CPP' ? L('أوردرات', 'Orders') : L('النتائج', 'Results'));
+  X('sb-1', lastBar[0]); X('sb-2', lastBar[1]); X('sb-3', lastBar[2]); X('sb-3l', OBJ(state.s.objective).abbr === 'CPP' ? L('طلبات', 'Orders') : L('النتائج', 'Results'));
   var show = state.tab === 'calc' && vis.app && !vis.main && window.matchMedia('(max-width:980px)').matches;
   $('#sumbar').classList.toggle('on', show); document.body.classList.toggle('has-bar', show);
 }
@@ -1446,7 +1441,7 @@ document.addEventListener('click', function (e) {
   var uc = e.target.closest && e.target.closest('[data-use-cost]');
   if (uc && lastCosts) {
     var k = uc.dataset.useCost, v = k === 'resultCost' ? lastCosts.predicted.resultCost : lastCosts.actual[k];
-    if (isNum(v)) { state.s.cost = Math.round(v * 100) / 100; update(); toast(L('اتنقلت التكلفة (', 'Cost (') + money(state.s.cost) + L(') لخانة التكلفة في تاب الحاسبة.', ') moved to the Cost field in the Calculator tab.'), { label: L('افتح الحاسبة', 'Open the Calculator'), fn: function () { gotoTab('calc', true); } }); }
+    if (isNum(v)) { state.s.cost = Math.round(v * 100) / 100; update(); toast(L('تم نقل التكلفة (', 'Cost (') + money(state.s.cost) + L(') إلى حقل التكلفة في تبويب الحاسبة.', ') moved to the Cost field in the Calculator tab.'), { label: L('افتح الحاسبة', 'Open the Calculator'), fn: function () { gotoTab('calc', true); } }); }
   }
 });
 $('#tabs').addEventListener('keydown', function (e) {
@@ -1458,18 +1453,18 @@ $('#tabs').addEventListener('keydown', function (e) {
 function bindPanelButtons() {
 $('#b-copy-entry').addEventListener('click', function () {
   if (!isNum(lastEntry)) return;
-  copyText(String(Math.round(lastEntry * 100) / 100)).then(function () { toast((L('اتنسخ الرقم:', 'Number copied:') + ' ') + money(lastEntry)); }, function () { toast((L('مقدرتش أنسخ — انسخ الرقم يدوياً:', 'Couldn\'t copy — copy the number manually:') + ' ') + money(lastEntry)); });
+  copyText(String(Math.round(lastEntry * 100) / 100)).then(function () { toast((L('تم نسخ الرقم:', 'Number copied:') + ' ') + money(lastEntry)); }, function () { toast((L('تعذّر النسخ، انسخ الرقم يدويًا:', 'Couldn\'t copy — copy the number manually:') + ' ') + money(lastEntry)); });
 });
 $('#b-aov').addEventListener('click', function () {
-  if (lastCat && lastCat.applicable && lastCat.count) { state.s.price = Math.round(lastCat.aov * 100) / 100; update(); toast(L('اتنقل الـ AOV (', 'AOV (') + money(state.s.price) + L(') لخانة سعر البيع في الحاسبة.', ') moved to the Selling price field in the Calculator.'), { label: L('افتح الحاسبة', 'Open the Calculator'), fn: function () { gotoTab('calc', true); } }); }
-  else toast(L('أضف سعر منتج واحد على الأقل الأول.', 'Add at least one product price first.'));
+  if (lastCat && lastCat.applicable && lastCat.count) { state.s.price = Math.round(lastCat.aov * 100) / 100; update(); toast(L('تم نقل الـ AOV (', 'AOV (') + money(state.s.price) + L(') إلى حقل سعر البيع في الحاسبة.', ') moved to the Selling price field in the Calculator.'), { label: L('افتح الحاسبة', 'Open the Calculator'), fn: function () { gotoTab('calc', true); } }); }
+  else toast(L('أضف سعر منتج واحد على الأقل أولًا.', 'Add at least one product price first.'));
 });
 $('#b-more').addEventListener('click', function () { catShown = Math.min(CAT_MAX, catShown + 5); update(); });
 }
 bindPanelButtons();
 $('#b-share').addEventListener('click', function () {
   var url = location.href.split('#')[0] + '#d=' + encodeState();
-  copyText(url).then(function () { toast(L('اتنسخ لينك الحساب — أي حد يفتحه هيشوف نفس الأرقام.', 'Calculation link copied — anyone who opens it will see the same numbers.')); }, function () { try { history.replaceState(null, '', '#d=' + encodeState()); } catch (e) { /* ignore */ } toast(L('انسخ اللينك من شريط العنوان فوق.', 'Copy the link from the address bar above.')); });
+  copyText(url).then(function () { toast(L('تم نسخ رابط الحساب، وسيظهر لأي شخص يفتحه بالأرقام نفسها.', 'Calculation link copied — anyone who opens it will see the same numbers.')); }, function () { try { history.replaceState(null, '', '#d=' + encodeState()); } catch (e) { /* ignore */ } toast(L('انسخ الرابط من شريط العنوان في الأعلى.', 'Copy the link from the address bar above.')); });
 });
 $('#b-print').addEventListener('click', function () { window.print(); });
 var resetT = null;
@@ -1479,7 +1474,7 @@ $('#b-reset').addEventListener('click', function () {
     clearTimeout(resetT); delete b.dataset.armed; b.innerHTML = D2('مسح الكل', 'Clear all');
     var tab = state.tab; state = fresh(); state.tab = tab; computeCatShown();
     try { localStorage.removeItem(KEY); } catch (e) { /* ignore */ }
-    setTab('calc'); update(); toast(L('رجعنا للأرقام المثال.', 'Reset to the example numbers.'));
+    setTab('calc'); update(); toast(L('تمت إعادة الأرقام إلى المثال الافتراضي.', 'Reset to the example numbers.'));
   } else {
     b.dataset.armed = '1'; b.innerHTML = D2('تأكيد المسح؟', 'Confirm reset?'); resetT = setTimeout(function () { delete b.dataset.armed; b.innerHTML = D2('مسح الكل', 'Clear all'); }, 3500);
   }
@@ -1497,15 +1492,9 @@ observeCard();
 
 /* ---------- static page bits ---------- */
 function staticBits() {
-  var s0 = E.defaults(), c0 = E.calc(s0), o0 = OBJ(s0.objective), cu0 = s0.currency;
-  X('s-title', L('مبيعات (Sales) — ' + s0.target + ' أوردر بتكلفة ' + s0.cost + ' ' + cu0 + ' خلال ' + s0.days + ' أيام', 'Sales — ' + s0.target + ' orders at ' + s0.cost + ' ' + cu0 + ' each, over ' + s0.days + ' days'));
-  T('s-big', '<bdi>' + money(c0.main.totalBudget) + '</bdi> <span style="font-size:1rem;color:var(--muted)">' + cu0 + (' ' + L('ميزانية كلية', 'total budget') + '</span>'));
-  T('s-dl', ('<dt>' + L('الميزانية اليومية', 'Daily budget') + '</dt><dd>') + mH(c0.main.dailyBudget, cu0) + ('</dd><dt>' + L('أوردرات يومياً', 'Orders per day') + '</dt><dd><bdi>') + cnt(c0.main.dailyResults) + ('</bdi></dd><dt>' + L('الإيراد المتوقع (سعر البيع', 'Expected revenue (selling price') + ' ') + s0.price + ')</dt><dd>' + mH(c0.main.revenue, cu0) + ('</dd><dt>' + L('ROAS المتوقع', 'Expected ROAS') + '</dt><dd><bdi>') + xr(c0.main.roas) + '</bdi></dd>');
   X('yr', String(new Date().getFullYear()));
-  T('obj-table', ('<thead><tr><th>' + L('الهدف', 'Objective') + '</th><th>' + L('وحدة النتيجة', 'Result unit') + '</th><th>' + L('اختصار التكلفة', 'Cost abbreviation') + '</th><th>' + L('الحدث المقترح في Ads Manager', 'Suggested event in Ads Manager') + '</th><th class="n">' + L('مؤشر التعلّم', 'Learning guide value') + '</th><th>' + L('إيراد و ROAS', 'Revenue & ROAS') + '</th></tr></thead><tbody>') +
+  T('obj-table', ('<thead><tr><th>' + L('الهدف', 'Objective') + '</th><th>' + L('وحدة النتيجة', 'Result unit') + '</th><th>' + L('اختصار التكلفة', 'Cost abbreviation') + '</th><th>' + L('الحدث المقترح في Ads Manager', 'Suggested event in Ads Manager') + '</th><th class="n">' + L('مؤشر التعلّم', 'Learning guide value') + '</th><th>' + L('الإيراد والـ ROAS', 'Revenue & ROAS') + '</th></tr></thead><tbody>') +
     OB.map(function (o0) { var o = OBJ(o0.key); return '<tr><td><b dir="ltr">' + esc(o.key) + '</b>' + (o.ar === o.key ? '' : ' <span class="dim">— ' + esc(o.ar) + '</span>') + '</td><td>' + esc(o.unit) + '</td><td><span class="tag" dir="ltr">' + esc(o.abbr) + '</span></td><td class="ev">' + esc(o.event) + '</td><td class="n">' + (o.learning ? o.learning : '<span class="dim">—</span>') + '</td><td>' + (o.hasRevenue ? badge('ok', L('متاح', 'Available')) : ('<span class="dim">' + L('لا ينطبق', 'Not applicable') + '</span>')) + '</td></tr>'; }).join('') + '</tbody>');
-  var msg = L('أهلاً، استخدمت حاسبة الميزانية الإعلانية وعايز أستفسر.', 'Hello, I used the Ads Budget Calculator and have a question.');
-  $$('[data-wa]').forEach(function (a) { a.setAttribute('href', 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg)); });
 }
 staticBits();
 
@@ -1526,8 +1515,8 @@ $('#theme').addEventListener('click', function () { setTheme(theme === 'dark' ? 
 function applyLangChrome() {
   document.title = L('حاسبة الميزانية الإعلانية — احسب ميزانية حملاتك مجاناً | Alrefay Eldesouky', 'Ads Budget Calculator — plan your campaign budget for free | Alrefay Eldesouky');
   var md = document.querySelector('meta[name="description"]');
-  if (md) md.setAttribute('content', L('أداة مجانية تحسب لك الميزانية الكلية واليومية وعدد النتائج المتوقعة وتوزيع الميزانية على المجموعات لأي هدف إعلاني — مع ROAS والربحية للمبيعات. من غير تسجيل.', 'A free tool that calculates your total and daily budget, the expected results and how the budget splits across ad sets for any ad objective — with ROAS and profitability for sales. No signup.'));
-  [['nav-main', L('التنقل', 'Navigation')], ['sample-aside', L('مثال محسوب', 'Worked example')], ['tabs', L('أقسام الحاسبة', 'Calculator sections')],
+  if (md) md.setAttribute('content', L('أداة مجانية تحسب لك الميزانية الكلية واليومية وعدد النتائج المتوقعة وتوزيع الميزانية على المجموعات لأي هدف إعلاني، مع ROAS والربحية لحملات المبيعات. دون تسجيل.', 'A free tool that calculates your total and daily budget, the expected results and how the budget splits across ad sets for any ad objective — with ROAS and profitability for sales. No signup.'));
+  [['nav-main', L('التنقل', 'Navigation')], ['tabs', L('أقسام الحاسبة', 'Calculator sections')],
    ['sumbar', L('ملخص النتيجة — اضغط للانتقال للنتائج', 'Result summary — tap to jump to the results')], ['lang', L('Switch to English', 'التبديل إلى العربية')],
    ['theme', theme === 'dark' ? L('التبديل إلى الوضع الفاتح', 'Switch to light mode') : L('التبديل إلى الوضع الداكن', 'Switch to dark mode')]].forEach(function (p) {
     var e = document.getElementById(p[0]); if (e) e.setAttribute('aria-label', p[1]);
@@ -1549,9 +1538,22 @@ $('#lang').addEventListener('click', function () { setLang(lang === 'ar' ? 'en' 
 setTab(state.tab);
 applyLangChrome();
 update();
-if (loadedFromLink) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) { /* ignore */ } toast(L('اتفتح حساب مشارَك معاك — دي الأرقام اللي اتبعتتلك.', 'A shared calculation was opened — these are the numbers that were sent to you.')); }
+if (loadedFromLink) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) { /* ignore */ } toast(L('تم فتح حساب مُشارك معك، وهذه هي الأرقام المرسلة إليك.', 'A shared calculation was opened — these are the numbers that were sent to you.')); }
 })();
 
+
+(function () {
+  var top = document.querySelector('.top');
+  function onScroll() { if (top) top.classList.toggle('sc', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  var sel = '.hero .kicker, .hero h1, .hero .lead, .hero .acts, .hero .trust, h2.t, section > .sub, .app, .steps li, .tblwrap, .faq details, footer .ft';
+  var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+  els.forEach(function (el, i) { el.classList.add('rv'); var sib = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0; el.style.transitionDelay = Math.min(sib, 6) * 70 + 'ms'; });
+  if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  els.forEach(function (el) { io.observe(el); });
+  window.addEventListener('beforeprint', function () { els.forEach(function (el) { el.classList.add('in'); }); });
+})();
 </script>
 </body>
 </html>
